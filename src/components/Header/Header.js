@@ -1,6 +1,10 @@
 import React from 'react';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function Header(props) {
+
+    const currentUser = React.useContext(CurrentUserContext);
+    const shortName = currentUser.shortName
 
     const {
         crumbsArray,
@@ -17,8 +21,8 @@ function Header(props) {
                 ))}
             </div>
             <div className="header__user-container">
-                    <div className="header__user-icon" />
-                    <p className="header__user-name">Иванов И.И.</p>
+                <div className="header__user-icon" />
+                <p className="header__user-name">{shortName}</p>
             </div>
         </div>
     );

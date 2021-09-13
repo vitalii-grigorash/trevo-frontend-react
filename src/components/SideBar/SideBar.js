@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function SideBar() {
@@ -8,29 +8,29 @@ function SideBar() {
     const [isCardFileOpen, setCardFileOpen] = useState(false);
     const [isOperationalOpen, setOperationalOpen] = useState(true);
     const [isRegulatedOpen, setRegulatedOpen] = useState(false);
-  
+
     const toggCardFileOpen = () => {
-      if (isCardFileOpen) {
-        setCardFileOpen(false)
-      } else {
-        setCardFileOpen(true);
-      }
+        if (isCardFileOpen) {
+            setCardFileOpen(false)
+        } else {
+            setCardFileOpen(true);
+        }
     }
-  
+
     const toggleOperationalOpen = () => {
-      if (isOperationalOpen) {
-        setOperationalOpen(false)
-      } else {
-        setOperationalOpen(true);
-      }
+        if (isOperationalOpen) {
+            setOperationalOpen(false)
+        } else {
+            setOperationalOpen(true);
+        }
     }
-  
+
     const toggleRegulatedOpen = () => {
-      if (isRegulatedOpen) {
-        setRegulatedOpen(false)
-      } else {
-        setRegulatedOpen(true);
-      }
+        if (isRegulatedOpen) {
+            setRegulatedOpen(false)
+        } else {
+            setRegulatedOpen(true);
+        }
     }
 
     return (

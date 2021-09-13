@@ -14,10 +14,10 @@ function StationsPage() {
       <Helmet
         title='TREVO: Станции'
       />
-        <Header
-          crumbsArray={crumbsArray}
-        />
-        <h1 className="stations-page__text">Stations Page</h1>
+      <Header
+        crumbsArray={crumbsArray}
+      />
+      <h1 className="stations-page__text">Stations Page</h1>
     </div>
   );
 
