@@ -1,8 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../Header/Header';
+import Request from '../Request/Request';
 
-function Stations() {
+function Stations(props) {
+
+  const {
+    handleOpenRequestList,
+    isRequestListOpen
+  } = props;
 
   const crumbsArray = [
     'Главная',
@@ -18,7 +24,11 @@ function Stations() {
       <Header
         crumbsArray={crumbsArray}
       />
-      <h1 className="stations__text">Stations Page</h1>
+      <Request
+        heading={'Станции'}
+        handleOpenRequestList={handleOpenRequestList}
+        isRequestListOpen={isRequestListOpen}
+      />
     </div>
   );
 

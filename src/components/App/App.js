@@ -27,6 +27,17 @@ function App() {
   }
 
   const [currentUser, setCurrentUser] = useState({});
+  const [isRequestListOpen, setRequestListOpen] = useState(false);
+
+  function handleOpenRequestList () {
+    if(isRequestListOpen) {
+      setRequestListOpen(false)
+      console.log(isRequestListOpen);
+    } else {
+      setRequestListOpen(true);
+      console.log(isRequestListOpen);
+    }
+  }
 
   React.useEffect(() => {
     const firstName = userData.firstName.charAt(0);
@@ -77,7 +88,10 @@ function App() {
           </Route>
 
           <Route path='/stations'>
-            <Stations />
+            <Stations
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+            />
           </Route>
 
           <Route path='/trains'>
