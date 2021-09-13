@@ -2,7 +2,20 @@ import React, { useState } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import SideBar from '../SideBar/SideBar';
-import StationsPage from '../StationsPage/StationsPage';
+import Main from '../Main/Main';
+import Stations from '../Stations/Stations';
+import Trains from '../Trains/Trains';
+import Wagons from '../Wagons/Wagons';
+import Containers from '../Containers/Containers';
+import Dislocation from '../Dislocation/Dislocation';
+import Settings from '../Settings/Settings';
+import GeneralInquiries from '../GeneralInquiries/GeneralInquiries';
+import Repairs from '../Repairs/Repairs';
+import Details from '../Details/Details';
+import Passports from '../Passports/Passports';
+import Runs from '../Runs/Runs';
+import FinancialPanel from '../FinancialPanel/FinancialPanel';
+import Administration from '../Administration/Administration';
 import NotFound from '../NotFound/NotFound';
 
 function App() {
@@ -26,7 +39,7 @@ function App() {
       }
     }
     const shortName = `${lastName} ${firstName}.${middleName()}`
-    const userShortName = {shortName: shortName} 
+    const userShortName = { shortName: shortName }
     setCurrentUser(userShortName)
   }, [userData.firstName, userData.lastName, userData.middleName]);
 
@@ -40,7 +53,59 @@ function App() {
         <Switch>
 
           <Route path='/' exact>
-            <StationsPage />
+            <Main />
+          </Route>
+
+          <Route path='/general-inquiries'>
+            <GeneralInquiries />
+          </Route>
+
+          <Route path='/repairs'>
+            <Repairs />
+          </Route>
+
+          <Route path='/details'>
+            <Details />
+          </Route>
+
+          <Route path='/passports'>
+            <Passports />
+          </Route>
+
+          <Route path='/runs'>
+            <Runs />
+          </Route>
+
+          <Route path='/stations'>
+            <Stations />
+          </Route>
+
+          <Route path='/trains'>
+            <Trains />
+          </Route>
+
+          <Route path='/wagons'>
+            <Wagons />
+          </Route>
+
+          <Route path='/containers'>
+            <Containers />
+          </Route>
+
+          <Route path='/dislocation'>
+            <Dislocation />
+          </Route>
+
+          <Route path='/settings'>
+            <Settings />
+          </Route>
+
+          <Route path='/financial-panel'>
+            <FinancialPanel />
+          </Route>
+
+          <Route path='/administration'>
+            <Administration />
           </Route>
 
           <Switch>

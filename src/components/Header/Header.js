@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function Header(props) {
 
-    const currentUser = React.useContext(CurrentUserContext);
-    const shortName = currentUser.shortName
-
     const {
         crumbsArray,
     } = props;
+
+    const currentUser = useContext(CurrentUserContext);
+    const shortName = currentUser.shortName;
 
     return (
         <div className="header">

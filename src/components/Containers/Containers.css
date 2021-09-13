@@ -1,0 +1,8 @@
+.containers {
+    padding: 25px 56px 0 280px;
+    background: #FAFAFA;
+    min-height: 100vh;
+}
+.containers__text {
+    margin: 0;
+}

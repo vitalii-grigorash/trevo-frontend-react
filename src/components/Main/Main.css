@@ -1,0 +1,8 @@
+.main {
+    padding: 25px 56px 0 280px;
+    background: #FAFAFA;
+    min-height: 100vh;
+}
+.main__text {
+    margin: 0;
+}
