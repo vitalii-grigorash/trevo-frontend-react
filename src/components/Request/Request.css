@@ -66,6 +66,9 @@
     color: #AFAFAF;
     margin: 0;
 }
+.request__select-text_selected {
+    color: #565656;
+}
 .request__select-arrow {
     background-image: url('../../images/arrow-down-dark.svg');
     background-size: cover;
@@ -108,6 +111,41 @@
 }
 .reques__list-text {
     margin: 0 auto 0 16px;
+}
+.request__options-container {
+    display: flex;
+    margin: 16px auto 0 0;
+}
+.request__option-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 16px 0 0;
+}
+.request__option-container:last-of-type {
+    margin-right: 0;
+}
+.request__option-span {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #565656;
+    margin: 0 auto 0 0;
+}
+.request__option-input {
+    width: 232px;
+    height: 40px;
+    border: 1px solid #EAEEEF;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: 8px 0 0 0;
+    padding: 0 16px;
+}
+.request__option-input::placeholder {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .request__submit-button {
     width: 103px;

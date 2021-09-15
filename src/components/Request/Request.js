@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RequestList from '../../utils/RequestList.json';
 
 function Request(props) {
 
@@ -8,53 +9,79 @@ function Request(props) {
         isRequestListOpen
     } = props;
 
-    const [price, setPrice] = useState('0')
-    const [selectText, setSelectText] = useState('Выберите запрос')
+    const [price, setPrice] = useState('0');
+    const [request, setRequest] = useState('Выберите запрос');
+    const [options, setOptions] = useState([]);
+    const [isRequestSelected, setRequestSelected] = useState(false);
+    const [isOptionsShow, setOptionsShow] = useState(false);
+    const [values, setValues] = useState({ val: [] });
+
+    const resetFormInputs = () => {
+        if (document.getElementById("form")) {
+            document.getElementById("form").reset();
+            setValues({ val: [] });
+        }
+    }
+
+    const selectRequest = (request, price, options) => {
+        setPrice(price)
+        setRequest(request)
+        setRequestSelected(true);
+        setOptionsShow(true);
+        setOptions(options);
+        resetFormInputs();
+    }
 
     const sendRequest = () => {
-        console.log(selectText, price);
+        console.log(request, price);
+        console.log(values.val);
+        resetFormInputs();
+    }
+
+    function handleChange(evt) {
+        let vals = [...values.val];
+        vals[this] = evt.target.value;
+        setValues({ val: vals });
     }
 
     return (
         <div className="request">
-
             <div className="request__main-container">
-
                 <div className="request__heading-container">
                     <h2 className="request__heading">{heading}</h2>
                     <p className="request__price">Стоимость: {price} &#8381;</p>
                 </div>
-
                 <p className="request__select-heading">Список запросов</p>
-
                 <div className="request__select-container" onClick={handleOpenRequestList}>
-                    <p className="request__select-text">{selectText}</p>
+                    <p className={`request__select-text ${isRequestSelected && 'request__select-text_selected'}`}>{request}</p>
                     <div className="request__select-arrow" />
                     {isRequestListOpen &&
                         <div className="request__lists-container">
-                            <div className="reques__list-container">
-                                <p className="reques__list-text">Данные по литым деталям тележки и колесным парам</p>
-                            </div>
-                            <div className="reques__list-container">
-                                <p className="reques__list-text">Розыск детали, история (2733)</p>
-                            </div>
-                            <div className="reques__list-container">
-                                <p className="reques__list-text">Справка о выполненных ремонтах вагона (2653)</p>
-                            </div>
-                            <div className="reques__list-container">
-                                <p className="reques__list-text">Сведения по узлам и деталям вагона (2730)</p>
-                            </div>
-                            <div className="reques__list-container">
-                                <p className="reques__list-text">Картотечные данные по вагонам (ремонт, пробег) (2612)</p>
-                            </div>
+                            {RequestList.map((data, index) => (
+                                <div key={index} className="reques__list-container" onClick={() => selectRequest(data.request, data.price, data.options)}>
+                                    <p className="reques__list-text">{data.request} {data.result ? `(${data.result})` : ''}</p>
+                                </div>
+                            ))}
                         </div>
                     }
                 </div>
-
+                {isOptionsShow &&
+                    <form id="form" className="request__options-container">
+                        {options.map((data, index) => (
+                            <div key={index} className="request__option-container">
+                                <span className="request__option-span">{data.span}</span>
+                                <input
+                                    className="request__option-input"
+                                    type="text"
+                                    placeholder={data.placeholder}
+                                    onChange={handleChange.bind(index)}
+                                />
+                            </div>
+                        ))}
+                    </form>
+                }
                 <button type="submit" className="request__submit-button" onClick={sendRequest}>Запросить</button>
-
             </div>
-
         </div>
     );
 

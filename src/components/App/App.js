@@ -32,10 +32,8 @@ function App() {
   function handleOpenRequestList () {
     if(isRequestListOpen) {
       setRequestListOpen(false)
-      console.log(isRequestListOpen);
     } else {
       setRequestListOpen(true);
-      console.log(isRequestListOpen);
     }
   }
 
