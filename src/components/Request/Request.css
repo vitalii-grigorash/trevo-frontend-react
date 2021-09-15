@@ -87,6 +87,7 @@
     width: 480px;
     background-color: #FFFFFF;
     cursor: text;
+    z-index: 1;
 }
 .reques__list-container {
     display: flex;
@@ -163,5 +164,8 @@
     cursor: pointer;
 }
 .request__submit-button:hover {
-    background: #2cb487;
+    background: #24C690;
+}
+.request__submit-button:active {
+    background: #1BB481;
 }

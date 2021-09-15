@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../Header/Header';
 import Request from '../Request/Request';
+import Response from '../Response/Response';
 
 function Stations(props) {
 
@@ -29,6 +30,7 @@ function Stations(props) {
         handleOpenRequestList={handleOpenRequestList}
         isRequestListOpen={isRequestListOpen}
       />
+      <Response />
     </div>
   );
 
