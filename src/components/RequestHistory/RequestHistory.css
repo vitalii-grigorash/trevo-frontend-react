@@ -67,10 +67,11 @@
 }
 .request-history__date-container {
     display: flex;
-    margin: auto 32px auto 36px;
+    margin: auto 32px auto 16px;
+    width: 151px; 
 }
 .request-history__date {
-    margin: auto 10px auto 0;
+    margin: auto 10px auto auto;
 }
 .request-history__date-sort-icon {
     background-image: url('../../images/date-sort-icon.svg');
@@ -83,13 +84,83 @@
 }
 .request-history__request {
     margin: auto auto auto 0;
+    max-width: 350px;
 }
 .request-history__param {
     margin: auto 32px auto 0;
+    width: 81px;
 }
 .request-history__status {
-    margin: auto 90px auto 0;
+    margin: auto 44px auto 0;
+    width: 100px;
 }
 .request-history__actions {
-    margin: auto 79px auto 0;
+    margin: auto 66px auto 0;
+    text-align: center;
+    width: 104px;
+}
+.request-history__list-container {
+    display: flex;
+    height: 80px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #202020;
+    margin: 0;
+    border-bottom: 1px solid #E5E5E5;
+}
+.request-history__list-container:last-of-type {
+    border-bottom: none;
+}
+.request-history__list-date {
+    margin: 16px 32px auto 16px;
+    min-width: 151px;
+}
+.request-history__list-request {
+    margin: 16px auto auto 0;
+    max-width: 350px;
+    cursor: pointer;
+}
+.request-history__list-param {
+    margin: 16px 32px auto 32px;
+    min-width: 81px;
+}
+.request-history__list-status {
+    margin: 16px 44px auto 0;
+    min-width: 100px;
+    color: #33CC99;
+}
+.request-history__list-actions-container {
+    display: flex;
+    margin: 16px 32px auto 0;
+    min-width: 104px;
+}
+.request-history__list-action-download {
+    background-image: url('../../images/download-icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    margin: auto 24px auto auto;
+    cursor: pointer;
+}
+.request-history__list-action-print {
+    background-image: url('../../images/print-icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    margin: auto auto auto 0;
+    cursor: pointer;
+}
+.request-history__list-options {
+    background-image: url('../../images/list-options-icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 5px;
+    height: 20px;
+    margin: 16px 29px auto 0;
+    cursor: pointer;
 }

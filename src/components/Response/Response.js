@@ -6,8 +6,8 @@ function Response() {
   return (
     <div className="response">
 
-        <RequestHistory />
-      
+      <RequestHistory />
+
     </div>
   );
 
