@@ -8,7 +8,9 @@ function Stations(props) {
 
   const {
     handleOpenRequestList,
-    isRequestListOpen
+    isRequestListOpen,
+    addRequest,
+    requestHistoryList,
   } = props;
 
   const crumbsArray = [
@@ -29,8 +31,11 @@ function Stations(props) {
         heading={'Станции'}
         handleOpenRequestList={handleOpenRequestList}
         isRequestListOpen={isRequestListOpen}
+        addRequest={addRequest}
       />
-      <Response />
+      <Response
+        requestHistoryList={requestHistoryList}
+      />
     </div>
   );
 

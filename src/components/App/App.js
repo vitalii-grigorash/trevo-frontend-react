@@ -21,16 +21,21 @@ import NotFound from '../NotFound/NotFound';
 function App() {
 
   const userData = {
-    firstName: 'Александр',
     lastName: 'Пушкин',
+    firstName: 'Александр',
     middleName: 'Сергевич'
   }
 
   const [currentUser, setCurrentUser] = useState({});
   const [isRequestListOpen, setRequestListOpen] = useState(false);
+  const [requestHistoryList, setRequestHistoryList] = useState([]);
 
-  function handleOpenRequestList () {
-    if(isRequestListOpen) {
+  function addRequest(request) {
+    setRequestHistoryList([...requestHistoryList, request]);
+  }
+
+  function handleOpenRequestList() {
+    if (isRequestListOpen) {
       setRequestListOpen(false)
     } else {
       setRequestListOpen(true);
@@ -89,6 +94,8 @@ function App() {
             <Stations
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
             />
           </Route>
 

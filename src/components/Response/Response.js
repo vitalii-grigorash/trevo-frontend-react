@@ -1,12 +1,18 @@
 import React from 'react';
 import RequestHistory from '../RequestHistory/RequestHistory';
 
-function Response() {
+function Response(props) {
+
+  const {
+    requestHistoryList,
+  } = props;
 
   return (
     <div className="response">
 
-      <RequestHistory />
+      <RequestHistory
+        requestHistoryList={requestHistoryList}
+      />
 
     </div>
   );

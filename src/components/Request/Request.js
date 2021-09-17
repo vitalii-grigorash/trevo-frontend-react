@@ -6,7 +6,8 @@ function Request(props) {
     const {
         heading,
         handleOpenRequestList,
-        isRequestListOpen
+        isRequestListOpen,
+        addRequest
     } = props;
 
     const [price, setPrice] = useState('0');
@@ -15,6 +16,16 @@ function Request(props) {
     const [isRequestSelected, setRequestSelected] = useState(false);
     const [isOptionsShow, setOptionsShow] = useState(false);
     const [values, setValues] = useState({ val: [] });
+    const [isButtonEnable, setButtonEnable] = useState(false);
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
+    const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+    const hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+    const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+    const dateNow = year + "/" + month + "/" + day + " " + hours + ":" + minutes + ":" + seconds;
 
     const resetFormInputs = () => {
         if (document.getElementById("form")) {
@@ -30,11 +41,18 @@ function Request(props) {
         setOptionsShow(true);
         setOptions(options);
         resetFormInputs();
+        setButtonEnable(true);
     }
 
     const sendRequest = () => {
-        console.log(request, price);
-        console.log(values.val);
+        const requestData = {
+            date: dateNow,
+            request: request,
+            options: values.val,
+            status: "Выполнено",
+            price: price
+        }
+        addRequest(requestData);
         resetFormInputs();
     }
 
@@ -80,7 +98,11 @@ function Request(props) {
                         ))}
                     </form>
                 }
-                <button type="submit" className="request__submit-button" onClick={sendRequest}>Запросить</button>
+                {isButtonEnable ? (
+                    <button type="submit" className="request__submit-button" onClick={sendRequest}>Запросить</button>
+                ) : (
+                    <button type="submit" disabled className="request__submit-button request__submit-button_disabled">Запросить</button>
+                )}
             </div>
         </div>
     );

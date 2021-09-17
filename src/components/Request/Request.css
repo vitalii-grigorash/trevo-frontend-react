@@ -169,3 +169,10 @@
 .request__submit-button:active {
     background: #1BB481;
 }
+.request__submit-button_disabled {
+    background: #DCDCDC;
+}
+.request__submit-button_disabled:hover {
+    background: #DCDCDC;
+    cursor: default;
+}

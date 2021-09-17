@@ -1,6 +1,11 @@
 import React from 'react';
+import RequestHistoryList from '../RequestHistoryList/RequestHistoryList';
 
-function RequestHistory() {
+function RequestHistory(props) {
+
+  const {
+    requestHistoryList,
+  } = props;
 
   return (
     <div className="request-history">
@@ -26,39 +31,19 @@ function RequestHistory() {
         </div>
 
         <div className="request-history__list-container">
-          <p className="request-history__list-date">2018/11/29 22:00:11</p>
-          <p className="request-history__list-request">Данные по литым деталям тележки и колесным парам</p>
-          <p className="request-history__list-param">123455687</p>
-          <p className="request-history__list-status">Выполнен</p>
-          <div className="request-history__list-actions-container">
-            <div className="request-history__list-action-download" />
-            <div className="request-history__list-action-print" />
-          </div>
-          <div className="request-history__list-options" />
+          {requestHistoryList.map((list, index) => (
+            <RequestHistoryList
+              key={index}
+              date={list.date}
+              request={list.request}
+              options={list.options}
+              status={list.status}
+            />
+          ))}
         </div>
 
-        <div className="request-history__list-container">
-          <p className="request-history__list-date">2018/11/29 22:00:11</p>
-          <p className="request-history__list-request">Данные по литым деталям тележки и колесным парам</p>
-          <p className="request-history__list-param">123455687</p>
-          <p className="request-history__list-status">Выполнен</p>
-          <div className="request-history__list-actions-container">
-            <div className="request-history__list-action-download" />
-            <div className="request-history__list-action-print" />
-          </div>
-          <div className="request-history__list-options" />
-        </div>
+        <div className="request-history__sort-container">
 
-        <div className="request-history__list-container">
-          <p className="request-history__list-date">2018/11/29 22:00:11</p>
-          <p className="request-history__list-request">Данные по литым деталям тележки и колесным парам</p>
-          <p className="request-history__list-param">123455687</p>
-          <p className="request-history__list-status">Выполнен</p>
-          <div className="request-history__list-actions-container">
-            <div className="request-history__list-action-download" />
-            <div className="request-history__list-action-print" />
-          </div>
-          <div className="request-history__list-options" />
         </div>
 
       </div>
