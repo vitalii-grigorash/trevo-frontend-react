@@ -7,7 +7,8 @@ function Request(props) {
         heading,
         handleOpenRequestList,
         isRequestListOpen,
-        addRequest
+        addRequest,
+        handleShowPreloader
     } = props;
 
     const [price, setPrice] = useState('0');
@@ -53,6 +54,7 @@ function Request(props) {
             price: price
         }
         addRequest(requestData);
+        handleShowPreloader(request);
         resetFormInputs();
     }
 

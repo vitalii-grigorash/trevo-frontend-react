@@ -11,6 +11,10 @@ function Stations(props) {
     isRequestListOpen,
     addRequest,
     requestHistoryList,
+    handleShowPreloader,
+    isPreloaderShow,
+    isInfoShow,
+    requestInfo
   } = props;
 
   const crumbsArray = [
@@ -32,9 +36,14 @@ function Stations(props) {
         handleOpenRequestList={handleOpenRequestList}
         isRequestListOpen={isRequestListOpen}
         addRequest={addRequest}
+        handleShowPreloader={handleShowPreloader}
       />
       <Response
         requestHistoryList={requestHistoryList}
+        isPreloaderShow={isPreloaderShow}
+        handleShowPreloader={handleShowPreloader}
+        isInfoShow={isInfoShow}
+        requestInfo={requestInfo}
       />
     </div>
   );

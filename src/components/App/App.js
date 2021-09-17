@@ -29,6 +29,18 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [isRequestListOpen, setRequestListOpen] = useState(false);
   const [requestHistoryList, setRequestHistoryList] = useState([]);
+  const [isPreloaderShow, setPreloaderShow] = useState(false);
+  const [isInfoShow, setInfoShow] = useState(false);
+  const [requestInfo, setRequestInfo] = useState('');
+
+  function handleShowPreloader (request) {
+    setRequestInfo(request);
+    setPreloaderShow(true);
+    setInfoShow(true);
+    setTimeout(() => {
+      setPreloaderShow(false);
+    }, 2000)
+  }
 
   function addRequest(request) {
     setRequestHistoryList([...requestHistoryList, request]);
@@ -96,6 +108,10 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
             />
           </Route>
 

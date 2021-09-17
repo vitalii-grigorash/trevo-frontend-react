@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import RequestHistoryList from '../RequestHistoryList/RequestHistoryList';
 
 function RequestHistory(props) {
 
   const {
     requestHistoryList,
+    handleShowPreloader,
   } = props;
+
+  const [isShowSortOptions, setShowSortOptions] = useState(false);
+
+  useEffect(() => {
+    requestHistoryList.map((list) => {
+      if (list.date) {
+        return setShowSortOptions(true);
+      } else {
+        return setShowSortOptions(false);
+      }
+    })
+  }, [requestHistoryList]);
 
   return (
     <div className="request-history">
@@ -38,12 +51,25 @@ function RequestHistory(props) {
               request={list.request}
               options={list.options}
               status={list.status}
+              handleShowPreloader={handleShowPreloader}
             />
           ))}
         </div>
 
         <div className="request-history__sort-container">
-
+          {isShowSortOptions && (
+            <div className="request-history__sort-options-container">
+              <div className="request-history__show-result-container">
+                <p className="request-history__show-result-text">Показать: 10</p>
+                <div className="request-history__show-result-icon" />
+              </div>
+              <p className="request-history__sort-pages">1 из 1</p>
+              <div className="request-history__sort-change-page-container">
+                <div className="request-history__sort-change-page-prev" />
+                <div className="request-history__sort-change-page-next" />
+              </div>
+            </div>
+          )}
         </div>
 
       </div>
