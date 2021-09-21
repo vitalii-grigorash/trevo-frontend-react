@@ -1,8 +1,21 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../Header/Header';
+import Request from '../Request/Request';
+import Response from '../Response/Response';
 
-function Wagons() {
+function Wagons(props) {
+
+  const {
+    handleOpenRequestList,
+    isRequestListOpen,
+    addRequest,
+    requestHistoryList,
+    handleShowPreloader,
+    isPreloaderShow,
+    isInfoShow,
+    requestInfo
+  } = props;
 
   const crumbsArray = [
     'Главная',
@@ -18,7 +31,20 @@ function Wagons() {
       <Header
         crumbsArray={crumbsArray}
       />
-      <h1 className="wagons__text">Wagons Page</h1>
+      <Request
+        heading={'Вагоны'}
+        handleOpenRequestList={handleOpenRequestList}
+        isRequestListOpen={isRequestListOpen}
+        addRequest={addRequest}
+        handleShowPreloader={handleShowPreloader}
+      />
+      <Response
+        requestHistoryList={requestHistoryList}
+        isPreloaderShow={isPreloaderShow}
+        handleShowPreloader={handleShowPreloader}
+        isInfoShow={isInfoShow}
+        requestInfo={requestInfo}
+      />
     </div>
   );
 

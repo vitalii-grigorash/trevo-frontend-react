@@ -1,6 +1,6 @@
 .side-bar {
     display: flex;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: normal;
     font-style: normal;
     background: #1081C7;
@@ -132,7 +132,7 @@
     height: 12px;
 }
 .side-bar__link {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -145,7 +145,7 @@
     font-weight: bold;
 }
 .side-bar__link-bottom {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;

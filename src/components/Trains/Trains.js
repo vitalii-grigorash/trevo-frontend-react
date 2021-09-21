@@ -1,8 +1,21 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../Header/Header';
+import Request from '../Request/Request';
+import Response from '../Response/Response';
 
-function Trains() {
+function Trains(props) {
+
+  const {
+    handleOpenRequestList,
+    isRequestListOpen,
+    addRequest,
+    requestHistoryList,
+    handleShowPreloader,
+    isPreloaderShow,
+    isInfoShow,
+    requestInfo
+  } = props;
 
   const crumbsArray = [
     'Главная',
@@ -18,7 +31,20 @@ function Trains() {
       <Header
         crumbsArray={crumbsArray}
       />
-      <h1 className="trains__text">Trains Page</h1>
+      <Request
+        heading={'Поезда'}
+        handleOpenRequestList={handleOpenRequestList}
+        isRequestListOpen={isRequestListOpen}
+        addRequest={addRequest}
+        handleShowPreloader={handleShowPreloader}
+      />
+      <Response
+        requestHistoryList={requestHistoryList}
+        isPreloaderShow={isPreloaderShow}
+        handleShowPreloader={handleShowPreloader}
+        isInfoShow={isInfoShow}
+        requestInfo={requestInfo}
+      />
     </div>
   );
 

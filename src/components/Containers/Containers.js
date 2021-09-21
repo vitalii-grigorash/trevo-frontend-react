@@ -1,8 +1,21 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../Header/Header';
+import Request from '../Request/Request';
+import Response from '../Response/Response';
 
-function Containers() {
+function Containers(props) {
+
+  const {
+    handleOpenRequestList,
+    isRequestListOpen,
+    addRequest,
+    requestHistoryList,
+    handleShowPreloader,
+    isPreloaderShow,
+    isInfoShow,
+    requestInfo
+  } = props;
 
   const crumbsArray = [
     'Главная',
@@ -18,7 +31,20 @@ function Containers() {
       <Header
         crumbsArray={crumbsArray}
       />
-      <h1 className="containers__text">Containers Page</h1>
+      <Request
+        heading={'Контейнеры'}
+        handleOpenRequestList={handleOpenRequestList}
+        isRequestListOpen={isRequestListOpen}
+        addRequest={addRequest}
+        handleShowPreloader={handleShowPreloader}
+      />
+      <Response
+        requestHistoryList={requestHistoryList}
+        isPreloaderShow={isPreloaderShow}
+        handleShowPreloader={handleShowPreloader}
+        isInfoShow={isInfoShow}
+        requestInfo={requestInfo}
+      />
     </div>
   );
 

@@ -33,7 +33,7 @@ function App() {
   const [isInfoShow, setInfoShow] = useState(false);
   const [requestInfo, setRequestInfo] = useState('');
 
-  function handleShowPreloader (request) {
+  function handleShowPreloader(request) {
     setRequestInfo(request);
     setPreloaderShow(true);
     setInfoShow(true);
@@ -116,15 +116,42 @@ function App() {
           </Route>
 
           <Route path='/trains'>
-            <Trains />
+            <Trains
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
+            />
           </Route>
 
           <Route path='/wagons'>
-            <Wagons />
+            <Wagons
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
+            />
           </Route>
 
           <Route path='/containers'>
-            <Containers />
+            <Containers
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
+            />
           </Route>
 
           <Route path='/dislocation'>
