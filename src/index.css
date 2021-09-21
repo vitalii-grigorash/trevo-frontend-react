@@ -23,3 +23,7 @@
 @import url(./components/RequestHistory/RequestHistory.css);
 @import url(./components/RequestHistoryList/RequestHistoryList.css);
 @import url(./components/RequestInfo/RequestInfo.css);
+@import url(./components/VagonsSettingTab/VagonsSettingTab.css);
+@import url(./components/ContainersSettingTab/ContainersSettingTab.css);
+@import url(./components/StationsSettingTab/StationsSettingTab.css);
+@import url(./components/TrainsSettingTab/TrainsSettingTab.css);

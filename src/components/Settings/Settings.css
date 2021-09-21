@@ -3,6 +3,46 @@
     background: #F7F7F7;
     min-height: 100vh;
 }
-.settings__text {
-    margin: 0;
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    margin: 32px auto;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.settings-content__heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #202020;
+    margin: 32px auto 0 32px;
+}
+.settings-content__nav-container {
+    display: flex;
+    margin: 20px 24px 0 32px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.settings-content__nav-link {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 30px;
+    color: #1081C7;
+    margin: 0 32px 0 0;
+    cursor: pointer;
+}
+.settings-content__nav-link:last-of-type {
+    margin-right: 0;
+}
+.settings-content__nav-link_active {
+    color: #202020;
+    border-bottom: 2px solid #1081C7;
+    box-sizing: border-box; 
+    font-weight: 500;
+    cursor: default;
 }
