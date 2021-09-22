@@ -119,7 +119,7 @@ function SideBar () {
                 </div>
                 <div className="side-bar__links-container">
                     <div className={`side-bar__main-link-container ${isRegulatedOpen && 'side-bar__main-link-container_active'}`} onClick={toggleRegulatedOpen}>
-                        <p className={`side-bar__main-link-text side-bar__main-link-text_regulated ${isRegulatedOpen && 'side-bar__main-link-text_open'}`}>Регламентированное слежение</p>
+                        <p className={`side-bar__main-link-text side-bar__main-link-text_regulated ${isRegulatedOpen && 'side-bar__main-link-text_regulated-open'}`}>Регламентированное слежение</p>
                         <div className={`side-bar__main-link-arrow ${isRegulatedOpen && 'side-bar__main-link-arrow_open'}`} />
                     </div>
                     {isRegulatedOpen &&

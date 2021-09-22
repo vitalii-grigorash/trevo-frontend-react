@@ -3,6 +3,29 @@
     flex-direction: column;
     margin: 24px 24px 42px 32px;
 }
-.vagons-setting-tab__heading {
+.vagons-setting-tab__tabs-container {
+    display: flex;
     margin: 0 auto 0 0;
+}
+.vagons-setting-tab__tab-container {
+    display: flex;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 4px 4px 0px 0px;
+}
+.vagons-setting-tab__tab-container_active {
+    background: #F6F6F6;
+}
+.vagons-setting-tab__tab {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #565656;
+    margin: 16px 24px;
+}
+.vagons-setting-tab__tab_active {
+    color: #1081C7;
+    font-weight: 600;
 }

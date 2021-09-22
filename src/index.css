@@ -27,3 +27,7 @@
 @import url(./components/ContainersSettingTab/ContainersSettingTab.css);
 @import url(./components/StationsSettingTab/StationsSettingTab.css);
 @import url(./components/TrainsSettingTab/TrainsSettingTab.css);
+@import url(./components/MyListVagonsTab/MyListVagonsTab.css);
+@import url(./components/FieldVisibilityVagonsTab/FieldVisibilityVagonsTab.css);
+@import url(./components/ScheduleAndMailingVagonsTab/ScheduleAndMailingVagonsTab.css);
+@import url(./components/AlertsVagonsTab/AlertsVagonsTab.css);

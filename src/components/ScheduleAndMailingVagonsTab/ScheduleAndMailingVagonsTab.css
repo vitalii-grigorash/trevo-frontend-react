@@ -1,0 +1,14 @@
+.schedule-and-mailing-vagons-tab {
+    display: flex;
+    flex-direction: column;
+    background: #F6F6F6;
+}
+.schedule-and-mailing-vagons-tab__heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #565656;
+    margin: 16px auto 16px 24px;
+}
