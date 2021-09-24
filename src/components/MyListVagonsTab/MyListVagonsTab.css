@@ -4,3 +4,33 @@
     background: #F6F6F6;
     border-radius: 0px 4px 4px 4px;
 }
+.my-list-vagons-tab__add-vagons {
+    display: flex;
+    margin: 20px auto 0 32px;
+    cursor: pointer;
+}
+.my-list-vagons-tab__add-vagons-icon {
+    background-image: url('../../images/add-icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    margin: 0 10px 0 0;
+}
+.my-list-vagons-tab__add-vagons-icon_active {
+    background-image: url('../../images/add-blue-icon.svg');
+}
+.my-list-vagons-tab__add-vagons-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+    color: #565656;
+    margin: 0;
+}
+.my-list-vagons-tab__add-vagons-text_active {
+    color: #1081C7;
+}

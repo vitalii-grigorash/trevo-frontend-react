@@ -1,6 +1,6 @@
 .group-list {
     display: flex;
-    margin: 32px 32px 400px 32px;
+    margin: 32px 32px 0 32px;
 }
 .group-list__main-search-container {
     display: flex;
@@ -59,12 +59,13 @@
     flex-direction: column;
     position: absolute;
     top: 45px;
-    left: 0;
-    width: 322px;
+    left: -1px;
+    width: 323px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     box-sizing: border-box;
     background: #FFFFFF;
+    z-index: 1;
 }
 .group-list__group-select-container_open {
     display: none;
