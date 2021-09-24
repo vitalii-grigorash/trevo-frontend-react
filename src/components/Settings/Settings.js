@@ -48,10 +48,10 @@ function Settings() {
       <div className="settings-content">
         <h2 className="settings-content__heading">Настройки</h2>
         <div className="settings-content__nav-container">
-          <p className={`settings-content__nav-link ${isVagonsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleVagonsTabOpen}>Вагоны (132 258)</p>
-          <p className={`settings-content__nav-link ${isContainersTabOpen && 'settings-content__nav-link_active'}`} onClick={handleContainersTabOpen}>Контейнеры (125 545)</p>
-          <p className={`settings-content__nav-link ${isStationsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleStationsTabOpen}>Станции (198)</p>
-          <p className={`settings-content__nav-link ${isTrainsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleTrainsTabOpen}>Поезда (4 235)</p>
+          <p className={`settings-content__nav-link ${isVagonsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleVagonsTabOpen}>вагоны (132 258)</p>
+          <p className={`settings-content__nav-link ${isContainersTabOpen && 'settings-content__nav-link_active'}`} onClick={handleContainersTabOpen}>контейнеры (125 545)</p>
+          <p className={`settings-content__nav-link ${isStationsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleStationsTabOpen}>станции (198)</p>
+          <p className={`settings-content__nav-link ${isTrainsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleTrainsTabOpen}>поезда (4 235)</p>
         </div>
 
         {isVagonsTabOpen && <VagonsSettingTab />}

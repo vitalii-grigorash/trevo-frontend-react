@@ -6,7 +6,7 @@
 .settings-content {
     display: flex;
     flex-direction: column;
-    margin: 0 auto 32px;
+    margin: 0 auto;
     background-color: #FFFFFF;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -15,24 +15,26 @@
 .settings-content__heading {
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
+    font-weight: normal;
+    font-size: 23px;
+    line-height: 28px;
     color: #202020;
     margin: 32px auto 0 32px;
 }
 .settings-content__nav-container {
     display: flex;
-    margin: 20px 24px 0 32px;
+    margin: 13px 32px 0 32px;
     border-bottom: 1px solid #EEEEEE;
 }
 .settings-content__nav-link {
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 30px;
-    color: #1081C7;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 26px;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.6);
     margin: 0 32px 0 0;
     cursor: pointer;
 }
@@ -40,9 +42,8 @@
     margin-right: 0;
 }
 .settings-content__nav-link_active {
-    color: #202020;
+    color: #1081C7;
     border-bottom: 2px solid #1081C7;
     box-sizing: border-box; 
-    font-weight: 500;
     cursor: default;
 }

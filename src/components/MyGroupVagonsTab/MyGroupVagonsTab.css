@@ -1,10 +1,10 @@
-.field-visibility-vagons-tab {
+.my-group-vagons-tab {
     display: flex;
     flex-direction: column;
     background: #F6F6F6;
     border-radius: 4px;
 }
-.field-visibility-vagons-tab__heading {
+.my-group-vagons-tab__heading {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
