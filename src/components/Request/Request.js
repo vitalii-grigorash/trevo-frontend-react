@@ -101,9 +101,9 @@ function Request(props) {
                     </form>
                 }
                 {isButtonEnable ? (
-                    <button type="submit" className="request__submit-button" onClick={sendRequest}>Запросить</button>
+                    <button type="submit" className="request__submit-button" onClick={sendRequest}>запросить</button>
                 ) : (
-                    <button type="submit" disabled className="request__submit-button request__submit-button_disabled">Запросить</button>
+                    <button type="submit" disabled className="request__submit-button request__submit-button_disabled">запросить</button>
                 )}
             </div>
         </div>

@@ -63,7 +63,7 @@ function RequestHistory(props) {
                 <p className="request-history__show-result-text">Показать: 10</p>
                 <div className="request-history__show-result-icon" />
               </div>
-              <p className="request-history__sort-pages">1 из 1</p>
+              <p className="request-history__sort-pages">1-4 из 4</p>
               <div className="request-history__sort-change-page-container">
                 <div className="request-history__sort-change-page-prev" />
                 <div className="request-history__sort-change-page-next" />

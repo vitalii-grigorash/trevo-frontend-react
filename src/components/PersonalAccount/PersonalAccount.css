@@ -1,0 +1,8 @@
+.personal-account {
+    padding: 25px 56px 32px 280px;
+    background: #F7F7F7;
+    min-height: 100vh;
+}
+.personal-account__text {
+    margin: 0;
+}

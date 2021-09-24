@@ -1,21 +1,22 @@
 .request-history-list {
     display: flex;
-    height: 80px;
+    height: 66px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    color: #202020;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: rgba(0, 0, 0, 0.87);
     margin: 0;
-    border-bottom: 1px solid #E5E5E5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 .request-history-list:last-of-type {
     border-bottom: none;
 }
 .request-history-list__date {
-    margin: 16px 32px auto 16px;
-    min-width: 151px;
+    margin: 16px 32px auto 32px;
+    min-width: 140px;
 }
 .request-history-list__request {
     margin: 16px auto auto 0;
@@ -30,28 +31,28 @@
 .request-history-list__params-container {
     display: flex;
     flex-direction: column;
-    min-width: 81px;
+    min-width: 107px;
     max-height: 48px;
     overflow: hidden;
     margin: 16px 32px auto 32px;
 }
 .request-history-list__param {
-    margin: 0 auto 0 0;
-    max-width: 81px;
+    margin: 0 0 0 auto;
+    max-width: 107px;
     min-height: 24px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .request-history-list__status {
-    margin: 16px 44px auto 0;
+    margin: 16px 32px auto 0;
     min-width: 100px;
     color: #33CC99;
 }
 .request-history-list__actions-container {
     display: flex;
     margin: 16px 32px auto 0;
-    min-width: 104px;
+    min-width: 129px;
 }
 .request-history-list__action-download {
     background-image: url('../../images/download-icon.svg');
@@ -59,7 +60,7 @@
     background-repeat: no-repeat;
     width: 16px;
     height: 16px;
-    margin: auto 24px auto auto;
+    margin: auto 25px auto auto;
     cursor: pointer;
 }
 .request-history-list__action-print {
@@ -77,6 +78,6 @@
     background-repeat: no-repeat;
     min-width: 5px;
     height: 20px;
-    margin: 16px 29px auto 0;
+    margin: 16px 30px auto 0;
     cursor: pointer;
 }

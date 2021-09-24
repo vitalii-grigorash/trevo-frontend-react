@@ -49,7 +49,8 @@
 .side-bar__main-link-text {
     color: #FFFFFF;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 19px;
+    letter-spacing: 0.005em;
     margin: 0 8px 0 0;
 }
 .side-bar__main-link-text_regulated {

@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import Header from '../Header/Header';
 import VagonsSettingTab from '../VagonsSettingTab/VagonsSettingTab';
 import ContainersSettingTab from '../ContainersSettingTab/ContainersSettingTab';
 import StationsSettingTab from '../StationsSettingTab/StationsSettingTab';
 import TrainsSettingTab from '../TrainsSettingTab/TrainsSettingTab';
 
 function Settings() {
-
-  const crumbsArray = [
-    'Главная',
-    'Регламентированное слежение',
-    'Настройки',
-  ]
 
   const [isVagonsTabOpen, setVagonsTabOpen] = useState(true);
   const [isContainersTabOpen, setContainersTabOpen] = useState(false);
@@ -51,9 +44,6 @@ function Settings() {
     <div className="settings">
       <Helmet
         title='TREVO: Настройки'
-      />
-      <Header
-        crumbsArray={crumbsArray}
       />
       <div className="settings-content">
         <h2 className="settings-content__heading">Настройки</h2>

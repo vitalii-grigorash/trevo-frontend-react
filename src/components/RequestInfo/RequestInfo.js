@@ -36,11 +36,11 @@ function RequestInfo(props) {
                     <div className="request-info__options-container">
                         <div className="request-info__option-container">
                             <div className="request-info__option-icon request-info__option-icon_download" />
-                            <p className="request-info__option-text">Скачать</p>
+                            <p className="request-info__option-text">скачать</p>
                         </div>
                         <div className="request-info__option-container">
                             <div className="request-info__option-icon request-info__option-icon_print" />
-                            <p className="request-info__option-text">Распечатать</p>
+                            <p className="request-info__option-text">распечатать</p>
                         </div>
                     </div>
                 )}

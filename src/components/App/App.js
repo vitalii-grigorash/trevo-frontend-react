@@ -16,6 +16,7 @@ import Passports from '../Passports/Passports';
 import Runs from '../Runs/Runs';
 import FinancialPanel from '../FinancialPanel/FinancialPanel';
 import Administration from '../Administration/Administration';
+import PersonalAccount from '../PersonalAccount/PersonalAccount';
 import NotFound from '../NotFound/NotFound';
 
 function App() {
@@ -168,6 +169,10 @@ function App() {
 
           <Route path='/administration'>
             <Administration />
+          </Route>
+
+          <Route path='/personal-account'>
+            <PersonalAccount />
           </Route>
 
           <Switch>

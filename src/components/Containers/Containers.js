@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import Header from '../Header/Header';
 import Request from '../Request/Request';
 import Response from '../Response/Response';
 
@@ -17,19 +16,10 @@ function Containers(props) {
     requestInfo
   } = props;
 
-  const crumbsArray = [
-    'Главная',
-    'Оперативное слежение',
-    'Контейнеры',
-  ]
-
   return (
     <div className="containers">
       <Helmet
         title='TREVO: Контейнеры'
-      />
-      <Header
-        crumbsArray={crumbsArray}
       />
       <Request
         heading={'Контейнеры'}

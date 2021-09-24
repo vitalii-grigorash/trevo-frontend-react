@@ -137,6 +137,7 @@ function SideBar () {
                 </div>
                 <Link to={'/financial-panel'} className={pathname === '/financial-panel' ? 'side-bar__link-bottom side-bar__link-bottom_active' : 'side-bar__link-bottom'}>Финансовая панель</Link>
                 <Link to={'/administration'} className={pathname === '/administration' ? 'side-bar__link-bottom side-bar__link-bottom_active' : 'side-bar__link-bottom'}>Администрирование</Link>
+                <Link to={'/personal-account'} className={pathname === '/personal-account' ? 'side-bar__link-bottom side-bar__link-bottom_active' : 'side-bar__link-bottom'}>Личный кабинет</Link>
             </nav>
         </section>
     );
