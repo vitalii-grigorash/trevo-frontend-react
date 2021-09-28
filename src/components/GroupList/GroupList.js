@@ -50,7 +50,7 @@ function GroupList(props) {
                     <button className={`group-list__select-group-button ${isGroupSelected && 'group-list__select-group-button_active'}`} type="button">поиск</button>
                 </div>
             </div>
-            <button className="group-list__file-download-button" type="button">загрузить из файла</button>
+            <button className="group-list__remove-all" type="button">удалить все вагоны и группы</button>
         </div>
     );
 
