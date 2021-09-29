@@ -136,6 +136,18 @@
     width: 14px;
     height: 12px;
 }
+.side-bar__link-icon_dislocation {
+    background-image: url('../../images/dislocation-icon.svg');
+    margin-top: 3px;
+    width: 15px;
+    height: 15px;
+}
+.side-bar__link-icon_regulated-settings {
+    background-image: url('../../images/regulated-settings-icon.svg');
+    margin-top: 3px;
+    width: 15px;
+    height: 15px;
+}
 .side-bar__link {
     font-family: 'Inter', sans-serif;
     font-style: normal;

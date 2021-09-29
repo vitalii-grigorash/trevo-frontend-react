@@ -3,12 +3,17 @@ import React, { useState } from 'react';
 function GroupList(props) {
 
     const {
-        groupsData
+        groupsData,
+        checkboxSelectedData
     } = props;
 
     const [isGroupSelectContainerOpen, setGroupSelectContainerOpen] = useState(false);
     const [groupName, setGroupName] = useState('Выберите группу');
     const [isGroupSelected, setGroupSelected] = useState(false);
+
+    function showSelectedData () {
+        console.log(checkboxSelectedData);
+    }
 
     const selectData = (groupName) => {
         setGroupName(groupName);
@@ -50,7 +55,7 @@ function GroupList(props) {
                     <button className={`group-list__select-group-button ${isGroupSelected && 'group-list__select-group-button_active'}`} type="button">поиск</button>
                 </div>
             </div>
-            <button className="group-list__remove-all" type="button">удалить все вагоны и группы</button>
+            <button className="group-list__remove-all" type="button" onClick={showSelectedData}>удалить все вагоны и группы</button>
         </div>
     );
 

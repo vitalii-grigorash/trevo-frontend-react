@@ -52,6 +52,9 @@
     line-height: 17px;
     color: rgba(0, 0, 0, 0.87);
 }
+.my-list-result__info-container_checked {
+    background: #EBF7FF;
+}
 .my-list-result__info-container:last-of-type {
     border-bottom: none;
 }

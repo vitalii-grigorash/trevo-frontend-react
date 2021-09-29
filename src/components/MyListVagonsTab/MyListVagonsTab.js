@@ -24,10 +24,25 @@ function MyListVagonsTab() {
         },
     ]
 
+    const [checkboxSelectedData, setCheckboxSelectedData] = useState([]);
     const [isVagonsAddActive, setVagonsAddActive] = useState(false);
     const [isShowRemoveTooltip, setShowRemoveTooltip] = useState(false);
     const [isShowSaveTooltip, setShowSaveTooltip] = useState(false);
     const [isShowDownloadTooltip, setShowDownloadTooltip] = useState(false);
+
+    function onCheckboxClick(e, checkbox, vagonNumber, groupName, date, description) {
+        if (checkbox === true) {
+            setCheckboxSelectedData([...checkboxSelectedData, { vagonNumber, groupName, date, description }])
+            e.target.closest('.my-list-result__info-container').classList.add('my-list-result__info-container_checked');
+            console.log(checkboxSelectedData);
+        } else {
+            const filteredItems = checkboxSelectedData.filter(item => item.vagonNumber !== vagonNumber);
+            e.target.closest('.my-list-result__info-container').classList.remove('my-list-result__info-container_checked');
+            setCheckboxSelectedData(filteredItems);
+            console.log(filteredItems);
+            console.log(checkboxSelectedData);
+        }
+    }
 
     function handleShowRemoveTooltip() {
         setShowRemoveTooltip(true);
@@ -65,6 +80,7 @@ function MyListVagonsTab() {
         <div className="my-list-vagons-tab">
             <GroupList
                 groupsData={groupsData}
+                checkboxSelectedData={checkboxSelectedData}
             />
             <div className="my-list-vagons-tab__add-vagons" onClick={handleAddVagonsClick}>
                 <div className={`my-list-vagons-tab__add-vagons-icon ${isVagonsAddActive && 'my-list-vagons-tab__add-vagons-icon_active'}`} />
@@ -79,14 +95,14 @@ function MyListVagonsTab() {
             <div className="my-list-vagons-tab__table-heading-container">
                 <p className="my-list-vagons-tab__table-heading-vagons-result">Найдено 423456 вагонов</p>
                 <div className="my-list-vagons-tab__table-heading-icons-container">
-                    <div className="my-list-vagons-tab__table-heading-icon-download" onMouseEnter={handleShowDownloadTooltip} onMouseLeave={handleCloseDownloadTooltip}>
-                        {isShowDownloadTooltip && (
-                            <div className="my-list-vagons-tab__table-heading-above-icon-tooltip-download" />
-                        )}
-                    </div>
                     <div className="my-list-vagons-tab__table-heading-icon-save" onMouseEnter={handleShowSaveTooltip} onMouseLeave={handleCloseSaveTooltip}>
                         {isShowSaveTooltip && (
                             <div className="my-list-vagons-tab__table-heading-above-icon-tooltip-save" />
+                        )}
+                    </div>
+                    <div className="my-list-vagons-tab__table-heading-icon-download" onMouseEnter={handleShowDownloadTooltip} onMouseLeave={handleCloseDownloadTooltip}>
+                        {isShowDownloadTooltip && (
+                            <div className="my-list-vagons-tab__table-heading-above-icon-tooltip-download" />
                         )}
                     </div>
                     <div className="my-list-vagons-tab__table-heading-icon-remove" onMouseEnter={handleShowRemoveTooltip} onMouseLeave={handleCloseRemoveTooltip}>
@@ -96,7 +112,9 @@ function MyListVagonsTab() {
                     </div>
                 </div>
             </div>
-            <MyListResult />
+            <MyListResult
+                onCheckboxClick={onCheckboxClick}
+            />
         </div>
     );
 

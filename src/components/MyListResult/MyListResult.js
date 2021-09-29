@@ -1,7 +1,11 @@
 import React from 'react';
 import MyListResultData from '../../utils/MyListResultData.json';
 
-function MyListResult() {
+function MyListResult(props) {
+
+  const {
+    onCheckboxClick,
+  } = props;
 
   return (
     <div className="my-list-result">
@@ -15,7 +19,11 @@ function MyListResult() {
       {MyListResultData.map((data, index) => {
         return (
           <div key={index} className="my-list-result__info-container">
-            <input className="my-list-result__checkbox" type="checkbox" />
+            <input 
+              className="my-list-result__checkbox" 
+              type="checkbox"
+              onClick={(e) => onCheckboxClick(e, e.target.checked, data.vagonNumber, data.groupName, data.date, data.description)}
+            />
             <p className="my-list-result__number">{data.vagonNumber}</p>
             <p className="my-list-result__name">{data.groupName}</p>
             <p className="my-list-result__date">{data.date}</p>

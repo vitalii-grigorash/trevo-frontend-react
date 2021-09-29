@@ -125,11 +125,11 @@ function SideBar () {
                     {isRegulatedOpen &&
                         <>
                             <div className={pathname === '/dislocation' ? 'side-bar__link-container side-bar__link-container_active' : 'side-bar__link-container'}>
-                                <div className="side-bar__link-icon side-bar__link-icon_vagon" />
+                                <div className="side-bar__link-icon side-bar__link-icon_dislocation" />
                                 <Link to={'/dislocation'} className={pathname === '/dislocation' ? 'side-bar__link side-bar__link_active' : 'side-bar__link'}>Дислокация</Link>
                             </div>
                             <div className={pathname === '/settings' ? 'side-bar__link-container side-bar__link-container_active' : 'side-bar__link-container'}>
-                                <div className="side-bar__link-icon side-bar__link-icon_container" />
+                                <div className="side-bar__link-icon side-bar__link-icon_regulated-settings" />
                                 <Link to={'/settings'} className={pathname === '/settings' ? 'side-bar__link side-bar__link_active' : 'side-bar__link'}>Настройки</Link>
                             </div>
                         </>
