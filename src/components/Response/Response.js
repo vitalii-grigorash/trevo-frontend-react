@@ -10,6 +10,7 @@ function Response(props) {
     isPreloaderShow,
     isInfoShow,
     requestInfo,
+    placeholder
   } = props;
 
   return (
@@ -26,6 +27,7 @@ function Response(props) {
       <RequestHistory
         requestHistoryList={requestHistoryList}
         handleShowPreloader={handleShowPreloader}
+        placeholder={placeholder}
       />
 
     </div>

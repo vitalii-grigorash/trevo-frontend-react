@@ -34,6 +34,7 @@ function Trains(props) {
         handleShowPreloader={handleShowPreloader}
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
+        placeholder={'Номер поезда'}
       />
     </div>
   );

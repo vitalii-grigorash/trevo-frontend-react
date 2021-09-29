@@ -34,6 +34,7 @@ function Wagons(props) {
         handleShowPreloader={handleShowPreloader}
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
+        placeholder={'Номер вагона'}
       />
     </div>
   );

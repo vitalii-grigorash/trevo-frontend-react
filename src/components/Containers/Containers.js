@@ -34,6 +34,7 @@ function Containers(props) {
         handleShowPreloader={handleShowPreloader}
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
+        placeholder={'Номер контейнера'}
       />
     </div>
   );

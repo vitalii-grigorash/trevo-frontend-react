@@ -34,6 +34,7 @@ function Stations(props) {
         handleShowPreloader={handleShowPreloader}
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
+        placeholder={'Номер станции'}
       />
     </div>
   );

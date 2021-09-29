@@ -84,23 +84,68 @@ function App() {
           </Route>
 
           <Route path='/general-inquiries'>
-            <GeneralInquiries />
+            <GeneralInquiries
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
+            />
           </Route>
 
           <Route path='/repairs'>
-            <Repairs />
+            <Repairs
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
+            />
           </Route>
 
           <Route path='/details'>
-            <Details />
+            <Details
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
+            />
           </Route>
 
           <Route path='/passports'>
-            <Passports />
+            <Passports
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
+            />
           </Route>
 
           <Route path='/runs'>
-            <Runs />
+            <Runs
+              handleOpenRequestList={handleOpenRequestList}
+              isRequestListOpen={isRequestListOpen}
+              addRequest={addRequest}
+              requestHistoryList={requestHistoryList}
+              handleShowPreloader={handleShowPreloader}
+              isPreloaderShow={isPreloaderShow}
+              isInfoShow={isInfoShow}
+              requestInfo={requestInfo}
+            />
           </Route>
 
           <Route path='/stations'>

@@ -6,6 +6,7 @@ function RequestHistory(props) {
   const {
     requestHistoryList,
     handleShowPreloader,
+    placeholder,
   } = props;
 
   const [isShowSortOptions, setShowSortOptions] = useState(false);
@@ -27,7 +28,7 @@ function RequestHistory(props) {
         <div className="request-history__heading-container">
           <h2 className="request-history__heading">Запросы</h2>
           <div className="request-history__search-container">
-            <input className="request-history__search-input" type="text" placeholder="Номер станции" />
+            <input className="request-history__search-input" type="text" placeholder={placeholder} />
             <div className="request-history__search-icon" />
           </div>
         </div>
