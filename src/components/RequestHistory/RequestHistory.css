@@ -61,7 +61,7 @@
 }
 .request-history__reqests-heading {
     display: flex;
-    background: #EAEEEF;
+    background: #ECEDF3;
     height: 49px;
     margin: 24px 0 0;
     font-family: 'Inter', sans-serif;
@@ -115,7 +115,7 @@
 .request-history__sort-container {
     display: flex;
     height: 36px;
-    background: #EAEEEF;
+    background: #ECEDF3;
 }
 .request-history__sort-options-container {
     display: flex;

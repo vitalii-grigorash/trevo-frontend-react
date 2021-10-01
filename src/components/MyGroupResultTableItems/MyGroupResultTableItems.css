@@ -1,0 +1,67 @@
+.my-group-result-table-items__info-container {
+    display: flex;
+    min-height: 52px;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: #313744;
+}
+.my-group-result-table-items__info-container:last-of-type {
+    border-bottom: none;
+}
+.my-group-result-table-items__info-expand-icon {
+    background-image: url('../../images/expand-icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 15px;
+    height: 16px;
+    margin: auto 10px auto 32px;
+    cursor: pointer;
+}
+.my-group-result-table-items__info-expand-icon_active {
+    background-image: url('../../images/expand-icon-active.svg');
+}
+.my-group-result-table-items__info-group-number {
+    min-width: 91px;
+    margin: auto 32px auto 0;
+    text-align: right;
+}
+.my-group-result-table-items__info-group-name {
+    min-width: 300px;
+    margin: auto 32px auto 0;
+}
+.my-group-result-table-items__info-vagons-value {
+    min-width: 168px;
+    margin: auto 32px auto 0;
+    text-align: right;
+}
+.my-group-result-table-items__info-expand-text {
+    min-width: 98px;
+    margin: auto 49px auto auto;
+    text-align: center;
+    color: #444C5C;
+    cursor: pointer;
+}
+.my-group-result-table-items__info-settings-icon {
+    background-image: url('../../images/list-options-icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 5px;
+    height: 20px;
+    margin: auto 32px auto 0;
+    cursor: pointer;
+}
+.table-items-options {
+
+}
+.table-items-options__links-container {
+
+}
+.table-items-options__link {
+    
+}

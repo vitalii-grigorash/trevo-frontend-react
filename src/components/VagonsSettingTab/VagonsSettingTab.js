@@ -13,6 +13,25 @@ function VagonsSettingTab() {
     const [isScheduleAndMailingTabOpen, setScheduleAndMailingTabOpen] = useState(false);
     const [isAlertsTabOpen, setAlertsTabOpen] = useState(false);
 
+    const groupsData = [
+        {
+            groupName: 'Группа 4546',
+            vagonsValue: '5 634'
+        },
+        {
+            groupName: 'Группа 34356',
+            vagonsValue: '35 634'
+        },
+        {
+            groupName: 'Группа 426',
+            vagonsValue: '34'
+        },
+        {
+            groupName: 'Группа 678765',
+            vagonsValue: '355'
+        },
+    ]
+
     function handleMyListTabOpen() {
         setMyListTabOpen(true);
         setMyGroupTabOpen(false);
@@ -20,7 +39,7 @@ function VagonsSettingTab() {
         setScheduleAndMailingTabOpen(false);
         setAlertsTabOpen(false);
     }
-    function handleMyGroupTabOpen () {
+    function handleMyGroupTabOpen() {
         setMyGroupTabOpen(true);
         setMyListTabOpen(false);
         setFieldVisibilityTabOpen(false);
@@ -71,11 +90,15 @@ function VagonsSettingTab() {
                     <p className={`vagons-setting-tab__tab ${isAlertsTabOpen && 'vagons-setting-tab__tab_active'}`}>Оповещения</p>
                 </div>
             </div>
-            {isMyListTabOpen && <MyListVagonsTab />}
-            {isMyGroupTabOpen && <MyGroupVagonsTab />}
+            {isMyListTabOpen && <MyListVagonsTab
+                groupsData={groupsData}
+            />}
+            {isMyGroupTabOpen && <MyGroupVagonsTab
+                groupsData={groupsData}
+            />}
             {isFieldVisibilityTabOpen && <FieldVisibilityVagonsTab />}
-            {isScheduleAndMailingTabOpen && <ScheduleAndMailingVagonsTab  />}
-            {isAlertsTabOpen && <AlertsVagonsTab  />}
+            {isScheduleAndMailingTabOpen && <ScheduleAndMailingVagonsTab />}
+            {isAlertsTabOpen && <AlertsVagonsTab />}
         </div>
     );
 

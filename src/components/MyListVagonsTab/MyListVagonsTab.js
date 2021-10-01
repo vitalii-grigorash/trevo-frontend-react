@@ -3,26 +3,11 @@ import GroupList from '../GroupList/GroupList';
 import VagonsAdd from '../VagonsAdd/VagonsAdd';
 import MyListResult from '../MyListResult/MyListResult';
 
-function MyListVagonsTab() {
+function MyListVagonsTab(props) {
 
-    const groupsData = [
-        {
-            groupName: 'Группа 4546',
-            vagonsValue: '5 634'
-        },
-        {
-            groupName: 'Группа 34356',
-            vagonsValue: '35 634'
-        },
-        {
-            groupName: 'Группа 426',
-            vagonsValue: '34'
-        },
-        {
-            groupName: 'Группа 678765',
-            vagonsValue: '355'
-        },
-    ]
+    const {
+        groupsData
+    } = props;
 
     const [checkboxSelectedData, setCheckboxSelectedData] = useState([]);
     const [isVagonsAddActive, setVagonsAddActive] = useState(false);
@@ -34,13 +19,10 @@ function MyListVagonsTab() {
         if (checkbox === true) {
             setCheckboxSelectedData([...checkboxSelectedData, { vagonNumber, groupName, date, description }])
             e.target.closest('.my-list-result__info-container').classList.add('my-list-result__info-container_checked');
-            console.log(checkboxSelectedData);
         } else {
             const filteredItems = checkboxSelectedData.filter(item => item.vagonNumber !== vagonNumber);
             e.target.closest('.my-list-result__info-container').classList.remove('my-list-result__info-container_checked');
             setCheckboxSelectedData(filteredItems);
-            console.log(filteredItems);
-            console.log(checkboxSelectedData);
         }
     }
 
@@ -80,7 +62,6 @@ function MyListVagonsTab() {
         <div className="my-list-vagons-tab">
             <GroupList
                 groupsData={groupsData}
-                checkboxSelectedData={checkboxSelectedData}
             />
             <div className="my-list-vagons-tab__add-vagons" onClick={handleAddVagonsClick}>
                 <div className={`my-list-vagons-tab__add-vagons-icon ${isVagonsAddActive && 'my-list-vagons-tab__add-vagons-icon_active'}`} />

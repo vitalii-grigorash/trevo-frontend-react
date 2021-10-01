@@ -8,7 +8,7 @@
 .my-list-result__heading-container {
     display: flex;
     height: 49px;
-    background: #EAEEEF;
+    background: #ECEDF3;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -92,7 +92,7 @@
 .my-list-result__bottom-container {
     display: flex;
     height: 49px;
-    background: #EAEEEF;
+    background: #ECEDF3;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;

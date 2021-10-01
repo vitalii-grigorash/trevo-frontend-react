@@ -1,0 +1,89 @@
+.my-group-result {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 32px 32px 32px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 3px 1px rgba(0, 0, 0, 0.12), 0px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.my-group-result__heading-container {
+    display: flex;
+    height: 49px;
+    background: #ECEDF3;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.001em;
+    color: #202020;
+}
+.my-group-result__heading-group-number {
+    width: 116px;
+    margin: auto 32px;
+    text-align: right;
+}
+.my-group-result__heading-group-name {
+    width: 300px;
+    margin: auto 32px auto 0;
+}
+.my-group-result__heading-vagons-value {
+    width: 168px;
+    margin: auto auto auto 0;
+    text-align: right;
+}
+.my-group-result__bottom-container {
+    display: flex;
+    height: 49px;
+    background: #ECEDF3;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: rgba(0, 0, 0, 0.87);
+    align-items: center;
+}
+.my-group-result__sort-result-container {
+    display: flex;
+    align-items: center;
+    margin: auto 32px auto auto;
+    cursor: pointer;
+}
+.my-group-result__sort-result-text {
+    margin: 0 8px 0 0;
+}
+.my-group-result__sort-result-arrow {
+    background-image: url('../../images/result-sort-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 8px;
+    height: 5px;
+    margin: 0;
+}
+.my-group-result__sort-result-pages {
+    margin: 0 32px 0 0;
+}
+.my-group-result__sort-result-arrows-container {
+    display: flex;
+    justify-content: space-between;
+    width: 62px;
+    margin: 0 32px 0 0;
+}
+.my-group-result__sort-result-arrow-prev {
+    background-image: url('../../images/prev-page-icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 6px;
+    height: 10px;
+    cursor: pointer;
+}
+.my-group-result__sort-result-arrow-next {
+    background-image: url('../../images/next-page-icon.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 6px;
+    height: 10px;
+    cursor: pointer;
+}
