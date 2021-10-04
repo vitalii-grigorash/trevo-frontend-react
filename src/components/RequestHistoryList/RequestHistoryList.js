@@ -5,7 +5,7 @@ function RequestHistoryList(props) {
     const {
         date,
         request,
-        options,
+        params,
         status,
         handleShowPreloader,
     } = props;
@@ -16,8 +16,8 @@ function RequestHistoryList(props) {
             <p className="request-history-list__date">{date}</p>
             <p className="request-history-list__request" onClick={(evt) => handleShowPreloader(request)}>{request}</p>
             <div className="request-history-list__params-container">
-                {options.map((option, index) => (
-                    <p key={index} className="request-history-list__param">{option}</p>
+                {Object.entries(params).map(([ key, val ]) => (
+                    <p key={key} className="request-history-list__param">{val}</p>
                 ))}
             </div>
             <p className="request-history-list__status">{status}</p>

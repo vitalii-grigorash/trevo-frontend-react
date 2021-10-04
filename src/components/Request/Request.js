@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import RequestList from '../../utils/RequestList.json';
 
 function Request(props) {
 
@@ -8,60 +7,50 @@ function Request(props) {
         handleOpenRequestList,
         isRequestListOpen,
         addRequest,
-        handleShowPreloader
+        handleShowPreloader,
+        requesList
     } = props;
 
-    const [price, setPrice] = useState('0');
+    const [requestTypeId, setrequestTypeId] = useState('');
     const [request, setRequest] = useState('Выберите запрос');
-    const [options, setOptions] = useState([]);
+    const [price, setPrice] = useState('0');
+    const [params, setParams] = useState([]);
     const [isRequestSelected, setRequestSelected] = useState(false);
     const [isOptionsShow, setOptionsShow] = useState(false);
-    const [values, setValues] = useState({ val: [] });
+    const [values, setValues] = useState({});
     const [isButtonEnable, setButtonEnable] = useState(false);
-
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1);
-    const day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-    const hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-    const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-    const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-    const dateNow = year + "/" + month + "/" + day + " " + hours + ":" + minutes + ":" + seconds;
 
     const resetFormInputs = () => {
         if (document.getElementById("form")) {
             document.getElementById("form").reset();
-            setValues({ val: [] });
+            setValues({});
         }
     }
 
-    const selectRequest = (request, price, options) => {
-        setPrice(price)
-        setRequest(request)
+    const selectRequest = (id, name, price, params) => {
+        setrequestTypeId(id);
+        setRequest(name);
+        setPrice(price);
+        setParams(params);
         setRequestSelected(true);
         setOptionsShow(true);
-        setOptions(options);
-        resetFormInputs();
         setButtonEnable(true);
+        resetFormInputs();
     }
 
     const sendRequest = () => {
         const requestData = {
-            date: dateNow,
-            request: request,
-            options: values.val,
-            status: "Выполнено",
-            price: price
+            requestTypeId: requestTypeId,
+            params: values,
         }
         addRequest(requestData);
+        
         handleShowPreloader(request);
         resetFormInputs();
     }
 
-    function handleChange(evt) {
-        let vals = [...values.val];
-        vals[this] = evt.target.value;
-        setValues({ val: vals });
+    function handleChange(evt, paramId) {
+        Object.assign(values, {[paramId]: evt.target.value});
     }
 
     return (
@@ -77,9 +66,9 @@ function Request(props) {
                     <div className="request__select-arrow" />
                     {isRequestListOpen &&
                         <div className="request__lists-container">
-                            {RequestList.map((data, index) => (
-                                <div key={index} className="reques__list-container" onClick={() => selectRequest(data.request, data.price, data.options)}>
-                                    <p className="reques__list-text">{data.request} {data.result ? `(${data.result})` : ''}</p>
+                            {requesList.map((data) => (
+                                <div key={data.id} className="reques__list-container" onClick={() => selectRequest(data.id, data.name, data.price, data.params)}>
+                                    <p className="reques__list-text">{data.name}</p>
                                 </div>
                             ))}
                         </div>
@@ -87,14 +76,14 @@ function Request(props) {
                 </div>
                 {isOptionsShow &&
                     <form id="form" className="request__options-container">
-                        {options.map((data, index) => (
+                        {params.map((data, index) => (
                             <div key={index} className="request__option-container">
-                                <span className="request__option-span">{data.span}</span>
+                                <span className="request__option-span">{data.name}</span>
                                 <input
                                     className="request__option-input"
                                     type="text"
-                                    placeholder={data.placeholder}
-                                    onChange={handleChange.bind(index)}
+                                    placeholder="Введите параметр"
+                                    onChange={(e) => handleChange(e, data.paramId)}
                                 />
                             </div>
                         ))}

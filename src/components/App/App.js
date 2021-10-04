@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import SideBar from '../SideBar/SideBar';
@@ -18,6 +18,7 @@ import FinancialPanel from '../FinancialPanel/FinancialPanel';
 import Administration from '../Administration/Administration';
 import PersonalAccount from '../PersonalAccount/PersonalAccount';
 import NotFound from '../NotFound/NotFound';
+import * as Api from '../../utils/Api';
 
 function App() {
 
@@ -34,6 +35,16 @@ function App() {
   const [isInfoShow, setInfoShow] = useState(false);
   const [requestInfo, setRequestInfo] = useState('');
 
+  useEffect(() => {
+      Api.getRequestHistoryList()
+      .then((data) => {
+        // setRequestHistoryList([...requestHistoryList, data]);
+        setRequestHistoryList(data);
+        console.log(data);
+      })
+      .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`));
+  }, []);
+
   function handleShowPreloader(request) {
     setRequestInfo(request);
     setPreloaderShow(true);
@@ -44,7 +55,13 @@ function App() {
   }
 
   function addRequest(request) {
-    setRequestHistoryList([...requestHistoryList, request]);
+    Api.postRequest(request)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
+    console.log(request.requestTypeId);
+    console.log(request.params);
   }
 
   function handleOpenRequestList() {

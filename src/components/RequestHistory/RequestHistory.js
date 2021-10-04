@@ -13,7 +13,7 @@ function RequestHistory(props) {
 
   useEffect(() => {
     requestHistoryList.map((list) => {
-      if (list.date) {
+      if (list.id) {
         return setShowSortOptions(true);
       } else {
         return setShowSortOptions(false);
@@ -45,12 +45,12 @@ function RequestHistory(props) {
         </div>
 
         <div className="request-history__list-container">
-          {requestHistoryList.map((list, index) => (
+          {requestHistoryList.map((list) => (
             <RequestHistoryList
-              key={index}
+              key={list.id}
               date={list.date}
-              request={list.request}
-              options={list.options}
+              request={list.requestTypeName}
+              params={list.params}
               status={list.status}
               handleShowPreloader={handleShowPreloader}
             />
