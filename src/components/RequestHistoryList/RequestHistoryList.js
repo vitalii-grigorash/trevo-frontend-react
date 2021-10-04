@@ -7,7 +7,7 @@ function RequestHistoryList(props) {
         request,
         params,
         status,
-        handleShowPreloader,
+        handleShowPreloader
     } = props;
 
     return (
