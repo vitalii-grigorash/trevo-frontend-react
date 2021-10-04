@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MyGroupResultData from '../../utils/MyGroupResultData.json';
 import MyGroupResultTableItems from '../MyGroupResultTableItems/MyGroupResultTableItems';
 
 function MyGroupResult() {
+
+    const [isMyGroupResultTableItemsOpened, setMyGroupResultTableItemsOpened] = useState(false);
+
+    function handleMyGroupResultTableItemsOpened() {
+        setMyGroupResultTableItemsOpened(true);
+    }
 
     return (
         <div className="my-group-result">
@@ -16,7 +22,10 @@ function MyGroupResult() {
                     key={index}
                     groupNumber={data.groupNumber}
                     groupName={data.groupName}
-                    vagonsValue={data.vagonsValue}
+                    vagonsValue={data.vagonsList.length}
+                    vagonsList={data.vagonsList}
+                    isMyGroupResultTableItemsOpened={isMyGroupResultTableItemsOpened}
+                    handleMyGroupResultTableItemsOpened={handleMyGroupResultTableItemsOpened}
                 />
             })}
             <div className="my-group-result__bottom-container">
