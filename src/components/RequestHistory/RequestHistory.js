@@ -48,6 +48,7 @@ function RequestHistory(props) {
           {requestHistoryList.map((list) => (
             <RequestHistoryList
               key={list.id}
+              id={list.id}
               date={list.date}
               request={list.requestTypeName}
               params={list.params}

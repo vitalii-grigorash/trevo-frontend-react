@@ -49,7 +49,7 @@ function MyGroupVagonsTab(props) {
             </div>
             {isGroupAddActive && (
                 <div className="my-group-vagons-tab__add-group-container">
-                    <div className="my-group-vagons-tab__add-group-close-icon" />
+                    <div className="my-group-vagons-tab__add-group-close-icon" onClick={handleAddGroupClick} />
                     <p className="my-group-vagons-tab__add-group-heading">Добавить группу</p>
                     <span className="my-group-vagons-tab__add-group-span">Название</span>
                     <input className="my-group-vagons-tab__add-group-input" type="text" />

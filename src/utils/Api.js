@@ -31,7 +31,6 @@ export const postRequest = (request) => {
         })
     })
         .then((res) => {
-            console.log(res);
             return res.json();
         })
         .catch((err) => {

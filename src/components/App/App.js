@@ -33,35 +33,46 @@ function App() {
   const [requestHistoryList, setRequestHistoryList] = useState([]);
   const [isPreloaderShow, setPreloaderShow] = useState(false);
   const [isInfoShow, setInfoShow] = useState(false);
-  const [requestInfo, setRequestInfo] = useState('');
+  const [requestInfo, setRequestInfo] = useState({});
 
   useEffect(() => {
-      Api.getRequestHistoryList()
+    Api.getRequestHistoryList()
       .then((data) => {
-        // setRequestHistoryList([...requestHistoryList, data]);
         setRequestHistoryList(data);
-        console.log(data);
       })
       .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`));
   }, []);
 
-  function handleShowPreloader(request) {
-    setRequestInfo(request);
-    setPreloaderShow(true);
+  function handleShowPreloader(id) {
     setInfoShow(true);
-    setTimeout(() => {
-      setPreloaderShow(false);
-    }, 2000)
+    function filteredObj(idToSearch) {
+      return requestHistoryList.find((obj) => {
+        const filtered = () => {
+          if (obj.id === idToSearch) {
+            console.log(obj);
+            return obj
+          }
+        }
+        return filtered();
+      });
+    };
+    setRequestInfo(filteredObj(id));
   }
 
   function addRequest(request) {
+    setPreloaderShow(true);
+    setInfoShow(true);
     Api.postRequest(request)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        Api.getRequestHistoryList()
+          .then((data) => {
+            setRequestHistoryList(data);
+            // handleShowPreloader(request.requestTypeId);
+          })
+          .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`))
       })
-      .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
-    console.log(request.requestTypeId);
-    console.log(request.params);
+      .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`))
+      .finally(() => setPreloaderShow(false));
   }
 
   function handleOpenRequestList() {
