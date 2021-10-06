@@ -10,24 +10,37 @@ function RequestHistory(props) {
   } = props;
 
   const [isShowSortOptions, setShowSortOptions] = useState(false);
+  const [isChoiceContainerActive, setChoiceContainerActive] = useState(false);
   const [showResultsFrom, setShowResultsFrom] = useState(0);
+  const [selectedResultsShow, setSelectedResultsShow] = useState(10);
   const [resultsShow, setResultsShow] = useState(10);
+  const [result, setResult] = useState(10);
+  const [allPages, setAllPages] = useState(0);
+  const [pageCount, setPageCount] = useState(1);
 
-  function showNextResults () {
-    setShowResultsFrom(0 + resultsShow);
-    console.log(showResultsFrom);
-    setResultsShow(resultsShow + resultsShow);
-    console.log(resultsShow);
+  useEffect(() => {
+    const pages = requestHistoryList.length / selectedResultsShow
+    setAllPages(Math.ceil(pages));
+  }, [requestHistoryList.length, selectedResultsShow])
+
+  function showNextResults() {
+    if (resultsShow >= requestHistoryList.length) {
+      return
+    } else {
+      setShowResultsFrom(0 + resultsShow);
+      setResultsShow(result + resultsShow);
+      setPageCount(pageCount + 1)
+    }
   }
 
-  // 0 + 1 = 1
-  // 1 + 1 = 2
-  // 0 + 2 = 2
-  // 
-
-  function showPrevResults () {
-    setShowResultsFrom(showResultsFrom - resultsShow);
-    setResultsShow(resultsShow - resultsShow);
+  function showPrevResults() {
+    if (resultsShow <= result) {
+      return
+    } else {
+      setShowResultsFrom(showResultsFrom - result);
+      setResultsShow(resultsShow - result);
+      setPageCount(pageCount - 1)
+    }
   }
 
   useEffect(() => {
@@ -40,10 +53,25 @@ function RequestHistory(props) {
     })
   }, [requestHistoryList]);
 
+  function handleShowChoiceContainer() {
+    if (isChoiceContainerActive) {
+      setChoiceContainerActive(false);
+    } else {
+      setChoiceContainerActive(true);
+    }
+  }
+
+  function onChoiceClick (value) {
+    setResultsShow(value);
+    setResult(value);
+    setSelectedResultsShow(value);
+    setShowResultsFrom(0);
+    setPageCount(1);
+  }
+
   return (
     <div className="request-history">
       <div className="request-history__main-container">
-
         <div className="request-history__heading-container">
           <h2 className="request-history__heading">Запросы</h2>
           <div className="request-history__search-container">
@@ -51,7 +79,6 @@ function RequestHistory(props) {
             <div className="request-history__search-icon" />
           </div>
         </div>
-
         <div className="request-history__reqests-heading">
           <div className="request-history__date-container">
             <p className="request-history__date">Дата запроса</p>
@@ -62,7 +89,6 @@ function RequestHistory(props) {
           <p className="request-history__status">Статус</p>
           <p className="request-history__actions">Действия</p>
         </div>
-
         <div className="request-history__list-container">
           {requestHistoryList.slice(showResultsFrom, resultsShow).map((list) => (
             <RequestHistoryList
@@ -76,27 +102,43 @@ function RequestHistory(props) {
             />
           ))}
         </div>
-
         <div className="request-history__sort-container">
           {isShowSortOptions && (
             <div className="request-history__sort-options-container">
-              <div className="request-history__show-result-container">
-                <p className="request-history__show-result-text">Показать: 1</p>
+              <div className="request-history__show-result-container" onClick={handleShowChoiceContainer}>
+                <p className="request-history__show-result-text">Показать: {selectedResultsShow}</p>
                 <div className="request-history__show-result-icon" />
+                {isChoiceContainerActive && (
+                  <div className="request-history__show-result-choice-container">
+                    <div className="request-history__show-result-choice" onClick={() => onChoiceClick(10)}>
+                      <p className="request-history__show-result-choice-value">10</p>
+                    </div>
+                    <div className="request-history__show-result-choice" onClick={() => onChoiceClick(50)}>
+                      <p className="request-history__show-result-choice-value">50</p>
+                    </div>
+                    <div className="request-history__show-result-choice" onClick={() => onChoiceClick(100)}>
+                      <p className="request-history__show-result-choice-value">100</p>
+                    </div>
+                    <div className="request-history__show-result-choice" onClick={() => onChoiceClick(500)}>
+                      <p className="request-history__show-result-choice-value">500</p>
+                    </div>
+                    <div className="request-history__show-result-choice" onClick={() => onChoiceClick(1000)}>
+                      <p className="request-history__show-result-choice-value">1000</p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <p className="request-history__sort-pages">1-4 из 4</p>
+              <p className="request-history__sort-pages">{pageCount} из {allPages}</p>
               <div className="request-history__sort-change-page-container">
-                <div className="request-history__sort-change-page-prev" onClick={showPrevResults}/>
+                <div className="request-history__sort-change-page-prev" onClick={showPrevResults} />
                 <div className="request-history__sort-change-page-next" onClick={showNextResults} />
               </div>
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
-
 }
 
 export default RequestHistory;
