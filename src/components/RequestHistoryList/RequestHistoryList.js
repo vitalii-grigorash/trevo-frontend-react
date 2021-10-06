@@ -8,20 +8,23 @@ function RequestHistoryList(props) {
         request,
         params,
         status,
-        handleShowPreloader
+        handleShowHistoryList
     } = props;
+
+    const showStatus = `${status === 'done' ? 'Выполнен' : 'В обработке'}`
+    const statusStyles = `${status === 'done' ? 'request-history-list__status' : 'request-history-list__status request-history-list__status_processing'}`
 
     return (
 
         <div className="request-history-list">
             <p className="request-history-list__date">{date}</p>
-            <p className="request-history-list__request" onClick={(evt) => handleShowPreloader(id)}>{request}</p>
+            <p className="request-history-list__request" onClick={(evt) => handleShowHistoryList(id)}>{request}</p>
             <div className="request-history-list__params-container">
                 {Object.entries(params).map(([ key, val ]) => (
                     <p key={key} className="request-history-list__param">{val}</p>
                 ))}
             </div>
-            <p className="request-history-list__status">{status}</p>
+            <p className={statusStyles}>{showStatus}</p>
             <div className="request-history-list__actions-container">
                 <div className="request-history-list__action-download" />
                 <div className="request-history-list__action-print" />

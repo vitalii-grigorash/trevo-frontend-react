@@ -5,7 +5,7 @@ function RequestHistory(props) {
 
   const {
     requestHistoryList,
-    handleShowPreloader,
+    handleShowHistoryList,
     placeholder,
   } = props;
 
@@ -53,7 +53,7 @@ function RequestHistory(props) {
               request={list.requestTypeName}
               params={list.params}
               status={list.status}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
             />
           ))}
         </div>

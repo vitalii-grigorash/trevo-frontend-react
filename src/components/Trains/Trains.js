@@ -10,7 +10,7 @@ function Trains(props) {
     isRequestListOpen,
     addRequest,
     requestHistoryList,
-    handleShowPreloader,
+    handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
     requestInfo
@@ -26,12 +26,11 @@ function Trains(props) {
         handleOpenRequestList={handleOpenRequestList}
         isRequestListOpen={isRequestListOpen}
         addRequest={addRequest}
-        handleShowPreloader={handleShowPreloader}
       />
       <Response
         requestHistoryList={requestHistoryList}
         isPreloaderShow={isPreloaderShow}
-        handleShowPreloader={handleShowPreloader}
+        handleShowHistoryList={handleShowHistoryList}
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
         placeholder={'Номер поезда'}

@@ -7,7 +7,6 @@ function Request(props) {
         handleOpenRequestList,
         isRequestListOpen,
         addRequest,
-        // handleShowPreloader,
         requesList
     } = props;
 
@@ -44,20 +43,8 @@ function Request(props) {
             params: values,
         }
         addRequest(requestData);
-        // handleShowPreloader();
         resetFormInputs();
     }
-
-    // const sendRequest = () => {
-    //     const requestData = {
-    //         requestTypeId: requestTypeId,
-    //         params: values,
-    //     }
-    //     addRequest(requestData);
-        
-    //     handleShowPreloader(request);
-    //     resetFormInputs();
-    // }
 
     function handleChange(evt, paramId) {
         Object.assign(values, {[paramId]: evt.target.value});

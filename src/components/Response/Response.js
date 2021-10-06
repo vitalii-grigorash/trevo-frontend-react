@@ -6,7 +6,7 @@ function Response(props) {
 
   const {
     requestHistoryList,
-    handleShowPreloader,
+    handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
     requestInfo,
@@ -26,7 +26,7 @@ function Response(props) {
 
       <RequestHistory
         requestHistoryList={requestHistoryList}
-        handleShowPreloader={handleShowPreloader}
+        handleShowHistoryList={handleShowHistoryList}
         placeholder={placeholder}
       />
 

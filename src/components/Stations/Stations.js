@@ -12,7 +12,7 @@ function Stations(props) {
     isRequestListOpen,
     addRequest,
     requestHistoryList,
-    handleShowPreloader,
+    handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
     requestInfo
@@ -41,13 +41,12 @@ function Stations(props) {
         handleOpenRequestList={handleOpenRequestList}
         isRequestListOpen={isRequestListOpen}
         addRequest={addRequest}
-        handleShowPreloader={handleShowPreloader}
         requesList={requesList}
       />
       <Response
         requestHistoryList={requestHistoryList}
         isPreloaderShow={isPreloaderShow}
-        handleShowPreloader={handleShowPreloader}
+        handleShowHistoryList={handleShowHistoryList}
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
         placeholder={'Номер станции'}

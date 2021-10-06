@@ -43,7 +43,7 @@ function App() {
       .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`));
   }, []);
 
-  function handleShowPreloader(id) {
+  function handleShowHistoryList(id) {
     setInfoShow(true);
     function filteredObj(idToSearch) {
       return requestHistoryList.find((obj) => {
@@ -60,19 +60,19 @@ function App() {
   }
 
   function addRequest(request) {
-    setPreloaderShow(true);
-    setInfoShow(true);
+    // setPreloaderShow(true);
+    // setInfoShow(true);
     Api.postRequest(request)
       .then(() => {
         Api.getRequestHistoryList()
           .then((data) => {
             setRequestHistoryList(data);
-            // handleShowPreloader(request.requestTypeId);
+            // handleShowHistoryList(res.id);
           })
           .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`))
       })
       .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`))
-      .finally(() => setPreloaderShow(false));
+      // .finally(() => setPreloaderShow(false));
   }
 
   function handleOpenRequestList() {
@@ -117,7 +117,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
@@ -130,7 +130,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
@@ -143,7 +143,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
@@ -156,7 +156,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
@@ -169,7 +169,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
@@ -182,7 +182,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
@@ -195,7 +195,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
@@ -208,7 +208,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
@@ -221,7 +221,7 @@ function App() {
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
               requestHistoryList={requestHistoryList}
-              handleShowPreloader={handleShowPreloader}
+              handleShowHistoryList={handleShowHistoryList}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
