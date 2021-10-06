@@ -72,7 +72,7 @@ function App() {
           .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`))
       })
       .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`))
-      // .finally(() => setPreloaderShow(false));
+      .finally(() => setPreloaderShow(false));
   }
 
   function handleOpenRequestList() {

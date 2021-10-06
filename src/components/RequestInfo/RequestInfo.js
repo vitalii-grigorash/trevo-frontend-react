@@ -9,8 +9,11 @@ function RequestInfo(props) {
         requestInfo
     } = props;
 
+    const lat = requestInfo.result.lat;
+    const lon = requestInfo.result.lon;
+
     const placeMark = {
-        geometry: [55.998442, 92.951590],
+        geometry: [lat, lon],
         properties: {
             hintContent: '',
             balloonContent: '',
@@ -62,7 +65,7 @@ function RequestInfo(props) {
                         <YMaps>
                             <div className="request-info__map-container">
                                 <Map
-                                    defaultState={{ center: [requestInfo.result.lat, requestInfo.result.lon], zoom: 16 }}
+                                    defaultState={{ center: [lat, lon], zoom: 16 }}
                                     width={"100%"}
                                     height={"100%"}
                                 >
