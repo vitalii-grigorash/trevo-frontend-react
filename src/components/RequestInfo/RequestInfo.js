@@ -6,11 +6,13 @@ function RequestInfo(props) {
     const {
         isPreloaderShow,
         isInfoShow,
-        requestInfo
+        requestInfo,
+        requesName
     } = props;
 
-    const lat = requestInfo.result.lat;
-    const lon = requestInfo.result.lon;
+    const lat = `${isPreloaderShow ? '' : requestInfo.result.lat}`
+    const lon = `${isPreloaderShow ? '' : requestInfo.result.lon}`
+    const request = `${isPreloaderShow ? requesName : requestInfo.requestTypeName}`
 
     const placeMark = {
         geometry: [lat, lon],
@@ -31,7 +33,7 @@ function RequestInfo(props) {
             <div className="request-info__heading-container">
                 <div className="request-info__request-container">
                     <p className="request-info__request-param">Вагон № 1234567</p>
-                    <p className="request-info__request-text">{requestInfo.requestTypeName}</p>
+                    <p className="request-info__request-text">{request}</p>
                 </div>
                 {isPreloaderShow ? (
                     <></>

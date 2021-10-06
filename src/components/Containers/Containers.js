@@ -15,7 +15,8 @@ function Containers(props) {
     handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
-    requestInfo
+    requestInfo,
+    requesName
   } = props;
 
   const { pathname } = useLocation();
@@ -50,6 +51,7 @@ function Containers(props) {
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
         placeholder={'Номер контейнера'}
+        requesName={requesName}
       />
     </div>
   );

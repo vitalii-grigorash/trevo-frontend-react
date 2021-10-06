@@ -15,7 +15,8 @@ function Details(props) {
     handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
-    requestInfo
+    requestInfo,
+    requesName
   } = props;
 
   const { pathname } = useLocation();
@@ -50,6 +51,7 @@ function Details(props) {
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
         placeholder={'Номер детали'}
+        requesName={requesName}
       />
     </div>
   );

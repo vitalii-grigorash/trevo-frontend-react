@@ -10,6 +10,25 @@ function RequestHistory(props) {
   } = props;
 
   const [isShowSortOptions, setShowSortOptions] = useState(false);
+  const [showResultsFrom, setShowResultsFrom] = useState(0);
+  const [resultsShow, setResultsShow] = useState(10);
+
+  function showNextResults () {
+    setShowResultsFrom(0 + resultsShow);
+    console.log(showResultsFrom);
+    setResultsShow(resultsShow + resultsShow);
+    console.log(resultsShow);
+  }
+
+  // 0 + 1 = 1
+  // 1 + 1 = 2
+  // 0 + 2 = 2
+  // 
+
+  function showPrevResults () {
+    setShowResultsFrom(showResultsFrom - resultsShow);
+    setResultsShow(resultsShow - resultsShow);
+  }
 
   useEffect(() => {
     requestHistoryList.map((list) => {
@@ -45,7 +64,7 @@ function RequestHistory(props) {
         </div>
 
         <div className="request-history__list-container">
-          {requestHistoryList.map((list) => (
+          {requestHistoryList.slice(showResultsFrom, resultsShow).map((list) => (
             <RequestHistoryList
               key={list.id}
               id={list.id}
@@ -62,13 +81,13 @@ function RequestHistory(props) {
           {isShowSortOptions && (
             <div className="request-history__sort-options-container">
               <div className="request-history__show-result-container">
-                <p className="request-history__show-result-text">Показать: 10</p>
+                <p className="request-history__show-result-text">Показать: 1</p>
                 <div className="request-history__show-result-icon" />
               </div>
               <p className="request-history__sort-pages">1-4 из 4</p>
               <div className="request-history__sort-change-page-container">
-                <div className="request-history__sort-change-page-prev" />
-                <div className="request-history__sort-change-page-next" />
+                <div className="request-history__sort-change-page-prev" onClick={showPrevResults}/>
+                <div className="request-history__sort-change-page-next" onClick={showNextResults} />
               </div>
             </div>
           )}

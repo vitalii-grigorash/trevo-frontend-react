@@ -15,7 +15,8 @@ function Wagons(props) {
     handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
-    requestInfo
+    requestInfo,
+    requesName
   } = props;
 
   const { pathname } = useLocation();
@@ -50,6 +51,7 @@ function Wagons(props) {
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
         placeholder={'Номер вагона'}
+        requesName={requesName}
       />
     </div>
   );

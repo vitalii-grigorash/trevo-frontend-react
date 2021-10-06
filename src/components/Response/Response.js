@@ -10,7 +10,8 @@ function Response(props) {
     isPreloaderShow,
     isInfoShow,
     requestInfo,
-    placeholder
+    placeholder,
+    requesName
   } = props;
 
   return (
@@ -21,6 +22,7 @@ function Response(props) {
           isPreloaderShow={isPreloaderShow}
           isInfoShow={isInfoShow}
           requestInfo={requestInfo}
+          requesName={requesName}
         />
       )}
 

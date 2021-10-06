@@ -15,7 +15,8 @@ function Runs(props) {
     handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
-    requestInfo
+    requestInfo,
+    requesName
   } = props;
 
   const { pathname } = useLocation();
@@ -50,6 +51,7 @@ function Runs(props) {
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
         placeholder={'Введите параметр'}
+        requesName={requesName}
       />
     </div>
   );

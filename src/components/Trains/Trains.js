@@ -15,7 +15,8 @@ function Trains(props) {
     handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
-    requestInfo
+    requestInfo,
+    requesName
   } = props;
 
   const { pathname } = useLocation();
@@ -50,6 +51,7 @@ function Trains(props) {
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
         placeholder={'Номер поезда'}
+        requesName={requesName}
       />
     </div>
   );

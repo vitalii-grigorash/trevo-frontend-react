@@ -34,17 +34,21 @@ function App() {
   const [isPreloaderShow, setPreloaderShow] = useState(false);
   const [isInfoShow, setInfoShow] = useState(false);
   const [requestInfo, setRequestInfo] = useState({});
+  const [requesName, setRequesName] = useState('');
+
+  function getRequestHistoryList () {
+    Api.getRequestHistoryList()
+    .then((data) => {
+      setRequestHistoryList(data.reverse());
+    })
+    .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`));
+  }
 
   useEffect(() => {
-    Api.getRequestHistoryList()
-      .then((data) => {
-        setRequestHistoryList(data);
-      })
-      .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`));
+    getRequestHistoryList();
   }, []);
 
   function handleShowHistoryList(id) {
-    setInfoShow(true);
     function filteredObj(idToSearch) {
       return requestHistoryList.find((obj) => {
         const filtered = () => {
@@ -57,19 +61,19 @@ function App() {
       });
     };
     setRequestInfo(filteredObj(id));
+    setInfoShow(true);
   }
 
-  function addRequest(request) {
-    // setPreloaderShow(true);
-    // setInfoShow(true);
-    Api.postRequest(request)
+  function addRequest(requestData, requestName) {
+    setRequesName(requestName);
+    setPreloaderShow(true);
+    setInfoShow(true);
+    Api.postRequest(requestData)
+      .then((res) => {
+        setRequestInfo(res);
+      })
       .then(() => {
-        Api.getRequestHistoryList()
-          .then((data) => {
-            setRequestHistoryList(data);
-            // handleShowHistoryList(res.id);
-          })
-          .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`))
+        getRequestHistoryList();
       })
       .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`))
       .finally(() => setPreloaderShow(false));
@@ -121,6 +125,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 
@@ -134,6 +139,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 
@@ -147,6 +153,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 
@@ -160,6 +167,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 
@@ -173,6 +181,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 
@@ -186,6 +195,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 
@@ -199,6 +209,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 
@@ -212,6 +223,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 
@@ -225,6 +237,7 @@ function App() {
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
+              requesName={requesName}
             />
           </Route>
 

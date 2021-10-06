@@ -15,7 +15,8 @@ function Stations(props) {
     handleShowHistoryList,
     isPreloaderShow,
     isInfoShow,
-    requestInfo
+    requestInfo,
+    requesName
   } = props;
   
   const { pathname } = useLocation();
@@ -50,6 +51,7 @@ function Stations(props) {
         isInfoShow={isInfoShow}
         requestInfo={requestInfo}
         placeholder={'Номер станции'}
+        requesName={requesName}
       />
     </div>
   );
