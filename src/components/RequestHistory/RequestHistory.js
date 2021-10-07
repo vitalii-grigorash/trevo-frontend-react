@@ -17,6 +17,19 @@ function RequestHistory(props) {
   const [result, setResult] = useState(10);
   const [allPages, setAllPages] = useState(0);
   const [pageCount, setPageCount] = useState(1);
+  const [isReverse, setReverse] = useState(false);
+  const [requestHistoryListReverse, setRequestHistoryListReverse] = useState([]);
+  const historyList = isReverse ? requestHistoryListReverse : requestHistoryList;
+
+  function handleDateSort () {
+    if (isReverse) {
+      setRequestHistoryListReverse(requestHistoryList.reverse());
+      setReverse(false);
+    } else {
+      setRequestHistoryListReverse(requestHistoryList.reverse());
+      setReverse(true);
+    }
+  }
 
   useEffect(() => {
     const pages = requestHistoryList.length / selectedResultsShow
@@ -82,7 +95,7 @@ function RequestHistory(props) {
         <div className="request-history__reqests-heading">
           <div className="request-history__date-container">
             <p className="request-history__date">Дата запроса</p>
-            <div className="request-history__date-sort-icon" />
+            <div className="request-history__date-sort-icon" onClick={handleDateSort} />
           </div>
           <p className="request-history__request">Запрос</p>
           <p className="request-history__param">Параметр</p>
@@ -90,7 +103,7 @@ function RequestHistory(props) {
           <p className="request-history__actions">Действия</p>
         </div>
         <div className="request-history__list-container">
-          {requestHistoryList.slice(showResultsFrom, resultsShow).map((list) => (
+          {historyList.slice(showResultsFrom, resultsShow).map((list) => (
             <RequestHistoryList
               key={list.id}
               id={list.id}

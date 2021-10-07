@@ -16,7 +16,7 @@ function Stations(props) {
     isPreloaderShow,
     isInfoShow,
     requestInfo,
-    requesName
+    requesName,
   } = props;
   
   const { pathname } = useLocation();

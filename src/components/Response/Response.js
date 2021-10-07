@@ -11,7 +11,7 @@ function Response(props) {
     isInfoShow,
     requestInfo,
     placeholder,
-    requesName
+    requesName,
   } = props;
 
   return (
