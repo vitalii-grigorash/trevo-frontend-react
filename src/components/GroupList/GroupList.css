@@ -13,7 +13,7 @@
     font-size: 12px;
     line-height: 24px;
     letter-spacing: 0.004em;
-    color: rgba(0, 0, 0, 0.87);
+    color: #444C5C;
     margin: 0 auto 0 0;
 }
 .group-list__search-container {
@@ -23,7 +23,7 @@
 .group-list__select-group-container {
     display: flex;
     position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid #CFD4DD;
     box-sizing: border-box;
     border-radius: 4px;
     width: 324px;
@@ -40,11 +40,11 @@
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.0025em;
-    color: rgba(0, 0, 0, 0.6);
+    color: #939CAD;
     margin: 0 auto 0 16px;
 }
 .group-list__select-group-text_active {
-    color: rgba(0, 0, 0, 0.87);
+    color: #444C5C;
 }
 .group-list__select-group-arrow {
     background-image: url('../../images/arrow-down-dark.svg');
@@ -78,7 +78,7 @@
     cursor: default;
 }
 .group-list__group-select-group-container_result:hover {
-    background: #E7F2F9;
+    background: #ECEDF3;
     cursor: pointer;
 }
 .group-list__group-select-group-container:last-of-type {
@@ -90,7 +90,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: rgba(0, 0, 0, 0.87);
+    color: #444C5C;
     letter-spacing: 0.0025em;
     margin: 0 auto 0 16px;
 }
@@ -110,22 +110,22 @@
     color: #FFFFFF;
 }
 .group-list__select-group-button_active {
-    background: #33CC99;
+    background: #00A2E1;
     cursor: pointer;
 }
 .group-list__select-group-button_active:hover {
-    background: #25A47A;
+    background: #00A2E1;
 }
 .group-list__select-group-button_active:active {
-    background: #33CC99;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+    background: #00A2E1;
+    box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
 }
 .group-list__remove-all {
     margin: auto 0 0 auto;
     width: 258px;
     height: 40px;
     background: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid #CFD4DD;
     box-sizing: border-box;
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
@@ -135,12 +135,12 @@
     line-height: 15px;
     letter-spacing: 0.0125em;
     text-transform: uppercase;
-    color: #33CC99;
+    color: #00A2E1;
     cursor: pointer;
 }
 .group-list__remove-all:hover {
-    background: rgba(51, 204, 153, 0.04);
+    background: rgba(0, 162, 225, 0.04);
 }
 .group-list__remove-all:active {
-    background: rgba(51, 204, 153, 0.12);
+    background: rgba(0, 162, 225, 0.12);
 }

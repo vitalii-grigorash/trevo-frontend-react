@@ -1,7 +1,7 @@
 .my-list-vagons-tab {
     display: flex;
     flex-direction: column;
-    background: #F6F6F6;
+    background: #F5F6F7;
     border-radius: 0px 4px 4px 4px;
 }
 .my-list-vagons-tab__add-vagons {
@@ -28,11 +28,11 @@
     line-height: 15px;
     letter-spacing: 0.0125em;
     text-transform: uppercase;
-    color: #565656;
+    color: #667389;
     margin: 0;
 }
 .my-list-vagons-tab__add-vagons-text_active {
-    color: #1081C7;
+    color: #00A2E1;
 }
 .my-list-vagons-tab__table-heading-container {
     display: flex;
@@ -45,7 +45,7 @@
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.001em;
-    color: #565656;
+    color: #667389;
     margin: 0 auto 0 0;
 }
 .my-list-vagons-tab__table-heading-icons-container {

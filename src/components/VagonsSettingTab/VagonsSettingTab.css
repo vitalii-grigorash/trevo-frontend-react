@@ -14,7 +14,7 @@
     border-radius: 4px 4px 0px 0px;
 }
 .vagons-setting-tab__tab-container_active {
-    background: #F6F6F6;
+    background: #F5F6F7;
 }
 .vagons-setting-tab__tab {
     font-family: 'Inter', sans-serif;
@@ -22,10 +22,10 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
-    color: rgba(0, 0, 0, 0.6);
+    color: #667389;
     margin: 16px 24px;
     letter-spacing: 0.001em;
 }
 .vagons-setting-tab__tab_active {
-    color: rgba(0, 0, 0, 0.87);
+    color: #313744;
 }
