@@ -7,9 +7,9 @@
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.0025em;
-    color: rgba(0, 0, 0, 0.87);
+    color: #444C5C;
     margin: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid #CFD4DD;
 }
 .request-history-list:last-of-type {
     border-bottom: none;
@@ -47,7 +47,7 @@
 .request-history-list__status {
     margin: 16px 32px auto 0;
     min-width: 100px;
-    color: #33CC99;
+    color: #00CF8C;
 }
 .request-history-list__status_processing {
     color: #444C5C;
