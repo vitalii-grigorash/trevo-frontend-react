@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 
 function SideBar () {
 
@@ -8,6 +8,11 @@ function SideBar () {
     const [isCardFileOpen, setCardFileOpen] = useState(false);
     const [isOperationalOpen, setOperationalOpen] = useState(false);
     const [isRegulatedOpen, setRegulatedOpen] = useState(false);
+    const history = useHistory();
+
+    function onLogoClick () {
+        history.push('/');
+    }
 
     useEffect(() => {
         if (
@@ -60,7 +65,7 @@ function SideBar () {
     return (
         <section className="side-bar">
             <nav className="side-bar__main-container">
-                <Link to={'/'} className="side-bar__logo">trevo</Link>
+                <div className="side-bar__logo" onClick={onLogoClick}/>
                 <div className="side-bar__links-container">
                     <div className={`side-bar__main-link-container ${isCardFileOpen && 'side-bar__main-link-container_active'}`} onClick={toggCardFileOpen}>
                         <p className={`side-bar__main-link-text ${isCardFileOpen && 'side-bar__main-link-text_open'}`}>Картотека</p>
