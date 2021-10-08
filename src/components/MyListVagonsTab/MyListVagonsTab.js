@@ -15,15 +15,17 @@ function MyListVagonsTab(props) {
     const [isShowSaveTooltip, setShowSaveTooltip] = useState(false);
     const [isShowDownloadTooltip, setShowDownloadTooltip] = useState(false);
 
-    function onCheckboxClick(e, checkbox, vagonNumber, groupName, date, description) {
+    function onCheckboxClick(checkbox, dataToSend) {
         if (checkbox === true) {
-            setCheckboxSelectedData([...checkboxSelectedData, { vagonNumber, groupName, date, description }])
-            e.target.closest('.my-list-result__info-container').classList.add('my-list-result__info-container_checked');
+            setCheckboxSelectedData(checkboxSelectedData => ([...checkboxSelectedData, dataToSend]));
         } else {
-            const filteredItems = checkboxSelectedData.filter(item => item.vagonNumber !== vagonNumber);
-            e.target.closest('.my-list-result__info-container').classList.remove('my-list-result__info-container_checked');
+            const filteredItems = (checkboxSelectedData => checkboxSelectedData.filter(item => item.vagonNumber !== dataToSend.vagonNumber));
             setCheckboxSelectedData(filteredItems);
         }
+    }
+
+    function removeAllSelectedVagons() {
+        console.log(checkboxSelectedData)
     }
 
     function handleShowRemoveTooltip() {
@@ -86,7 +88,7 @@ function MyListVagonsTab(props) {
                             <div className="my-list-vagons-tab__table-heading-above-icon-tooltip-download" />
                         )}
                     </div>
-                    <div className="my-list-vagons-tab__table-heading-icon-remove" onMouseEnter={handleShowRemoveTooltip} onMouseLeave={handleCloseRemoveTooltip}>
+                    <div className="my-list-vagons-tab__table-heading-icon-remove" onMouseEnter={handleShowRemoveTooltip} onMouseLeave={handleCloseRemoveTooltip} onClick={removeAllSelectedVagons}>
                         {isShowRemoveTooltip && (
                             <div className="my-list-vagons-tab__table-heading-above-icon-tooltip-remove" />
                         )}

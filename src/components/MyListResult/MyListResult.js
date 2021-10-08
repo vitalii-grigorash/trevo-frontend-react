@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MyListResultData from '../../utils/MyListResultData.json';
+import MyListResultItem from '../MyListResultItem/MyListResultItem';
 
 function MyListResult(props) {
 
   const {
-    onCheckboxClick,
+    onCheckboxClick
   } = props;
+
+  const [isAllWagonsSelected, setAllWagonsSelected] = useState(false);
+
+  function selectAllWagons() {
+    if (isAllWagonsSelected) {
+        setAllWagonsSelected(false);
+    } else {
+        setAllWagonsSelected(true);
+    }
+}
 
   return (
     <div className="my-list-result">
       <div className="my-list-result__heading-container">
-        <input className="my-list-result__checkbox" type="checkbox" />
+        <div className="my-list-result__checkbox">
+          <input
+            id="AllWagonSelectCheckbox"
+            type="checkbox"
+            onClick={selectAllWagons}
+          />
+          <label htmlFor="AllWagonSelectCheckbox"></label>
+        </div>
         <p className="my-list-result__heading-number">№ вагона</p>
         <p className="my-list-result__heading-name">Название группы</p>
         <p className="my-list-result__heading-date">Дата постановки</p>
@@ -18,18 +36,16 @@ function MyListResult(props) {
       </div>
       {MyListResultData.map((data, index) => {
         return (
-          <div key={index} className="my-list-result__info-container">
-            <input 
-              className="my-list-result__checkbox" 
-              type="checkbox"
-              onClick={(e) => onCheckboxClick(e, e.target.checked, data.vagonNumber, data.groupName, data.date, data.description)}
-            />
-            <p className="my-list-result__number">{data.vagonNumber}</p>
-            <p className="my-list-result__name">{data.groupName}</p>
-            <p className="my-list-result__date">{data.date}</p>
-            <p className="my-list-result__description">{data.description}</p>
-            <div className="my-list-result__menu-icon" />
-          </div>
+          <MyListResultItem
+            key={index}
+            id={index}
+            vagonNumber={data.vagonNumber}
+            groupName={data.groupName}
+            date={data.date}
+            description={data.description}
+            onCheckboxClick={onCheckboxClick}
+            isAllWagonsSelected={isAllWagonsSelected}
+          />
         )
       })}
       <div className="my-list-result__bottom-container">
