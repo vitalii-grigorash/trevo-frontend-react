@@ -134,6 +134,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 
@@ -148,6 +149,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 
@@ -162,6 +164,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 
@@ -176,6 +179,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 
@@ -190,6 +194,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 
@@ -219,6 +224,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 
@@ -233,6 +239,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 
@@ -247,6 +254,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 

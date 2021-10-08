@@ -16,7 +16,8 @@ function Passports(props) {
     isPreloaderShow,
     isInfoShow,
     requestInfo,
-    requesName
+    requesName,
+    removeHistoryListRequest
   } = props;
 
   const { pathname } = useLocation();
@@ -52,6 +53,7 @@ function Passports(props) {
         requestInfo={requestInfo}
         placeholder={'Номер паспорта'}
         requesName={requesName}
+        removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>
   );

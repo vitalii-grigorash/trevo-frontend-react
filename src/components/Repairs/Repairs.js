@@ -16,7 +16,8 @@ function Repairs(props) {
     isPreloaderShow,
     isInfoShow,
     requestInfo,
-    requesName
+    requesName,
+    removeHistoryListRequest
   } = props;
 
   const { pathname } = useLocation();
@@ -52,6 +53,7 @@ function Repairs(props) {
         requestInfo={requestInfo}
         placeholder={'Введите параметр'}
         requesName={requesName}
+        removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>
   );

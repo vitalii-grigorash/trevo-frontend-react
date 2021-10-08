@@ -16,7 +16,8 @@ function GeneralInquiries(props) {
     isPreloaderShow,
     isInfoShow,
     requestInfo,
-    requesName
+    requesName,
+    removeHistoryListRequest
   } = props;
 
   const { pathname } = useLocation();
@@ -52,6 +53,7 @@ function GeneralInquiries(props) {
         requestInfo={requestInfo}
         placeholder={'Введите параметр'}
         requesName={requesName}
+        removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>
   );
