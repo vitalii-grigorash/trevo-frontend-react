@@ -79,6 +79,14 @@ function App() {
       .finally(() => setPreloaderShow(false));
   }
 
+  function removeHistoryListRequest (id) {
+    Api.removeHistoryRequest(id)
+    .then(() => {
+      getRequestHistoryList();
+    })
+    .catch((err) => console.log(`Ошибка: ${err}`));
+  }
+
   function handleOpenRequestList() {
     if (isRequestListOpen) {
       setRequestListOpen(false)
@@ -196,6 +204,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
 

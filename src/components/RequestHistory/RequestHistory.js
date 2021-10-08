@@ -7,6 +7,7 @@ function RequestHistory(props) {
     requestHistoryList,
     handleShowHistoryList,
     placeholder,
+    removeHistoryListRequest,
   } = props;
 
   const [isShowSortOptions, setShowSortOptions] = useState(false);
@@ -112,6 +113,7 @@ function RequestHistory(props) {
               params={list.params}
               status={list.status}
               handleShowHistoryList={handleShowHistoryList}
+              removeHistoryListRequest={removeHistoryListRequest}
             />
           ))}
         </div>

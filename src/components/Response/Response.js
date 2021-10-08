@@ -12,6 +12,7 @@ function Response(props) {
     requestInfo,
     placeholder,
     requesName,
+    removeHistoryListRequest,
   } = props;
 
   return (
@@ -30,6 +31,7 @@ function Response(props) {
         requestHistoryList={requestHistoryList}
         handleShowHistoryList={handleShowHistoryList}
         placeholder={placeholder}
+        removeHistoryListRequest={removeHistoryListRequest}
       />
 
     </div>

@@ -56,3 +56,23 @@ export const getRequestHistoryList = () => {
             throw new Error(err.message);
         });
 };
+
+export const removeHistoryRequest = (id) => {
+    return fetch(`${BASE_URL}/operational/station/request/delete/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then((data) => {
+            return data;
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+}
