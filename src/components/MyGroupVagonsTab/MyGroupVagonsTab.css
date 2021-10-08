@@ -1,7 +1,7 @@
 .my-group-vagons-tab {
     display: flex;
     flex-direction: column;
-    background: #F6F6F6;
+    background: #F5F6F7;
     border-radius: 4px;
 }
 .my-group-vagons-tab__add-group {
@@ -28,11 +28,11 @@
     line-height: 15px;
     letter-spacing: 0.0125em;
     text-transform: uppercase;
-    color: #565656;
+    color: #667389;
     margin: 0;
 }
 .my-group-vagons-tab__add-group-text_active {
-    color: #1081C7;
+    color: #00A2E1;
 }
 .my-group-vagons-tab__add-group-container {
     display: flex;
@@ -61,7 +61,7 @@
     font-size: 16px;
     line-height: 19px;
     letter-spacing: 0.0015em;
-    color: #565656;
+    color: #444C5C;
     margin: 24px auto 0 24px;
 }
 .my-group-vagons-tab__add-group-span {
@@ -71,14 +71,14 @@
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.004em;
-    color: #313744;
+    color: #444C5C;
     margin: 24px auto 0 24px;
 }
 .my-group-vagons-tab__add-group-input {
     width: 300px;
     height: 40px;
     margin: 8px 24px 0;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid #CFD4DD;
     box-sizing: border-box;
     border-radius: 4px;
 }
@@ -86,7 +86,7 @@
     width: 117px;
     height: 40px;
     margin: 24px auto 24px 24px;
-    background: #33CC99;
+    background: #00A2E1;
     border-radius: 4px;
     border: none;
     font-family: 'Inter', sans-serif;
@@ -100,11 +100,11 @@
     cursor: pointer;
 }
 .my-group-vagons-tab__add-group-button:hover {
-    background: #25A47A;
+    background: #00A2E1;
 }
 .my-group-vagons-tab__add-group-button:active {
-    background: #33CC99;
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
+    background: #00A2E1;
+    box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
 }
 .my-group-vagons-tab__table-heading-container {
     display: flex;
@@ -117,7 +117,7 @@
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.001em;
-    color: #565656;
+    color: #667389;
     margin: 0 auto 0 0;
 }
 .my-group-vagons-tab__table-heading-icons-container {

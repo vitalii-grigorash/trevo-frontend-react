@@ -67,8 +67,8 @@ function MyGroupResultTableItems(props) {
     }
 
     return (
-        <div className="my-group-result-table-items">
-            <div className={`my-group-result-table-items__container ${isChangeBackground ? '' : isMyGroupResultTableItemsOpened && 'my-group-result-table-items__container_opened'}`}>
+        <div className={`my-group-result-table-items ${isChangeBackground ? 'my-group-result-table-items_opened' : isMyGroupResultTableItemsOpened && ''}`}>
+            <div className='my-group-result-table-items__container'>
                 <div className={`my-group-result-table-items__expand-icon ${isGroupOptionsOpened && 'my-group-result-table-items__expand-icon_active'}`} onClick={handleGroupOptionsOpen} />
                 <p className="my-group-result-table-items__group-number">{groupNumber}</p>
                 <p className="my-group-result-table-items__group-name">{groupName}</p>

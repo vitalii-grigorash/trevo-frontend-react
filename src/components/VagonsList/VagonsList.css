@@ -13,7 +13,7 @@
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.0025em;
-    color: rgba(0, 0, 0, 0.6);
+    color: #444C5C;
     min-width: 70px;
     text-align: right;
     margin: auto 32px;
@@ -25,7 +25,7 @@
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.0025em;
-    color: #313744;
+    color: #444C5C;
     text-align: right;
     min-width: 143px;
     margin: auto 32px auto 0;
@@ -36,6 +36,6 @@
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
-    color: rgba(0, 0, 0, 0.6);
+    color: #444C5C;
     margin: auto auto auto 0;
 }
