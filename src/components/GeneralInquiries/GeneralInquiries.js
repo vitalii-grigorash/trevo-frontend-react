@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Request from '../Request/Request';
 import Response from '../Response/Response';
 import { useLocation } from 'react-router-dom';
-import * as Api from '../../utils/Api';
+import * as StationsPageApi from '../../utils/StationsPageApi';
 
 function GeneralInquiries(props) {
 
@@ -26,7 +26,7 @@ function GeneralInquiries(props) {
 
   useEffect(() => {
     if (pathname === '/general-inquiries') {
-      Api.getRequestType()
+      StationsPageApi.getRequestType()
         .then((data) => {
           setRequestList(data);
         })

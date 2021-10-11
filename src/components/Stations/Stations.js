@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import Request from '../Request/Request';
 import Response from '../Response/Response';
 import { useLocation } from 'react-router-dom';
-import * as Api from '../../utils/Api';
+import * as StationsPageApi from '../../utils/StationsPageApi';
 
 function Stations(props) {
 
@@ -26,7 +26,7 @@ function Stations(props) {
 
   useEffect(() => {
     if (pathname === '/stations') {
-      Api.getRequestType()
+      StationsPageApi.getRequestType()
         .then((data) => {
           setRequestList(data);
         })

@@ -18,7 +18,7 @@ import FinancialPanel from '../FinancialPanel/FinancialPanel';
 import Administration from '../Administration/Administration';
 import PersonalAccount from '../PersonalAccount/PersonalAccount';
 import NotFound from '../NotFound/NotFound';
-import * as Api from '../../utils/Api';
+import * as StationsPageApi from '../../utils/StationsPageApi';
 
 function App() {
 
@@ -38,7 +38,7 @@ function App() {
   const [requesId, setRequesId] = useState('');
 
   function getRequestHistoryList () {
-    Api.getRequestHistoryList()
+    StationsPageApi.getRequestHistoryList()
     .then((data) => {
       setRequestHistoryList(data.reverse());
     })
@@ -69,7 +69,7 @@ function App() {
     setRequesName(requestName);
     setPreloaderShow(true);
     setInfoShow(true);
-    Api.postRequest(requestData)
+    StationsPageApi.postRequest(requestData)
       .then((res) => {
         setRequestInfo(res);
         setRequesId(res.id);
@@ -82,7 +82,7 @@ function App() {
   }
 
   function removeHistoryListRequest (id) {
-    Api.removeHistoryRequest(id)
+    StationsPageApi.removeHistoryRequest(id)
     .then(() => {
       getRequestHistoryList();
     })
