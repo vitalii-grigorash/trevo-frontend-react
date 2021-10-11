@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import MyListResultData from '../../utils/MyListResultData.json';
 import MyListResultItem from '../MyListResultItem/MyListResultItem';
 
 function MyListResult(props) {
