@@ -6,7 +6,7 @@ function MyListResultItem(props) {
         onCheckboxClick,
         isAllWagonsSelected,
         id,
-        vagonNumber,
+        carriageNumber,
         groupName,
         date,
         description,
@@ -15,10 +15,11 @@ function MyListResultItem(props) {
     const [isCheckboxChecked, setCheckboxChecked] = useState(false);
 
     const dataToSend = {
+        id: id,
         date: date,
         description: description,
         groupName: groupName,
-        vagonNumber: vagonNumber
+        vagonNumber: carriageNumber
     }
 
     useEffect(() => {
@@ -56,7 +57,7 @@ function MyListResultItem(props) {
                 />
                 <label htmlFor={id}></label>
             </div>
-            <p className="my-list-result-item__number">{vagonNumber}</p>
+            <p className="my-list-result-item__number">{carriageNumber}</p>
             <p className="my-list-result-item__name">{groupName}</p>
             <p className="my-list-result-item__date">{date}</p>
             <p className="my-list-result-item__description">{description}</p>

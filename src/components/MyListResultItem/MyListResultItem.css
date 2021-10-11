@@ -47,8 +47,8 @@
 }
 .my-list-result-item__number {
     margin: 0 32px 0 0;
-    min-width: 80px;
-    text-align: right;
+    min-width: 110px;
+    text-align: left;
 }
 .my-list-result-item__name {
     margin: 0 32px 0 0;

@@ -6,7 +6,8 @@ import MyListResult from '../MyListResult/MyListResult';
 function MyListVagonsTab(props) {
 
     const {
-        groupsData
+        groupsData,
+        carriageList
     } = props;
 
     const [checkboxSelectedData, setCheckboxSelectedData] = useState([]);
@@ -97,6 +98,7 @@ function MyListVagonsTab(props) {
             </div>
             <MyListResult
                 onCheckboxClick={onCheckboxClick}
+                carriageList={carriageList}
             />
         </div>
     );

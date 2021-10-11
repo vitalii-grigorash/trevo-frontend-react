@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import MyListResultData from '../../utils/MyListResultData.json';
+// import MyListResultData from '../../utils/MyListResultData.json';
 import MyListResultItem from '../MyListResultItem/MyListResultItem';
 
 function MyListResult(props) {
 
   const {
-    onCheckboxClick
+    onCheckboxClick,
+    carriageList
   } = props;
 
   const [isAllWagonsSelected, setAllWagonsSelected] = useState(false);
@@ -34,14 +35,14 @@ function MyListResult(props) {
         <p className="my-list-result__heading-date">Дата постановки</p>
         <p className="my-list-result__heading-description">Примечание</p>
       </div>
-      {MyListResultData.map((data, index) => {
+      {carriageList.map((data) => {
         return (
           <MyListResultItem
-            key={index}
-            id={index}
-            vagonNumber={data.vagonNumber}
+            key={data.id}
+            id={data.id}
+            carriageNumber={data.carriageNumber}
             groupName={data.groupName}
-            date={data.date}
+            date={data.trackingStartDate}
             description={data.description}
             onCheckboxClick={onCheckboxClick}
             isAllWagonsSelected={isAllWagonsSelected}

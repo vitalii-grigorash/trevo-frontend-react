@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MyListVagonsTab from '../MyListVagonsTab/MyListVagonsTab';
 import FieldVisibilityVagonsTab from '../FieldVisibilityVagonsTab/FieldVisibilityVagonsTab';
 import ScheduleAndMailingVagonsTab from '../ScheduleAndMailingVagonsTab/ScheduleAndMailingVagonsTab';
 import AlertsVagonsTab from '../AlertsVagonsTab/AlertsVagonsTab';
 import MyGroupVagonsTab from '../MyGroupVagonsTab/MyGroupVagonsTab';
+import * as SettingsPageApi from '../../utils/SettingPageApi';
 
 function VagonsSettingTab() {
 
@@ -12,6 +13,17 @@ function VagonsSettingTab() {
     const [isFieldVisibilityTabOpen, setFieldVisibilityTabOpen] = useState(false);
     const [isScheduleAndMailingTabOpen, setScheduleAndMailingTabOpen] = useState(false);
     const [isAlertsTabOpen, setAlertsTabOpen] = useState(false);
+    const [carriageList, setCarriageList] = useState([]);
+
+    console.log(carriageList);
+
+    useEffect(() => {
+        SettingsPageApi.getAllCarriage()
+            .then((data) => {
+                setCarriageList(data);
+            })
+            .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+    }, []);
 
     const groupsData = [
         {
@@ -92,6 +104,7 @@ function VagonsSettingTab() {
             </div>
             {isMyListTabOpen && <MyListVagonsTab
                 groupsData={groupsData}
+                carriageList={carriageList}
             />}
             {isMyGroupTabOpen && <MyGroupVagonsTab
                 groupsData={groupsData}
