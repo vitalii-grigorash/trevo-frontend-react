@@ -17,6 +17,7 @@ function Containers(props) {
     isInfoShow,
     requestInfo,
     requesName,
+    requesId,
     removeHistoryListRequest
   } = props;
 
@@ -53,6 +54,7 @@ function Containers(props) {
         requestInfo={requestInfo}
         placeholder={'Номер контейнера'}
         requesName={requesName}
+        requesId={requesId}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

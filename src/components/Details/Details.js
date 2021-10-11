@@ -17,6 +17,7 @@ function Details(props) {
     isInfoShow,
     requestInfo,
     requesName,
+    requesId,
     removeHistoryListRequest
   } = props;
 
@@ -53,6 +54,7 @@ function Details(props) {
         requestInfo={requestInfo}
         placeholder={'Номер детали'}
         requesName={requesName}
+        requesId={requesId}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

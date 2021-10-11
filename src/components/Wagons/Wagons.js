@@ -17,6 +17,7 @@ function Wagons(props) {
     isInfoShow,
     requestInfo,
     requesName,
+    requesId,
     removeHistoryListRequest
   } = props;
 
@@ -53,6 +54,7 @@ function Wagons(props) {
         requestInfo={requestInfo}
         placeholder={'Номер вагона'}
         requesName={requesName}
+        requesId={requesId}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

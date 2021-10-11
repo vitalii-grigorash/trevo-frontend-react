@@ -95,8 +95,8 @@
 }
 .request-history__param {
     margin: auto 32px auto 0;
-    width: 107px;
-    text-align: right;
+    width: 198px;
+    text-align: left;
 }
 .request-history__status {
     margin: auto 32px auto 0;
@@ -105,7 +105,7 @@
 .request-history__actions {
     margin: auto 69px auto 0;
     text-align: center;
-    width: 129px;
+    width: 68px;
 }
 .request-history__list-container {
     display: flex;

@@ -35,6 +35,7 @@ function App() {
   const [isInfoShow, setInfoShow] = useState(false);
   const [requestInfo, setRequestInfo] = useState({});
   const [requesName, setRequesName] = useState('');
+  const [requesId, setRequesId] = useState('');
 
   function getRequestHistoryList () {
     Api.getRequestHistoryList()
@@ -53,7 +54,6 @@ function App() {
       return requestHistoryList.find((obj) => {
         const filtered = () => {
           if (obj.id === idToSearch) {
-            console.log(obj);
             return obj
           }
         }
@@ -61,6 +61,7 @@ function App() {
       });
     };
     setRequestInfo(filteredObj(id));
+    setRequesId(id);
     setInfoShow(true);
   }
 
@@ -71,6 +72,7 @@ function App() {
     Api.postRequest(requestData)
       .then((res) => {
         setRequestInfo(res);
+        setRequesId(res.id);
       })
       .then(() => {
         getRequestHistoryList();
@@ -135,6 +137,7 @@ function App() {
               requestInfo={requestInfo}
               requesName={requesName}
               removeHistoryListRequest={removeHistoryListRequest}
+              requesId={requesId}
             />
           </Route>
 
@@ -149,6 +152,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              requesId={requesId}
               removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
@@ -164,6 +168,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              requesId={requesId}
               removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
@@ -179,6 +184,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              requesId={requesId}
               removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
@@ -194,6 +200,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              requesId={requesId}
               removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
@@ -209,6 +216,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              requesId={requesId}
               removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
@@ -224,6 +232,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              requesId={requesId}
               removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
@@ -239,6 +248,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              requesId={requesId}
               removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>
@@ -254,6 +264,7 @@ function App() {
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
               requesName={requesName}
+              requesId={requesId}
               removeHistoryListRequest={removeHistoryListRequest}
             />
           </Route>

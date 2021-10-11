@@ -17,6 +17,7 @@ function Runs(props) {
     isInfoShow,
     requestInfo,
     requesName,
+    requesId,
     removeHistoryListRequest
   } = props;
 
@@ -53,6 +54,7 @@ function Runs(props) {
         requestInfo={requestInfo}
         placeholder={'Введите параметр'}
         requesName={requesName}
+        requesId={requesId}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

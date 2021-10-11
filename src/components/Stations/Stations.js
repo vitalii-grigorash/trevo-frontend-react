@@ -17,6 +17,7 @@ function Stations(props) {
     isInfoShow,
     requestInfo,
     requesName,
+    requesId,
     removeHistoryListRequest
   } = props;
   
@@ -53,6 +54,7 @@ function Stations(props) {
         requestInfo={requestInfo}
         placeholder={'Номер станции'}
         requesName={requesName}
+        requesId={requesId}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

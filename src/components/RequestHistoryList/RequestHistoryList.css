@@ -1,6 +1,6 @@
 .request-history-list {
     display: flex;
-    height: 66px;
+    min-height: 66px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -17,6 +17,7 @@
 .request-history-list__date {
     margin: 16px 32px auto 32px;
     min-width: 140px;
+    text-align: right;
 }
 .request-history-list__request {
     margin: 16px auto auto 0;
@@ -31,18 +32,46 @@
 .request-history-list__params-container {
     display: flex;
     flex-direction: column;
-    min-width: 107px;
-    max-height: 48px;
-    overflow: hidden;
-    margin: 16px 32px auto 32px;
+    min-width: 198px;
+    margin: 16px 32px;
 }
-.request-history-list__param {
-    margin: 0 0 0 auto;
-    max-width: 107px;
-    min-height: 24px;
+.request-history-list__param-container {
+    display: flex;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.0025em;
+    color: #667389;
+    margin: 10px auto 0 0;
+    max-width: 198px;
+    overflow: hidden;
+}
+.request-history-list__param-container:first-of-type {
+    margin-top: 0;
+}
+.request-history-list__key {
+    margin: 0 5px 0 0;
+}
+.request-history-list__val {
+    color: #444C5C;
+    margin: 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.request-history-list__show-more {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: #00A2E1;
+    margin: 10px auto 0 0;
+    cursor: pointer;
+    border-bottom: 1px solid #00A2E1;
 }
 .request-history-list__status {
     margin: 16px 32px auto 0;
@@ -55,7 +84,8 @@
 .request-history-list__actions-container {
     display: flex;
     margin: 16px 32px auto 0;
-    min-width: 129px;
+    min-width: 68px;
+    justify-content: center;
 }
 .request-history-list__action-download {
     background-image: url('../../images/download-icon.svg');
@@ -63,16 +93,7 @@
     background-repeat: no-repeat;
     width: 16px;
     height: 16px;
-    margin: auto 25px auto auto;
-    cursor: pointer;
-}
-.request-history-list__action-print {
-    background-image: url('../../images/print-icon.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    margin: auto auto auto 0;
+    margin: auto;
     cursor: pointer;
 }
 .request-history-list__options-button {
