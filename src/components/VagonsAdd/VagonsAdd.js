@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function VagonsAdd(props) {
 
     const {
-        groupsData,
+        carriageGroups,
         closeVagonsAdd
     } = props;
 
@@ -54,14 +54,14 @@ function VagonsAdd(props) {
                 <div className="vagons-add__select-group-arrow" />
                 {isGroupSelectOpen && (
                     <div className="vagons-add__group-select-container">
-                        {groupsData.length === 0 ? (
+                        {carriageGroups.length === 0 ? (
                             <div className="vagons-add__group-select-group-container">
                                 <p className="vagons-add__group-select-group-text">Необходимо добавить группу</p>
                             </div>
                         ) : (
-                            groupsData.map((data, index) => (
-                                <div key={index} className="vagons-add__group-select-group-container vagons-add__group-select-group-container_result" onClick={() => selectData(data.groupName)}>
-                                    <p className="vagons-add__group-select-group-text">{data.groupName}</p>
+                            carriageGroups.map((data, index) => (
+                                <div key={index} className="vagons-add__group-select-group-container vagons-add__group-select-group-container_result" onClick={() => selectData(data.name)}>
+                                    <p className="vagons-add__group-select-group-text">{data.name}</p>
                                 </div>
                             ))
                         )}

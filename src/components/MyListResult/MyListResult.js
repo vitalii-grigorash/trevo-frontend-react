@@ -39,9 +39,10 @@ function MyListResult(props) {
           <MyListResultItem
             key={data.id}
             id={data.id}
+            groupId={data.groupId}
             carriageNumber={data.carriageNumber}
             groupName={data.groupName}
-            date={data.trackingStartDate}
+            trackingStartDate={data.trackingStartDate}
             description={data.description}
             onCheckboxClick={onCheckboxClick}
             isAllWagonsSelected={isAllWagonsSelected}

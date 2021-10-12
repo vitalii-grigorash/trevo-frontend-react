@@ -14,8 +14,7 @@ function VagonsSettingTab() {
     const [isScheduleAndMailingTabOpen, setScheduleAndMailingTabOpen] = useState(false);
     const [isAlertsTabOpen, setAlertsTabOpen] = useState(false);
     const [carriageList, setCarriageList] = useState([]);
-
-    console.log(carriageList);
+    const [carriageGroups, setCarriageGroups] = useState([]);
 
     useEffect(() => {
         SettingsPageApi.getAllCarriage()
@@ -25,24 +24,15 @@ function VagonsSettingTab() {
             .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
     }, []);
 
-    const groupsData = [
-        {
-            groupName: 'Группа 4546',
-            vagonsValue: '5 634'
-        },
-        {
-            groupName: 'Группа 34356',
-            vagonsValue: '35 634'
-        },
-        {
-            groupName: 'Группа 426',
-            vagonsValue: '34'
-        },
-        {
-            groupName: 'Группа 678765',
-            vagonsValue: '355'
-        },
-    ]
+    useEffect(() => {
+        SettingsPageApi.getCarriageGroups()
+            .then((data) => {
+                setCarriageGroups(data);
+            })
+            .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+    }, []);
+
+    console.log(carriageGroups);
 
     function handleMyListTabOpen() {
         setMyListTabOpen(true);
@@ -103,11 +93,11 @@ function VagonsSettingTab() {
                 </div>
             </div>
             {isMyListTabOpen && <MyListVagonsTab
-                groupsData={groupsData}
+                carriageGroups={carriageGroups}
                 carriageList={carriageList}
             />}
             {isMyGroupTabOpen && <MyGroupVagonsTab
-                groupsData={groupsData}
+                carriageGroups={carriageGroups}
             />}
             {isFieldVisibilityTabOpen && <FieldVisibilityVagonsTab />}
             {isScheduleAndMailingTabOpen && <ScheduleAndMailingVagonsTab />}

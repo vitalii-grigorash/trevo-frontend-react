@@ -6,7 +6,7 @@ import MyGroupResultData from '../../utils/MyGroupResultData.json';
 function MyGroupVagonsTab(props) {
 
     const {
-        groupsData
+        carriageGroups
     } = props;
 
     const [isGroupAddActive, setGroupAddActive] = useState(false);
@@ -41,7 +41,7 @@ function MyGroupVagonsTab(props) {
     return (
         <div className="my-group-vagons-tab">
             <GroupList
-                groupsData={groupsData}
+                carriageGroups={carriageGroups}
             />
             <div className="my-group-vagons-tab__add-group" onClick={handleAddGroupClick}>
                 <div className={`my-group-vagons-tab__add-group-icon ${isGroupAddActive && 'my-group-vagons-tab__add-group-icon_active'}`} />

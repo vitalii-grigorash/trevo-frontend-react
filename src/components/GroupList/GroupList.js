@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function GroupList(props) {
 
     const {
-        groupsData
+        carriageGroups
     } = props;
 
     const [isGroupSelectContainerOpen, setGroupSelectContainerOpen] = useState(false);
@@ -33,14 +33,14 @@ function GroupList(props) {
                         <div className="group-list__select-group-arrow" />
                         {isGroupSelectContainerOpen && (
                             <div className="group-list__group-select-container">
-                                {groupsData.length === 0 ? (
+                                {carriageGroups.length === 0 ? (
                                     <div className="group-list__group-select-group-container">
                                         <p className="group-list__group-select-group-text">Необходимо добавить группу</p>
                                     </div>
                                 ) : (
-                                    groupsData.map((data, index) => (
-                                        <div key={index} className="group-list__group-select-group-container group-list__group-select-group-container_result" onClick={() => selectData(data.groupName)}>
-                                            <p className="group-list__group-select-group-text">{data.groupName}</p>
+                                    carriageGroups.map((data) => (
+                                        <div key={data.id} className="group-list__group-select-group-container group-list__group-select-group-container_result" onClick={() => selectData(data.name)}>
+                                            <p className="group-list__group-select-group-text">{data.name}</p>
                                         </div>
                                     ))
                                 )}

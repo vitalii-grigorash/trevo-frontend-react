@@ -6,7 +6,7 @@ import MyListResult from '../MyListResult/MyListResult';
 function MyListVagonsTab(props) {
 
     const {
-        groupsData,
+        carriageGroups,
         carriageList
     } = props;
 
@@ -20,7 +20,7 @@ function MyListVagonsTab(props) {
         if (checkbox === true) {
             setCheckboxSelectedData(checkboxSelectedData => ([...checkboxSelectedData, dataToSend]));
         } else {
-            const filteredItems = (checkboxSelectedData => checkboxSelectedData.filter(item => item.vagonNumber !== dataToSend.vagonNumber));
+            const filteredItems = (checkboxSelectedData => checkboxSelectedData.filter(item => item.id !== dataToSend.id));
             setCheckboxSelectedData(filteredItems);
         }
     }
@@ -64,7 +64,7 @@ function MyListVagonsTab(props) {
     return (
         <div className="my-list-vagons-tab">
             <GroupList
-                groupsData={groupsData}
+                carriageGroups={carriageGroups}
             />
             <div className="my-list-vagons-tab__add-vagons" onClick={handleAddVagonsClick}>
                 <div className={`my-list-vagons-tab__add-vagons-icon ${isVagonsAddActive && 'my-list-vagons-tab__add-vagons-icon_active'}`} />
@@ -72,7 +72,7 @@ function MyListVagonsTab(props) {
             </div>
             {isVagonsAddActive && (
                 <VagonsAdd
-                    groupsData={groupsData}
+                    carriageGroups={carriageGroups}
                     closeVagonsAdd={handleAddVagonsClick}
                 />
             )}
