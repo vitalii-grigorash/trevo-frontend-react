@@ -7,7 +7,8 @@ function MyListVagonsTab(props) {
 
     const {
         carriageGroups,
-        carriageList
+        carriageList,
+        postNewGroup
     } = props;
 
     const [checkboxSelectedData, setCheckboxSelectedData] = useState([]);
@@ -74,6 +75,7 @@ function MyListVagonsTab(props) {
                 <VagonsAdd
                     carriageGroups={carriageGroups}
                     closeVagonsAdd={handleAddVagonsClick}
+                    postNewGroup={postNewGroup}
                 />
             )}
             <div className="my-list-vagons-tab__table-heading-container">

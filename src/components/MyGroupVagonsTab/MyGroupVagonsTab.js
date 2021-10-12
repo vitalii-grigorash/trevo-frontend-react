@@ -6,12 +6,33 @@ import MyGroupResultData from '../../utils/MyGroupResultData.json';
 function MyGroupVagonsTab(props) {
 
     const {
-        carriageGroups
+        carriageGroups,
+        postNewGroup
     } = props;
 
     const [isGroupAddActive, setGroupAddActive] = useState(false);
     const [isShowSaveTooltip, setShowSaveTooltip] = useState(false);
     const [isShowDownloadTooltip, setShowDownloadTooltip] = useState(false);
+    const [groupnNameInputValue, setGroupnNameInputValue] = useState('');
+    const [descriptionInputValue, setDescriptionInputValue] = useState('');
+
+    function handleGroupNameChange(evt) {
+        setGroupnNameInputValue(evt.target.value);
+    }
+
+    function handleDescriptionChange(evt) {
+        setDescriptionInputValue(evt.target.value);
+    }
+
+    function addNewGroup() {
+        const newGroupData = {
+            name: groupnNameInputValue,
+            description: descriptionInputValue
+        }
+        postNewGroup(newGroupData);
+        setGroupnNameInputValue('');
+        setDescriptionInputValue('');
+    }
 
     function handleShowSaveTooltip() {
         setShowSaveTooltip(true);
@@ -52,10 +73,10 @@ function MyGroupVagonsTab(props) {
                     <div className="my-group-vagons-tab__add-group-close-icon" onClick={handleAddGroupClick} />
                     <p className="my-group-vagons-tab__add-group-heading">Добавить группу</p>
                     <span className="my-group-vagons-tab__add-group-span">Название</span>
-                    <input className="my-group-vagons-tab__add-group-input" type="text" />
+                    <input className="my-group-vagons-tab__add-group-input" type="text" onChange={handleGroupNameChange} value={groupnNameInputValue}/>
                     <span className="my-group-vagons-tab__add-group-span">Примечание к группе</span>
-                    <input className="my-group-vagons-tab__add-group-input" type="text" />
-                    <button className="my-group-vagons-tab__add-group-button">добавить</button>
+                    <input className="my-group-vagons-tab__add-group-input" type="text" onChange={handleDescriptionChange} value={descriptionInputValue}/>
+                    <button className="my-group-vagons-tab__add-group-button" onClick={addNewGroup}>добавить</button>
                 </div>
             )}
             <div className="my-group-vagons-tab__table-heading-container">

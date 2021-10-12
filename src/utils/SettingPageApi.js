@@ -37,3 +37,22 @@ export const getAllCarriage = () => {
             throw new Error(err.message);
         });
 };
+
+export const postNewCarriageGroup = (request) => {
+    return fetch(`${BASE_URL}/regulated/carriage/group`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: request.name,
+            description: request.description
+        })
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};

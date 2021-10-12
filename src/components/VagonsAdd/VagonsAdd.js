@@ -4,7 +4,8 @@ function VagonsAdd(props) {
 
     const {
         carriageGroups,
-        closeVagonsAdd
+        closeVagonsAdd,
+        postNewGroup
     } = props;
 
     const [isGroupSelectOpen, setGroupSelectOpen] = useState(false);
@@ -12,6 +13,26 @@ function VagonsAdd(props) {
     const [isGroupSelected, setGroupSelected] = useState(false);
     const [isCreateGroupActive, setCreateGroupActive] = useState(false);
     const [isNoteActive, setNoteActive] = useState(false);
+    const [groupnNameInputValue, setGroupnNameInputValue] = useState('');
+    const [descriptionInputValue, setDescriptionInputValue] = useState('');
+
+    function handleGroupNameChange(evt) {
+        setGroupnNameInputValue(evt.target.value);
+    }
+
+    function handleDescriptionChange(evt) {
+        setDescriptionInputValue(evt.target.value);
+    }
+
+    function addNewGroup() {
+        const newGroupData = {
+            name: groupnNameInputValue,
+            description: descriptionInputValue
+        }
+        postNewGroup(newGroupData);
+        setGroupnNameInputValue('');
+        setDescriptionInputValue('');
+    }
 
     const selectData = (groupName) => {
         setGroupName(groupName);
@@ -44,7 +65,7 @@ function VagonsAdd(props) {
 
     return (
         <div className="vagons-add">
-            <div className="vagons-add__close-icon" onClick={closeVagonsAdd}/>
+            <div className="vagons-add__close-icon" onClick={closeVagonsAdd} />
             <p className="vagons-add__heading">Добавить вагоны</p>
             <span className="vagons-add__span">Список вагонов</span>
             <textarea className="vagons-add__textarea" type="text" />
@@ -75,17 +96,17 @@ function VagonsAdd(props) {
             {isCreateGroupActive && (
                 <>
                     <span className="vagons-add__span">Название</span>
-                    <input className="vagons-add__create-group-input" type="text" />
+                    <input className="vagons-add__create-group-input" type="text" onChange={handleGroupNameChange} value={groupnNameInputValue}/>
                     <div className="vagons-add__note-container" onClick={handleNoteClick}>
                         <p className="vagons-add__note-text">Примечание к группе</p>
                         <div className="vagons-add__note-arrow" />
                     </div>
                     {isNoteActive && (
-                        <input className="vagons-add__create-group-input" type="text" />
+                        <input className="vagons-add__create-group-input" type="text" onChange={handleDescriptionChange} value={descriptionInputValue}/>
                     )}
                 </>
             )}
-            <button className="vagons-add__add-button" type="button">добавить</button>
+            <button className="vagons-add__add-button" type="button" onClick={addNewGroup}>добавить</button>
         </div>
     );
 
