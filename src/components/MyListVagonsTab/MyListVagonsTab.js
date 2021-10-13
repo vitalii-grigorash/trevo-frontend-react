@@ -13,6 +13,8 @@ function MyListVagonsTab(props) {
         selectedGroupCarriages,
         isSearchButtonClicked,
         deleteCarriages,
+        isRemoveButtonClicked,
+        selectedGroupId
     } = props;
 
     const [checkboxSelectedData, setCheckboxSelectedData] = useState([]);
@@ -111,6 +113,8 @@ function MyListVagonsTab(props) {
                 carriageList={carriageList}
                 selectedGroupCarriages={selectedGroupCarriages}
                 isSearchButtonClicked={isSearchButtonClicked}
+                isRemoveButtonClicked={isRemoveButtonClicked}
+                selectedGroupId={selectedGroupId}
             />
         </div>
     );

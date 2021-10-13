@@ -17,7 +17,8 @@ function VagonsSettingTab() {
     const [carriageList, setCarriageList] = useState([]);
     const [selectedGroupCarriages, setSelectedGroupCarriages] = useState([]);
     const [isSearchButtonClicked, setSearchButtonClicked] = useState(false);
-    // const [selectedGroupId, setSelectedGroupId] = useState('');
+    const [selectedGroupId, setSelectedGroupId] = useState('');
+    const [isRemoveButtonClicked, setRemoveButtonClicked] = useState(false);
 
     function getAllCarriage() {
         SettingsPageApi.getAllCarriage()
@@ -28,7 +29,7 @@ function VagonsSettingTab() {
     }
 
     function onSearchGroupClick(id) {
-        // setSelectedGroupId(id);
+        setSelectedGroupId(id);
         setSearchButtonClicked(true);
         setSelectedGroupCarriages([]);
         // eslint-disable-next-line
@@ -40,6 +41,7 @@ function VagonsSettingTab() {
     }
 
     function deleteCarriages(carriagesArray) {
+        setRemoveButtonClicked(true);
         SettingsPageApi.deleteCarriages(carriagesArray)
             .then(() => {
                 getAllCarriage();
@@ -146,6 +148,8 @@ function VagonsSettingTab() {
                 onSearchGroupClick={onSearchGroupClick}
                 isSearchButtonClicked={isSearchButtonClicked}
                 deleteCarriages={deleteCarriages}
+                isRemoveButtonClicked={isRemoveButtonClicked}
+                selectedGroupId={selectedGroupId}
             />}
             {isMyGroupTabOpen && <MyGroupVagonsTab
                 carriageGroups={carriageGroups}

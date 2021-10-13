@@ -8,10 +8,26 @@ function MyListResult(props) {
     carriageList,
     selectedGroupCarriages,
     isSearchButtonClicked,
+    isRemoveButtonClicked,
+    selectedGroupId
   } = props;
 
   const [isAllWagonsSelected, setAllWagonsSelected] = useState(false);
   const [dataToRender, setDataToRender] = useState([]);
+
+  useEffect(() => {
+    if (isRemoveButtonClicked) {
+      setDataToRender([]);
+      console.log(carriageList);
+      // eslint-disable-next-line
+      carriageList.find((item) => {
+        if (item.groupId === selectedGroupId) {
+          setDataToRender(dataToRender => ([...dataToRender, item]));
+          console.log('asd')
+        }
+      });
+    }
+  }, [selectedGroupCarriages, isRemoveButtonClicked, carriageList, selectedGroupId])
 
   useEffect(() => {
     if (isSearchButtonClicked) {
