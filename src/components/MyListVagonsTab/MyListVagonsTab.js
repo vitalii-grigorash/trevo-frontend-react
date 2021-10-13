@@ -8,7 +8,11 @@ function MyListVagonsTab(props) {
     const {
         carriageGroups,
         carriageList,
-        postNewGroup
+        postNewCarriages,
+        onSearchGroupClick,
+        selectedGroupCarriages,
+        isSearchButtonClicked,
+        deleteCarriages,
     } = props;
 
     const [checkboxSelectedData, setCheckboxSelectedData] = useState([]);
@@ -27,7 +31,10 @@ function MyListVagonsTab(props) {
     }
 
     function removeAllSelectedVagons() {
-        console.log(checkboxSelectedData)
+        const carriagesArray = checkboxSelectedData.map((item) => {
+            return item.id
+        })
+        deleteCarriages(carriagesArray);
     }
 
     function handleShowRemoveTooltip() {
@@ -66,6 +73,7 @@ function MyListVagonsTab(props) {
         <div className="my-list-vagons-tab">
             <GroupList
                 carriageGroups={carriageGroups}
+                onSearchGroupClick={onSearchGroupClick}
             />
             <div className="my-list-vagons-tab__add-vagons" onClick={handleAddVagonsClick}>
                 <div className={`my-list-vagons-tab__add-vagons-icon ${isVagonsAddActive && 'my-list-vagons-tab__add-vagons-icon_active'}`} />
@@ -75,7 +83,7 @@ function MyListVagonsTab(props) {
                 <VagonsAdd
                     carriageGroups={carriageGroups}
                     closeVagonsAdd={handleAddVagonsClick}
-                    postNewGroup={postNewGroup}
+                    postNewCarriages={postNewCarriages}
                 />
             )}
             <div className="my-list-vagons-tab__table-heading-container">
@@ -101,6 +109,8 @@ function MyListVagonsTab(props) {
             <MyListResult
                 onCheckboxClick={onCheckboxClick}
                 carriageList={carriageList}
+                selectedGroupCarriages={selectedGroupCarriages}
+                isSearchButtonClicked={isSearchButtonClicked}
             />
         </div>
     );

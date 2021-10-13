@@ -1,22 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MyListResultItem from '../MyListResultItem/MyListResultItem';
 
 function MyListResult(props) {
 
   const {
     onCheckboxClick,
-    carriageList
+    carriageList,
+    selectedGroupCarriages,
+    isSearchButtonClicked,
   } = props;
 
   const [isAllWagonsSelected, setAllWagonsSelected] = useState(false);
+  const [dataToRender, setDataToRender] = useState([]);
+
+  useEffect(() => {
+    if (isSearchButtonClicked) {
+      setDataToRender(selectedGroupCarriages);
+    } else {
+      setDataToRender(carriageList);
+    }
+  }, [isSearchButtonClicked, carriageList, selectedGroupCarriages])
 
   function selectAllWagons() {
     if (isAllWagonsSelected) {
-        setAllWagonsSelected(false);
+      setAllWagonsSelected(false);
     } else {
-        setAllWagonsSelected(true);
+      setAllWagonsSelected(true);
     }
-}
+  }
 
   return (
     <div className="my-list-result">
@@ -34,7 +45,7 @@ function MyListResult(props) {
         <p className="my-list-result__heading-date">Дата постановки</p>
         <p className="my-list-result__heading-description">Примечание</p>
       </div>
-      {carriageList.map((data) => {
+      {dataToRender.map((data) => {
         return (
           <MyListResultItem
             key={data.id}

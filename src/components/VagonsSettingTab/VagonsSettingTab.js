@@ -13,8 +13,47 @@ function VagonsSettingTab() {
     const [isFieldVisibilityTabOpen, setFieldVisibilityTabOpen] = useState(false);
     const [isScheduleAndMailingTabOpen, setScheduleAndMailingTabOpen] = useState(false);
     const [isAlertsTabOpen, setAlertsTabOpen] = useState(false);
-    const [carriageList, setCarriageList] = useState([]);
     const [carriageGroups, setCarriageGroups] = useState([]);
+    const [carriageList, setCarriageList] = useState([]);
+    const [selectedGroupCarriages, setSelectedGroupCarriages] = useState([]);
+    const [isSearchButtonClicked, setSearchButtonClicked] = useState(false);
+    // const [selectedGroupId, setSelectedGroupId] = useState('');
+
+    function getAllCarriage() {
+        SettingsPageApi.getAllCarriage()
+            .then((data) => {
+                setCarriageList(data.reverse());
+            })
+            .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+    }
+
+    function onSearchGroupClick(id) {
+        // setSelectedGroupId(id);
+        setSearchButtonClicked(true);
+        setSelectedGroupCarriages([]);
+        // eslint-disable-next-line
+        carriageList.find((item) => {
+            if (item.groupId === id) {
+                setSelectedGroupCarriages(selectedGroupCarriages => ([...selectedGroupCarriages, item]));
+            }
+        });
+    }
+
+    function deleteCarriages(carriagesArray) {
+        SettingsPageApi.deleteCarriages(carriagesArray)
+            .then(() => {
+                getAllCarriage();
+            })
+            .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+    }
+
+    function postNewCarriages(groupId, carriagesToAdd) {
+        SettingsPageApi.postNewCarriages(groupId, carriagesToAdd)
+            .then(() => {
+                getAllCarriage();
+            })
+            .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
+    }
 
     function getCarriageGroups() {
         SettingsPageApi.getCarriageGroups()
@@ -38,14 +77,8 @@ function VagonsSettingTab() {
     }, []);
 
     useEffect(() => {
-        SettingsPageApi.getAllCarriage()
-            .then((data) => {
-                setCarriageList(data);
-            })
-            .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+        getAllCarriage();
     }, []);
-
-    console.log(carriageGroups);
 
     function handleMyListTabOpen() {
         setMyListTabOpen(true);
@@ -108,7 +141,11 @@ function VagonsSettingTab() {
             {isMyListTabOpen && <MyListVagonsTab
                 carriageGroups={carriageGroups}
                 carriageList={carriageList}
-                postNewGroup={postNewGroup}
+                selectedGroupCarriages={selectedGroupCarriages}
+                postNewCarriages={postNewCarriages}
+                onSearchGroupClick={onSearchGroupClick}
+                isSearchButtonClicked={isSearchButtonClicked}
+                deleteCarriages={deleteCarriages}
             />}
             {isMyGroupTabOpen && <MyGroupVagonsTab
                 carriageGroups={carriageGroups}

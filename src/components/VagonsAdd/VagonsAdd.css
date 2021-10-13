@@ -38,6 +38,15 @@
     color: #444C5C;
     margin: 24px auto 0 24px;
 }
+.vagons-add__group-add-span {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #444C5C;
+    margin: 7px auto 0 24px;
+}
 .vagons-add__textarea {
     width: 300px;
     height: 80px;
@@ -49,6 +58,26 @@
     resize: none;
     padding: 8px;
     color: #444C5C;
+}
+.vagons-add__textarea-error {
+    height: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: red;
+    margin: 5px auto 0 24px;
+}
+.vagons-add__group-select-error {
+    height: 12px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    color: red;
+    margin: 5px auto 0 24px;
 }
 .vagons-add__group-add {
     display: flex;
@@ -199,7 +228,7 @@
     letter-spacing: 0.0125em;
     text-transform: uppercase;
     color: #FFFFFF;
-    margin: 24px auto 24px 24px;
+    margin: 7px auto 24px 24px;
     cursor: pointer;
 }
 .vagons-add__add-button:hover {

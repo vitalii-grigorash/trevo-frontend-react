@@ -56,3 +56,43 @@ export const postNewCarriageGroup = (request) => {
             throw new Error(err.message);
         });
 };
+
+export const postNewCarriages = (groupId, carriagesToAdd) => {
+    return fetch(`${BASE_URL}/regulated/carriage/group/${groupId}/addCarriages`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(carriagesToAdd)
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            return data;
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};
+
+export const deleteCarriages = (carriagesArray) => {
+    return fetch(`${BASE_URL}/regulated/carriage/delete`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(carriagesArray)
+    })
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then((data) => {
+            return data;
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+}

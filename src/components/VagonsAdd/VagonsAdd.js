@@ -5,37 +5,53 @@ function VagonsAdd(props) {
     const {
         carriageGroups,
         closeVagonsAdd,
-        postNewGroup
+        postNewCarriages
     } = props;
 
     const [isGroupSelectOpen, setGroupSelectOpen] = useState(false);
     const [groupName, setGroupName] = useState('Выберите группу');
+    const [groupId, setGroupId] = useState('');
+    const [groupDescription, setGroupDescription] = useState('');
     const [isGroupSelected, setGroupSelected] = useState(false);
-    const [isCreateGroupActive, setCreateGroupActive] = useState(false);
-    const [isNoteActive, setNoteActive] = useState(false);
-    const [groupnNameInputValue, setGroupnNameInputValue] = useState('');
-    const [descriptionInputValue, setDescriptionInputValue] = useState('');
+    const [carriageTextareaValue, setCarriageTextareaValue] = useState('');
+    const [textareaErrorText, setTextareaErrorText] = useState('');
+    const [groupSelectErrorText, setGroupSelectErrorText] = useState('');
 
-    function handleGroupNameChange(evt) {
-        setGroupnNameInputValue(evt.target.value);
+    function handleCarriageTextareaChange(evt) {
+        setCarriageTextareaValue(evt.target.value);
     }
 
-    function handleDescriptionChange(evt) {
-        setDescriptionInputValue(evt.target.value);
-    }
-
-    function addNewGroup() {
-        const newGroupData = {
-            name: groupnNameInputValue,
-            description: descriptionInputValue
+    function validateFormAndSend() {
+        if (carriageTextareaValue === '') {
+            setTextareaErrorText('Необходимо добавить вагоны');
+        } else if (groupId === '') {
+            setGroupSelectErrorText('Необходимо выбрать группу');
+        } else {
+            addCarriages();
         }
-        postNewGroup(newGroupData);
-        setGroupnNameInputValue('');
-        setDescriptionInputValue('');
     }
 
-    const selectData = (groupName) => {
+    function addCarriages() {
+        const carriagesArray = carriageTextareaValue.trim().split(/(?:\n| |,)+/);
+        const carriagesToAdd = carriagesArray.map((carriage) => {
+            return {
+                carriageNumber: carriage,
+                description: groupDescription
+            }
+        })
+        postNewCarriages(groupId, carriagesToAdd);
+        setCarriageTextareaValue('');
+        setGroupName('Выберите группу');
+        setGroupSelected(false);
+        setGroupId('');
+        setTextareaErrorText('');
+        setGroupSelectErrorText('');
+    }
+
+    const selectData = (groupName, groupId, groupDescription) => {
         setGroupName(groupName);
+        setGroupId(groupId);
+        setGroupDescription(groupDescription);
         setGroupSelected(true);
     }
 
@@ -47,29 +63,19 @@ function VagonsAdd(props) {
         }
     }
 
-    function handleCreateGroupClick() {
-        if (isCreateGroupActive) {
-            setCreateGroupActive(false);
-        } else {
-            setCreateGroupActive(true);
-        }
-    }
-
-    function handleNoteClick() {
-        if (isNoteActive) {
-            setNoteActive(false);
-        } else {
-            setNoteActive(true);
-        }
-    }
-
     return (
         <div className="vagons-add">
             <div className="vagons-add__close-icon" onClick={closeVagonsAdd} />
             <p className="vagons-add__heading">Добавить вагоны</p>
             <span className="vagons-add__span">Список вагонов</span>
-            <textarea className="vagons-add__textarea" type="text" />
-            <span className="vagons-add__span">Добавить в группу</span>
+            <textarea
+                className="vagons-add__textarea"
+                type="text"
+                onChange={handleCarriageTextareaChange}
+                value={carriageTextareaValue}
+            />
+            <span className="vagons-add__textarea-error">{textareaErrorText}</span>
+            <span className="vagons-add__group-add-span">Добавить в группу</span>
             <div className="vagons-add__group-add" onClick={handleGroupSelectOpen}>
                 <p className={`vagons-add__select-group-text ${isGroupSelected && 'vagons-add__select-group-text_active'}`}>{groupName}</p>
                 <div className="vagons-add__select-group-arrow" />
@@ -80,8 +86,8 @@ function VagonsAdd(props) {
                                 <p className="vagons-add__group-select-group-text">Необходимо добавить группу</p>
                             </div>
                         ) : (
-                            carriageGroups.map((data, index) => (
-                                <div key={index} className="vagons-add__group-select-group-container vagons-add__group-select-group-container_result" onClick={() => selectData(data.name)}>
+                            carriageGroups.map((data) => (
+                                <div key={data.id} className="vagons-add__group-select-group-container vagons-add__group-select-group-container_result" onClick={() => selectData(data.name, data.id, data.description)}>
                                     <p className="vagons-add__group-select-group-text">{data.name}</p>
                                 </div>
                             ))
@@ -89,24 +95,8 @@ function VagonsAdd(props) {
                     </div>
                 )}
             </div>
-            <div className="vagons-add__create-group" onClick={handleCreateGroupClick}>
-                <div className={`vagons-add__create-group-icon ${isCreateGroupActive && 'vagons-add__create-group-icon_active'}`} />
-                <p className={`vagons-add__create-group-text ${isCreateGroupActive && 'vagons-add__create-group-text_active'}`}>создать группу</p>
-            </div>
-            {isCreateGroupActive && (
-                <>
-                    <span className="vagons-add__span">Название</span>
-                    <input className="vagons-add__create-group-input" type="text" onChange={handleGroupNameChange} value={groupnNameInputValue}/>
-                    <div className="vagons-add__note-container" onClick={handleNoteClick}>
-                        <p className="vagons-add__note-text">Примечание к группе</p>
-                        <div className="vagons-add__note-arrow" />
-                    </div>
-                    {isNoteActive && (
-                        <input className="vagons-add__create-group-input" type="text" onChange={handleDescriptionChange} value={descriptionInputValue}/>
-                    )}
-                </>
-            )}
-            <button className="vagons-add__add-button" type="button" onClick={addNewGroup}>добавить</button>
+            <span className="vagons-add__group-select-error">{groupSelectErrorText}</span>
+            <button className="vagons-add__add-button" type="button" onClick={validateFormAndSend}>добавить</button>
         </div>
     );
 

@@ -6,7 +6,6 @@ function MyListResultItem(props) {
         onCheckboxClick,
         isAllWagonsSelected,
         id,
-        groupId,
         carriageNumber,
         groupName,
         trackingStartDate,
@@ -17,11 +16,6 @@ function MyListResultItem(props) {
 
     const dataToSend = {
         id: id,
-        groupId: groupId,
-        trackingStartDate: trackingStartDate,
-        description: description,
-        groupName: groupName,
-        carriageNumber: carriageNumber
     }
 
     useEffect(() => {
