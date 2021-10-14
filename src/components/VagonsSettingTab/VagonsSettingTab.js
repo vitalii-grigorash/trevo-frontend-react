@@ -29,15 +29,6 @@ function VagonsSettingTab(props) {
     const [isFieldVisibilityTabOpen, setFieldVisibilityTabOpen] = useState(false);
     const [isScheduleAndMailingTabOpen, setScheduleAndMailingTabOpen] = useState(false);
     const [isAlertsTabOpen, setAlertsTabOpen] = useState(false);
-    // const [carriageGroups, setCarriageGroups] = useState([]);
-
-    // function getCarriageGroups() {
-    //     SettingsPageApi.getCarriageGroups()
-    //         .then((data) => {
-    //             setCarriageGroups(data);
-    //         })
-    //         .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
-    // }
 
     function postNewGroup(newGroupData) {
         SettingsPageApi.postNewCarriageGroup(newGroupData)
