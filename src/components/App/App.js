@@ -19,6 +19,7 @@ import Administration from '../Administration/Administration';
 import PersonalAccount from '../PersonalAccount/PersonalAccount';
 import NotFound from '../NotFound/NotFound';
 import * as StationsPageApi from '../../utils/StationsPageApi';
+import * as SettingsPageApi from '../../utils/SettingPageApi';
 
 function App() {
 
@@ -36,13 +37,89 @@ function App() {
   const [requestInfo, setRequestInfo] = useState({});
   const [requesName, setRequesName] = useState('');
   const [requesId, setRequesId] = useState('');
+  const [carriageList, setCarriageList] = useState([]);
+  const [selectedGroupCarriages, setSelectedGroupCarriages] = useState([]);
+  const [isSearchButtonClicked, setSearchButtonClicked] = useState(false);
+  const [selectedGroupId, setSelectedGroupId] = useState('');
+  const [removedCarriagesArray, setRemovedCarriagesArray] = useState([]);
+  const [isAllWagonsSelected, setAllWagonsSelected] = useState(false);
 
-  function getRequestHistoryList () {
+  function selectAllWagons() {
+    if (isAllWagonsSelected) {
+      setAllWagonsSelected(false);
+    } else {
+      setAllWagonsSelected(true);
+    }
+  }
+
+  const onCheckboxChekedArray = (checkboxSelectedData) => {
+    setRemovedCarriagesArray(checkboxSelectedData);
+  }
+
+  function reloadSelectedCarriagesList() {
+    setSelectedGroupCarriages([]);
+    const filteredItems = carriageList.filter(a => !removedCarriagesArray.find(p => p.id === a.id))
+    // eslint-disable-next-line
+    filteredItems.find((item) => {
+      if (item.groupId === selectedGroupId) {
+        setSelectedGroupCarriages(selectedGroupCarriages => ([...selectedGroupCarriages, item]));
+        setRemovedCarriagesArray([]);
+      }
+    });
+  }
+
+  function onSearchGroupClick(id) {
+    setSelectedGroupId(id);
+    setSearchButtonClicked(true);
+    setSelectedGroupCarriages([]);
+    // eslint-disable-next-line
+    carriageList.find((item) => {
+      if (item.groupId === id) {
+        setSelectedGroupCarriages(selectedGroupCarriages => ([...selectedGroupCarriages, item]));
+      }
+    });
+  }
+
+  function getAllCarriage() {
+    SettingsPageApi.getAllCarriage()
+      .then((data) => {
+        if (data === null) {
+          setCarriageList([]);
+          setSelectedGroupCarriages([]);
+        } else {
+          setCarriageList(data.reverse());
+          if (isSearchButtonClicked) {
+            reloadSelectedCarriagesList();
+          }
+          setRemovedCarriagesArray([]);
+        }
+      })
+      .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+  }
+
+  function postNewCarriages(groupId, carriagesToAdd) {
+    SettingsPageApi.postNewCarriages(groupId, carriagesToAdd)
+      .then(() => {
+        getAllCarriage();
+      })
+      .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
+  }
+
+  function deleteCarriages(carriagesArray) {
+    setAllWagonsSelected(false);
+    SettingsPageApi.deleteCarriages(carriagesArray)
+      .then(() => {
+        getAllCarriage();
+      })
+      .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+  }
+
+  function getRequestHistoryList() {
     StationsPageApi.getRequestHistoryList()
-    .then((data) => {
-      setRequestHistoryList(data.reverse());
-    })
-    .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`));
+      .then((data) => {
+        setRequestHistoryList(data.reverse());
+      })
+      .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`));
   }
 
   useEffect(() => {
@@ -81,12 +158,12 @@ function App() {
       .finally(() => setPreloaderShow(false));
   }
 
-  function removeHistoryListRequest (id) {
+  function removeHistoryListRequest(id) {
     StationsPageApi.removeHistoryRequest(id)
-    .then(() => {
-      getRequestHistoryList();
-    })
-    .catch((err) => console.log(`Ошибка: ${err}`));
+      .then(() => {
+        getRequestHistoryList();
+      })
+      .catch((err) => console.log(`Ошибка: ${err}`));
   }
 
   function handleOpenRequestList() {
@@ -274,7 +351,18 @@ function App() {
           </Route>
 
           <Route path='/settings'>
-            <Settings />
+            <Settings
+              carriageList={carriageList}
+              getAllCarriage={getAllCarriage}
+              deleteCarriages={deleteCarriages}
+              onSearchGroupClick={onSearchGroupClick}
+              selectedGroupCarriages={selectedGroupCarriages}
+              isSearchButtonClicked={isSearchButtonClicked}
+              postNewCarriages={postNewCarriages}
+              onCheckboxChekedArray={onCheckboxChekedArray}
+              selectAllWagons={selectAllWagons}
+              isAllWagonsSelected={isAllWagonsSelected}
+            />
           </Route>
 
           <Route path='/financial-panel'>

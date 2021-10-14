@@ -8,26 +8,11 @@ function MyListResult(props) {
     carriageList,
     selectedGroupCarriages,
     isSearchButtonClicked,
-    isRemoveButtonClicked,
-    selectedGroupId
+    selectAllWagons,
+    isAllWagonsSelected
   } = props;
 
-  const [isAllWagonsSelected, setAllWagonsSelected] = useState(false);
   const [dataToRender, setDataToRender] = useState([]);
-
-  useEffect(() => {
-    if (isRemoveButtonClicked) {
-      setDataToRender([]);
-      console.log(carriageList);
-      // eslint-disable-next-line
-      carriageList.find((item) => {
-        if (item.groupId === selectedGroupId) {
-          setDataToRender(dataToRender => ([...dataToRender, item]));
-          console.log('asd')
-        }
-      });
-    }
-  }, [selectedGroupCarriages, isRemoveButtonClicked, carriageList, selectedGroupId])
 
   useEffect(() => {
     if (isSearchButtonClicked) {
@@ -37,14 +22,6 @@ function MyListResult(props) {
     }
   }, [isSearchButtonClicked, carriageList, selectedGroupCarriages])
 
-  function selectAllWagons() {
-    if (isAllWagonsSelected) {
-      setAllWagonsSelected(false);
-    } else {
-      setAllWagonsSelected(true);
-    }
-  }
-
   return (
     <div className="my-list-result">
       <div className="my-list-result__heading-container">
@@ -52,7 +29,8 @@ function MyListResult(props) {
           <input
             id="AllWagonSelectCheckbox"
             type="checkbox"
-            onClick={selectAllWagons}
+            onChange={selectAllWagons}
+            checked={isAllWagonsSelected}
           />
           <label htmlFor="AllWagonSelectCheckbox"></label>
         </div>

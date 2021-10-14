@@ -6,7 +6,20 @@ import AlertsVagonsTab from '../AlertsVagonsTab/AlertsVagonsTab';
 import MyGroupVagonsTab from '../MyGroupVagonsTab/MyGroupVagonsTab';
 import * as SettingsPageApi from '../../utils/SettingPageApi';
 
-function VagonsSettingTab() {
+function VagonsSettingTab(props) {
+
+    const {
+        carriageList,
+        getAllCarriage,
+        deleteCarriages,
+        onSearchGroupClick,
+        selectedGroupCarriages,
+        isSearchButtonClicked,
+        postNewCarriages,
+        onCheckboxChekedArray,
+        selectAllWagons,
+        isAllWagonsSelected
+    } = props;
 
     const [isMyListTabOpen, setMyListTabOpen] = useState(true);
     const [isMyGroupTabOpen, setMyGroupTabOpen] = useState(false);
@@ -14,48 +27,6 @@ function VagonsSettingTab() {
     const [isScheduleAndMailingTabOpen, setScheduleAndMailingTabOpen] = useState(false);
     const [isAlertsTabOpen, setAlertsTabOpen] = useState(false);
     const [carriageGroups, setCarriageGroups] = useState([]);
-    const [carriageList, setCarriageList] = useState([]);
-    const [selectedGroupCarriages, setSelectedGroupCarriages] = useState([]);
-    const [isSearchButtonClicked, setSearchButtonClicked] = useState(false);
-    const [selectedGroupId, setSelectedGroupId] = useState('');
-    const [isRemoveButtonClicked, setRemoveButtonClicked] = useState(false);
-
-    function getAllCarriage() {
-        SettingsPageApi.getAllCarriage()
-            .then((data) => {
-                setCarriageList(data.reverse());
-            })
-            .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
-    }
-
-    function onSearchGroupClick(id) {
-        setSelectedGroupId(id);
-        setSearchButtonClicked(true);
-        setSelectedGroupCarriages([]);
-        // eslint-disable-next-line
-        carriageList.find((item) => {
-            if (item.groupId === id) {
-                setSelectedGroupCarriages(selectedGroupCarriages => ([...selectedGroupCarriages, item]));
-            }
-        });
-    }
-
-    function deleteCarriages(carriagesArray) {
-        setRemoveButtonClicked(true);
-        SettingsPageApi.deleteCarriages(carriagesArray)
-            .then(() => {
-                getAllCarriage();
-            })
-            .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
-    }
-
-    function postNewCarriages(groupId, carriagesToAdd) {
-        SettingsPageApi.postNewCarriages(groupId, carriagesToAdd)
-            .then(() => {
-                getAllCarriage();
-            })
-            .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
-    }
 
     function getCarriageGroups() {
         SettingsPageApi.getCarriageGroups()
@@ -67,8 +38,7 @@ function VagonsSettingTab() {
 
     function postNewGroup(newGroupData) {
         SettingsPageApi.postNewCarriageGroup(newGroupData)
-            .then((res) => {
-                console.log(res);
+            .then(() => {
                 getCarriageGroups();
             })
             .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
@@ -80,6 +50,7 @@ function VagonsSettingTab() {
 
     useEffect(() => {
         getAllCarriage();
+        // eslint-disable-next-line
     }, []);
 
     function handleMyListTabOpen() {
@@ -148,8 +119,9 @@ function VagonsSettingTab() {
                 onSearchGroupClick={onSearchGroupClick}
                 isSearchButtonClicked={isSearchButtonClicked}
                 deleteCarriages={deleteCarriages}
-                isRemoveButtonClicked={isRemoveButtonClicked}
-                selectedGroupId={selectedGroupId}
+                onCheckboxChekedArray={onCheckboxChekedArray}
+                selectAllWagons={selectAllWagons}
+                isAllWagonsSelected={isAllWagonsSelected}
             />}
             {isMyGroupTabOpen && <MyGroupVagonsTab
                 carriageGroups={carriageGroups}

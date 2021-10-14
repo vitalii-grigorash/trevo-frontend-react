@@ -13,8 +13,9 @@ function MyListVagonsTab(props) {
         selectedGroupCarriages,
         isSearchButtonClicked,
         deleteCarriages,
-        isRemoveButtonClicked,
-        selectedGroupId
+        onCheckboxChekedArray,
+        selectAllWagons,
+        isAllWagonsSelected
     } = props;
 
     const [checkboxSelectedData, setCheckboxSelectedData] = useState([]);
@@ -26,9 +27,11 @@ function MyListVagonsTab(props) {
     function onCheckboxClick(checkbox, dataToSend) {
         if (checkbox === true) {
             setCheckboxSelectedData(checkboxSelectedData => ([...checkboxSelectedData, dataToSend]));
+            onCheckboxChekedArray(checkboxSelectedData => ([...checkboxSelectedData, dataToSend]));
         } else {
             const filteredItems = (checkboxSelectedData => checkboxSelectedData.filter(item => item.id !== dataToSend.id));
             setCheckboxSelectedData(filteredItems);
+            onCheckboxChekedArray(filteredItems);
         }
     }
 
@@ -36,7 +39,7 @@ function MyListVagonsTab(props) {
         const carriagesArray = checkboxSelectedData.map((item) => {
             return item.id
         })
-        deleteCarriages(carriagesArray);
+        deleteCarriages(carriagesArray, checkboxSelectedData);
     }
 
     function handleShowRemoveTooltip() {
@@ -89,7 +92,7 @@ function MyListVagonsTab(props) {
                 />
             )}
             <div className="my-list-vagons-tab__table-heading-container">
-                <p className="my-list-vagons-tab__table-heading-vagons-result">Найдено 423456 вагонов</p>
+                <p className="my-list-vagons-tab__table-heading-vagons-result">Найдено {carriageList.length} вагонов</p>
                 <div className="my-list-vagons-tab__table-heading-icons-container">
                     <div className="my-list-vagons-tab__table-heading-icon-save" onMouseEnter={handleShowSaveTooltip} onMouseLeave={handleCloseSaveTooltip}>
                         {isShowSaveTooltip && (
@@ -113,8 +116,8 @@ function MyListVagonsTab(props) {
                 carriageList={carriageList}
                 selectedGroupCarriages={selectedGroupCarriages}
                 isSearchButtonClicked={isSearchButtonClicked}
-                isRemoveButtonClicked={isRemoveButtonClicked}
-                selectedGroupId={selectedGroupId}
+                selectAllWagons={selectAllWagons}
+                isAllWagonsSelected={isAllWagonsSelected}
             />
         </div>
     );

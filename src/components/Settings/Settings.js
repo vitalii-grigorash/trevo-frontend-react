@@ -5,7 +5,20 @@ import ContainersSettingTab from '../ContainersSettingTab/ContainersSettingTab';
 import StationsSettingTab from '../StationsSettingTab/StationsSettingTab';
 import TrainsSettingTab from '../TrainsSettingTab/TrainsSettingTab';
 
-function Settings() {
+function Settings(props) {
+
+  const {
+    carriageList,
+    getAllCarriage,
+    deleteCarriages,
+    onSearchGroupClick,
+    selectedGroupCarriages,
+    isSearchButtonClicked,
+    postNewCarriages,
+    onCheckboxChekedArray,
+    selectAllWagons,
+    isAllWagonsSelected
+  } = props;
 
   const [isVagonsTabOpen, setVagonsTabOpen] = useState(true);
   const [isContainersTabOpen, setContainersTabOpen] = useState(false);
@@ -54,7 +67,18 @@ function Settings() {
           <p className={`settings-content__nav-link ${isTrainsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleTrainsTabOpen}>поезда (4 235)</p>
         </div>
 
-        {isVagonsTabOpen && <VagonsSettingTab />}
+        {isVagonsTabOpen && <VagonsSettingTab 
+          carriageList={carriageList}
+          getAllCarriage={getAllCarriage}
+          deleteCarriages={deleteCarriages}
+          onSearchGroupClick={onSearchGroupClick}
+          selectedGroupCarriages={selectedGroupCarriages}
+          isSearchButtonClicked={isSearchButtonClicked}
+          postNewCarriages={postNewCarriages}
+          onCheckboxChekedArray={onCheckboxChekedArray}
+          selectAllWagons={selectAllWagons}
+          isAllWagonsSelected={isAllWagonsSelected}
+        />}
         {isContainersTabOpen && <ContainersSettingTab />}
         {isStationsTabOpen && <StationsSettingTab />}
         {isTrainsTabOpen && <TrainsSettingTab />}
