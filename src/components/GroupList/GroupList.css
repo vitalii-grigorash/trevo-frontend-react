@@ -61,18 +61,29 @@
     top: 45px;
     left: -1px;
     width: 323px;
+    max-height: 200px;
+    overflow-y: scroll;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     box-sizing: border-box;
     background: #FFFFFF;
     z-index: 1;
 }
+.group-list__group-select-container::-webkit-scrollbar {
+    width: 10px;
+    background: #ECEDF3;
+    border-radius: 0 4px 4px 0;
+}
+.group-list__group-select-container::-webkit-scrollbar-thumb {
+    background: #CFD4DD;
+    border-radius: 0 4px 4px 0;
+}
 .group-list__group-select-container_open {
     display: none;
 }
 .group-list__group-select-group-container {
     display: flex;
-    height: 40px;
+    min-height: 40px;
     border-bottom: 1px solid #E5E5E5;
     align-items: center;
     cursor: default;
