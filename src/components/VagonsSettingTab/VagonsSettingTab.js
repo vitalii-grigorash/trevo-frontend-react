@@ -18,7 +18,10 @@ function VagonsSettingTab(props) {
         postNewCarriages,
         onCheckboxChekedArray,
         selectAllWagons,
-        isAllWagonsSelected
+        isAllWagonsSelected,
+        deleteAllCarriagesAndGroups,
+        getCarriageGroups,
+        carriageGroups
     } = props;
 
     const [isMyListTabOpen, setMyListTabOpen] = useState(true);
@@ -26,15 +29,15 @@ function VagonsSettingTab(props) {
     const [isFieldVisibilityTabOpen, setFieldVisibilityTabOpen] = useState(false);
     const [isScheduleAndMailingTabOpen, setScheduleAndMailingTabOpen] = useState(false);
     const [isAlertsTabOpen, setAlertsTabOpen] = useState(false);
-    const [carriageGroups, setCarriageGroups] = useState([]);
+    // const [carriageGroups, setCarriageGroups] = useState([]);
 
-    function getCarriageGroups() {
-        SettingsPageApi.getCarriageGroups()
-            .then((data) => {
-                setCarriageGroups(data);
-            })
-            .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
-    }
+    // function getCarriageGroups() {
+    //     SettingsPageApi.getCarriageGroups()
+    //         .then((data) => {
+    //             setCarriageGroups(data);
+    //         })
+    //         .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+    // }
 
     function postNewGroup(newGroupData) {
         SettingsPageApi.postNewCarriageGroup(newGroupData)
@@ -46,6 +49,7 @@ function VagonsSettingTab(props) {
 
     useEffect(() => {
         getCarriageGroups();
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
@@ -122,10 +126,12 @@ function VagonsSettingTab(props) {
                 onCheckboxChekedArray={onCheckboxChekedArray}
                 selectAllWagons={selectAllWagons}
                 isAllWagonsSelected={isAllWagonsSelected}
+                deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
             />}
             {isMyGroupTabOpen && <MyGroupVagonsTab
                 carriageGroups={carriageGroups}
                 postNewGroup={postNewGroup}
+                deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
             />}
             {isFieldVisibilityTabOpen && <FieldVisibilityVagonsTab />}
             {isScheduleAndMailingTabOpen && <ScheduleAndMailingVagonsTab />}

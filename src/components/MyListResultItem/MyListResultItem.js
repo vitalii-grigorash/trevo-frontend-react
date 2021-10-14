@@ -57,7 +57,6 @@ function MyListResultItem(props) {
             <p className="my-list-result-item__name">{groupName}</p>
             <p className="my-list-result-item__date">{trackingStartDate}</p>
             <p className="my-list-result-item__description">{description}</p>
-            <div className="my-list-result-item__menu-icon" />
         </div>
     )
 }

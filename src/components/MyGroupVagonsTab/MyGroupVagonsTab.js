@@ -7,7 +7,8 @@ function MyGroupVagonsTab(props) {
 
     const {
         carriageGroups,
-        postNewGroup
+        postNewGroup,
+        deleteAllCarriagesAndGroups
     } = props;
 
     const [isGroupAddActive, setGroupAddActive] = useState(false);
@@ -63,6 +64,7 @@ function MyGroupVagonsTab(props) {
         <div className="my-group-vagons-tab">
             <GroupList
                 carriageGroups={carriageGroups}
+                deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
             />
             <div className="my-group-vagons-tab__add-group" onClick={handleAddGroupClick}>
                 <div className={`my-group-vagons-tab__add-group-icon ${isGroupAddActive && 'my-group-vagons-tab__add-group-icon_active'}`} />

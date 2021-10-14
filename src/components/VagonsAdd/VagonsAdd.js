@@ -81,7 +81,7 @@ function VagonsAdd(props) {
                 <div className="vagons-add__select-group-arrow" />
                 {isGroupSelectOpen && (
                     <div className="vagons-add__group-select-container">
-                        {carriageGroups.length === 0 ? (
+                        {carriageGroups === null ? (
                             <div className="vagons-add__group-select-group-container">
                                 <p className="vagons-add__group-select-group-text">Необходимо добавить группу</p>
                             </div>

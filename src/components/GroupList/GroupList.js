@@ -5,6 +5,7 @@ function GroupList(props) {
     const {
         carriageGroups,
         onSearchGroupClick,
+        deleteAllCarriagesAndGroups
     } = props;
 
     const [isGroupSelectContainerOpen, setGroupSelectContainerOpen] = useState(false);
@@ -40,7 +41,7 @@ function GroupList(props) {
                         <div className="group-list__select-group-arrow" />
                         {isGroupSelectContainerOpen && (
                             <div className="group-list__group-select-container">
-                                {carriageGroups.length === 0 ? (
+                                {carriageGroups === null ? (
                                     <div className="group-list__group-select-group-container">
                                         <p className="group-list__group-select-group-text">Необходимо добавить группу</p>
                                     </div>
@@ -57,7 +58,7 @@ function GroupList(props) {
                     <button className={`group-list__select-group-button ${isGroupSelected && 'group-list__select-group-button_active'}`} type="button" onClick={onSearchButtonClick}>поиск</button>
                 </div>
             </div>
-            <button className="group-list__remove-all" type="button">удалить все вагоны и группы</button>
+            <button className="group-list__remove-all" type="button" onClick={deleteAllCarriagesAndGroups}>удалить все вагоны и группы</button>
         </div>
     );
 

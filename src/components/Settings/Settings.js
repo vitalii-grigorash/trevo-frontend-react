@@ -17,7 +17,10 @@ function Settings(props) {
     postNewCarriages,
     onCheckboxChekedArray,
     selectAllWagons,
-    isAllWagonsSelected
+    isAllWagonsSelected,
+    deleteAllCarriagesAndGroups,
+    getCarriageGroups,
+    carriageGroups
   } = props;
 
   const [isVagonsTabOpen, setVagonsTabOpen] = useState(true);
@@ -78,6 +81,9 @@ function Settings(props) {
           onCheckboxChekedArray={onCheckboxChekedArray}
           selectAllWagons={selectAllWagons}
           isAllWagonsSelected={isAllWagonsSelected}
+          deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
+          getCarriageGroups={getCarriageGroups}
+          carriageGroups={carriageGroups}
         />}
         {isContainersTabOpen && <ContainersSettingTab />}
         {isStationsTabOpen && <StationsSettingTab />}

@@ -67,12 +67,3 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.my-list-result-item__menu-icon {
-    background-image: url('../../images/list-options-icon.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 4px;
-    height: 20px;
-    margin: 0 32px;
-    cursor: pointer;
-}

@@ -43,6 +43,24 @@ function App() {
   const [selectedGroupId, setSelectedGroupId] = useState('');
   const [removedCarriagesArray, setRemovedCarriagesArray] = useState([]);
   const [isAllWagonsSelected, setAllWagonsSelected] = useState(false);
+  const [carriageGroups, setCarriageGroups] = useState([]);
+
+  function getCarriageGroups() {
+      SettingsPageApi.getCarriageGroups()
+          .then((data) => {
+              setCarriageGroups(data);
+          })
+          .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+  }
+
+  function deleteAllCarriagesAndGroups() {
+    SettingsPageApi.deleteAllCarriagesAndGroups()
+      .then(() => {
+        getAllCarriage();
+        getCarriageGroups();
+      })
+      .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+  }
 
   function selectAllWagons() {
     if (isAllWagonsSelected) {
@@ -362,6 +380,9 @@ function App() {
               onCheckboxChekedArray={onCheckboxChekedArray}
               selectAllWagons={selectAllWagons}
               isAllWagonsSelected={isAllWagonsSelected}
+              deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
+              getCarriageGroups={getCarriageGroups}
+              carriageGroups={carriageGroups}
             />
           </Route>
 

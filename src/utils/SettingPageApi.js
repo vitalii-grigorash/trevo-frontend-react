@@ -96,3 +96,23 @@ export const deleteCarriages = (carriagesArray) => {
             throw new Error(err.message);
         });
 }
+
+export const deleteAllCarriagesAndGroups = () => {
+    return fetch(`${BASE_URL}/regulated/carriage/deleteAll`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then((data) => {
+            return data;
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+}
