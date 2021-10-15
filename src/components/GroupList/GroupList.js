@@ -19,7 +19,7 @@ function GroupList(props) {
         setGroupId(groupId);
     }
 
-    function onSearchButtonClick () {
+    function onSearchButtonClick() {
         onSearchGroupClick(groupId);
     }
 
@@ -55,7 +55,11 @@ function GroupList(props) {
                             </div>
                         )}
                     </div>
-                    <button className={`group-list__select-group-button ${isGroupSelected && 'group-list__select-group-button_active'}`} type="button" onClick={onSearchButtonClick}>поиск</button>
+                    {isGroupSelected ? (
+                        <button className={`group-list__select-group-button ${isGroupSelected && 'group-list__select-group-button_active'}`} type="button" onClick={onSearchButtonClick}>поиск</button>
+                    ) : (
+                        <button className={`group-list__select-group-button ${isGroupSelected && 'group-list__select-group-button_active'}`} type="button">поиск</button>
+                    )}
                 </div>
             </div>
             <button className="group-list__remove-all" type="button" onClick={deleteAllCarriagesAndGroups}>удалить все вагоны и группы</button>

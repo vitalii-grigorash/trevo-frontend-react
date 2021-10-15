@@ -14,7 +14,7 @@
     line-height: 17px;
     letter-spacing: 0.0025em;
     color: #444C5C;
-    min-width: 70px;
+    min-width: 120px;
     text-align: right;
     margin: auto 32px;
 }
@@ -38,4 +38,5 @@
     line-height: 14px;
     color: #444C5C;
     margin: auto auto auto 0;
+    min-width: 88px;
 }

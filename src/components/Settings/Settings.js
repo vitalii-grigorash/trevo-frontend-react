@@ -20,7 +20,12 @@ function Settings(props) {
     isAllWagonsSelected,
     deleteAllCarriagesAndGroups,
     getCarriageGroups,
-    carriageGroups
+    carriageGroups,
+    selectedGroup,
+    isSearchGroupButtonClicked,
+    onSearchGroup,
+    deleteCarriageGroups,
+    deleteCarriagesFromGroup
   } = props;
 
   const [isVagonsTabOpen, setVagonsTabOpen] = useState(true);
@@ -70,7 +75,7 @@ function Settings(props) {
           <p className={`settings-content__nav-link ${isTrainsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleTrainsTabOpen}>поезда (4 235)</p>
         </div>
 
-        {isVagonsTabOpen && <VagonsSettingTab 
+        {isVagonsTabOpen && <VagonsSettingTab
           carriageList={carriageList}
           getAllCarriage={getAllCarriage}
           deleteCarriages={deleteCarriages}
@@ -84,6 +89,11 @@ function Settings(props) {
           deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
           getCarriageGroups={getCarriageGroups}
           carriageGroups={carriageGroups}
+          selectedGroup={selectedGroup}
+          isSearchGroupButtonClicked={isSearchGroupButtonClicked}
+          onSearchGroup={onSearchGroup}
+          deleteCarriageGroups={deleteCarriageGroups}
+          deleteCarriagesFromGroup={deleteCarriagesFromGroup}
         />}
         {isContainersTabOpen && <ContainersSettingTab />}
         {isStationsTabOpen && <StationsSettingTab />}

@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import GroupList from '../GroupList/GroupList';
 import MyGroupResult from '../MyGroupResult/MyGroupResult';
-import MyGroupResultData from '../../utils/MyGroupResultData.json';
 
 function MyGroupVagonsTab(props) {
 
     const {
         carriageGroups,
         postNewGroup,
-        deleteAllCarriagesAndGroups
+        deleteAllCarriagesAndGroups,
+        onSearchGroup,
+        isSearchGroupButtonClicked,
+        selectedGroup,
+        deleteCarriageGroups,
+        postNewCarriages,
+        deleteCarriagesFromGroup
     } = props;
 
     const [isGroupAddActive, setGroupAddActive] = useState(false);
@@ -65,6 +70,7 @@ function MyGroupVagonsTab(props) {
             <GroupList
                 carriageGroups={carriageGroups}
                 deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
+                onSearchGroupClick={onSearchGroup}
             />
             <div className="my-group-vagons-tab__add-group" onClick={handleAddGroupClick}>
                 <div className={`my-group-vagons-tab__add-group-icon ${isGroupAddActive && 'my-group-vagons-tab__add-group-icon_active'}`} />
@@ -75,14 +81,14 @@ function MyGroupVagonsTab(props) {
                     <div className="my-group-vagons-tab__add-group-close-icon" onClick={handleAddGroupClick} />
                     <p className="my-group-vagons-tab__add-group-heading">Добавить группу</p>
                     <span className="my-group-vagons-tab__add-group-span">Название</span>
-                    <input className="my-group-vagons-tab__add-group-input" type="text" onChange={handleGroupNameChange} value={groupnNameInputValue}/>
+                    <input className="my-group-vagons-tab__add-group-input" type="text" onChange={handleGroupNameChange} value={groupnNameInputValue} />
                     <span className="my-group-vagons-tab__add-group-span">Примечание к группе</span>
-                    <input className="my-group-vagons-tab__add-group-input" type="text" onChange={handleDescriptionChange} value={descriptionInputValue}/>
+                    <input className="my-group-vagons-tab__add-group-input" type="text" onChange={handleDescriptionChange} value={descriptionInputValue} />
                     <button className="my-group-vagons-tab__add-group-button" onClick={addNewGroup}>добавить</button>
                 </div>
             )}
             <div className="my-group-vagons-tab__table-heading-container">
-                <p className="my-group-vagons-tab__table-heading-result">Найдено {MyGroupResultData.length} группы</p>
+                <p className="my-group-vagons-tab__table-heading-result">Найдено {carriageGroups.length} группы</p>
                 <div className="my-group-vagons-tab__table-heading-icons-container">
                     <div className="my-group-vagons-tab__table-heading-icon-save" onMouseEnter={handleShowSaveTooltip} onMouseLeave={handleCloseSaveTooltip}>
                         {isShowSaveTooltip && (
@@ -96,7 +102,14 @@ function MyGroupVagonsTab(props) {
                     </div>
                 </div>
             </div>
-            <MyGroupResult />
+            <MyGroupResult
+                carriageGroups={carriageGroups}
+                selectedGroup={selectedGroup}
+                isSearchGroupButtonClicked={isSearchGroupButtonClicked}
+                deleteCarriageGroups={deleteCarriageGroups}
+                postNewCarriages={postNewCarriages}
+                deleteCarriagesFromGroup={deleteCarriagesFromGroup}
+            />
         </div>
     );
 

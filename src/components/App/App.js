@@ -39,6 +39,8 @@ function App() {
   const [requesId, setRequesId] = useState('');
   const [carriageList, setCarriageList] = useState([]);
   const [selectedGroupCarriages, setSelectedGroupCarriages] = useState([]);
+  const [selectedGroup, setSelectedGroup] = useState([]);
+  const [isSearchGroupButtonClicked, setSearchGroupButtonClicked] = useState(false);
   const [isSearchButtonClicked, setSearchButtonClicked] = useState(false);
   const [selectedGroupId, setSelectedGroupId] = useState('');
   const [removedCarriagesArray, setRemovedCarriagesArray] = useState([]);
@@ -46,11 +48,19 @@ function App() {
   const [carriageGroups, setCarriageGroups] = useState([]);
 
   function getCarriageGroups() {
-      SettingsPageApi.getCarriageGroups()
-          .then((data) => {
-              setCarriageGroups(data);
-          })
-          .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+    SettingsPageApi.getCarriageGroups()
+      .then((data) => {
+        setCarriageGroups(data);
+      })
+      .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+  }
+
+  function deleteCarriageGroups(id) {
+    SettingsPageApi.deleteGroup(id)
+      .then(() => {
+        getCarriageGroups();
+      })
+      .catch((err) => console.log(`Ошибка при удалении группы: ${err}`));
   }
 
   function deleteAllCarriagesAndGroups() {
@@ -98,6 +108,17 @@ function App() {
     });
   }
 
+  function onSearchGroup(id) {
+    setSearchGroupButtonClicked(true);
+    setSelectedGroup([]);
+    // eslint-disable-next-line
+    carriageGroups.find((item) => {
+      if (item.id === id) {
+        setSelectedGroup(selectedGroup => ([...selectedGroup, item]));
+      }
+    });
+  }
+
   function getAllCarriage() {
     SettingsPageApi.getAllCarriage()
       .then((data) => {
@@ -126,6 +147,14 @@ function App() {
   function deleteCarriages(carriagesArray) {
     setAllWagonsSelected(false);
     SettingsPageApi.deleteCarriages(carriagesArray)
+      .then(() => {
+        getAllCarriage();
+      })
+      .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
+  }
+
+  function deleteCarriagesFromGroup(id, carriagesArray) {
+    SettingsPageApi.deleteCarriagesFromGroup(id, carriagesArray)
       .then(() => {
         getAllCarriage();
       })
@@ -383,6 +412,11 @@ function App() {
               deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
               getCarriageGroups={getCarriageGroups}
               carriageGroups={carriageGroups}
+              selectedGroup={selectedGroup}
+              isSearchGroupButtonClicked={isSearchGroupButtonClicked}
+              onSearchGroup={onSearchGroup}
+              deleteCarriageGroups={deleteCarriageGroups}
+              deleteCarriagesFromGroup={deleteCarriagesFromGroup}
             />
           </Route>
 

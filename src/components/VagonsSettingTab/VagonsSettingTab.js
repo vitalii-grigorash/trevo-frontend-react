@@ -21,7 +21,12 @@ function VagonsSettingTab(props) {
         isAllWagonsSelected,
         deleteAllCarriagesAndGroups,
         getCarriageGroups,
-        carriageGroups
+        carriageGroups,
+        selectedGroup,
+        isSearchGroupButtonClicked,
+        onSearchGroup,
+        deleteCarriageGroups,
+        deleteCarriagesFromGroup
     } = props;
 
     const [isMyListTabOpen, setMyListTabOpen] = useState(true);
@@ -121,8 +126,15 @@ function VagonsSettingTab(props) {
             />}
             {isMyGroupTabOpen && <MyGroupVagonsTab
                 carriageGroups={carriageGroups}
+                carriageList={carriageList}
                 postNewGroup={postNewGroup}
                 deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
+                onSearchGroup={onSearchGroup}
+                isSearchGroupButtonClicked={isSearchGroupButtonClicked}
+                selectedGroup={selectedGroup}
+                deleteCarriageGroups={deleteCarriageGroups}
+                postNewCarriages={postNewCarriages}
+                deleteCarriagesFromGroup={deleteCarriagesFromGroup}
             />}
             {isFieldVisibilityTabOpen && <FieldVisibilityVagonsTab />}
             {isScheduleAndMailingTabOpen && <ScheduleAndMailingVagonsTab />}
