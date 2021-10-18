@@ -5,7 +5,7 @@ function GroupList(props) {
     const {
         carriageGroups,
         onSearchGroupClick,
-        deleteAllCarriagesAndGroups
+        onDeleteAllClick
     } = props;
 
     const [isGroupSelectContainerOpen, setGroupSelectContainerOpen] = useState(false);
@@ -62,7 +62,7 @@ function GroupList(props) {
                     )}
                 </div>
             </div>
-            <button className="group-list__remove-all" type="button" onClick={deleteAllCarriagesAndGroups}>удалить все вагоны и группы</button>
+            <button className="group-list__remove-all" type="button" onClick={onDeleteAllClick}>удалить все вагоны и группы</button>
         </div>
     );
 

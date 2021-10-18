@@ -7,13 +7,13 @@ function MyGroupVagonsTab(props) {
     const {
         carriageGroups,
         postNewGroup,
-        deleteAllCarriagesAndGroups,
         onSearchGroup,
         isSearchGroupButtonClicked,
         selectedGroup,
-        deleteCarriageGroups,
+        onDeleteGroupClick,
         postNewCarriages,
-        deleteCarriagesFromGroup
+        deleteCarriagesFromGroup,
+        onDeleteAllClick
     } = props;
 
     const [isGroupAddActive, setGroupAddActive] = useState(false);
@@ -82,8 +82,8 @@ function MyGroupVagonsTab(props) {
         <div className="my-group-vagons-tab">
             <GroupList
                 carriageGroups={carriageGroups}
-                deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
                 onSearchGroupClick={onSearchGroup}
+                onDeleteAllClick={onDeleteAllClick}
             />
             <div className="my-group-vagons-tab__add-group" onClick={handleAddGroupClick}>
                 <div className={`my-group-vagons-tab__add-group-icon ${isGroupAddActive && 'my-group-vagons-tab__add-group-icon_active'}`} />
@@ -130,7 +130,7 @@ function MyGroupVagonsTab(props) {
                 carriageGroups={carriageGroups}
                 selectedGroup={selectedGroup}
                 isSearchGroupButtonClicked={isSearchGroupButtonClicked}
-                deleteCarriageGroups={deleteCarriageGroups}
+                onDeleteGroupClick={onDeleteGroupClick}
                 postNewCarriages={postNewCarriages}
                 deleteCarriagesFromGroup={deleteCarriagesFromGroup}
             />

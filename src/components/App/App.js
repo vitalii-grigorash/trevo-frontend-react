@@ -5,7 +5,7 @@ import SideBar from '../SideBar/SideBar';
 import Main from '../Main/Main';
 import Stations from '../Stations/Stations';
 import Trains from '../Trains/Trains';
-import Wagons from '../Wagons/Wagons';
+import Carriages from '../Carriages/Carriages';
 import Containers from '../Containers/Containers';
 import Dislocation from '../Dislocation/Dislocation';
 import Settings from '../Settings/Settings';
@@ -20,6 +20,8 @@ import PersonalAccount from '../PersonalAccount/PersonalAccount';
 import NotFound from '../NotFound/NotFound';
 import * as StationsPageApi from '../../utils/StationsPageApi';
 import * as SettingsPageApi from '../../utils/SettingPageApi';
+import DeleteAllPopup from '../DeleteAllPopup/DeleteAllPopup';
+import DeleteGroupPopup from '../DeleteGroupPopup/DeleteGroupPopup';
 
 function App() {
 
@@ -43,9 +45,30 @@ function App() {
   const [isSearchGroupButtonClicked, setSearchGroupButtonClicked] = useState(false);
   const [isSearchButtonClicked, setSearchButtonClicked] = useState(false);
   const [selectedGroupId, setSelectedGroupId] = useState('');
+  const [deleteGroupId, setDeleteGroupId] = useState('');
   const [removedCarriagesArray, setRemovedCarriagesArray] = useState([]);
   const [isAllWagonsSelected, setAllWagonsSelected] = useState(false);
   const [carriageGroups, setCarriageGroups] = useState([]);
+  const [isDeleteAllPopupOpen, setDeleteAllPopupOpen] = useState(false);
+  const [isDeleteGroupPopupOpen, setDeleteGroupPopupOpen] = useState(false);
+
+  function onDeleteAllClick() {
+    if (isDeleteAllPopupOpen) {
+      setDeleteAllPopupOpen(false);
+    } else {
+      setDeleteAllPopupOpen(true);
+    }
+  }
+
+  function onDeleteGroupClick(groupNumber) {
+    if (isDeleteGroupPopupOpen) {
+      setDeleteGroupPopupOpen(false);
+      setDeleteGroupId('');
+    } else {
+      setDeleteGroupPopupOpen(true);
+      setDeleteGroupId(groupNumber);
+    }
+  }
 
   function getCarriageGroups() {
     SettingsPageApi.getCarriageGroups()
@@ -55,10 +78,11 @@ function App() {
       .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
   }
 
-  function deleteCarriageGroups(id) {
-    SettingsPageApi.deleteGroup(id)
+  function deleteCarriageGroups() {
+    SettingsPageApi.deleteGroup(deleteGroupId)
       .then(() => {
         getCarriageGroups();
+        onDeleteGroupClick();
       })
       .catch((err) => console.log(`Ошибка при удалении группы: ${err}`));
   }
@@ -68,6 +92,7 @@ function App() {
       .then(() => {
         getAllCarriage();
         getCarriageGroups();
+        onDeleteAllClick();
       })
       .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
   }
@@ -361,8 +386,8 @@ function App() {
             />
           </Route>
 
-          <Route path='/wagons'>
-            <Wagons
+          <Route path='/сarriages'>
+            <Carriages
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
               addRequest={addRequest}
@@ -409,14 +434,14 @@ function App() {
               onCheckboxChekedArray={onCheckboxChekedArray}
               selectAllWagons={selectAllWagons}
               isAllWagonsSelected={isAllWagonsSelected}
-              deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
               getCarriageGroups={getCarriageGroups}
               carriageGroups={carriageGroups}
               selectedGroup={selectedGroup}
               isSearchGroupButtonClicked={isSearchGroupButtonClicked}
               onSearchGroup={onSearchGroup}
-              deleteCarriageGroups={deleteCarriageGroups}
+              onDeleteGroupClick={onDeleteGroupClick}
               deleteCarriagesFromGroup={deleteCarriagesFromGroup}
+              onDeleteAllClick={onDeleteAllClick}
             />
           </Route>
 
@@ -438,6 +463,18 @@ function App() {
           </Switch>
 
         </Switch>
+
+        <DeleteAllPopup
+          isOpen={isDeleteAllPopupOpen}
+          deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
+          onClose={onDeleteAllClick}
+        />
+
+        <DeleteGroupPopup
+          isOpen={isDeleteGroupPopupOpen}
+          onClose={onDeleteGroupClick}
+          deleteCarriageGroups={deleteCarriageGroups}
+        />
 
       </div>
 

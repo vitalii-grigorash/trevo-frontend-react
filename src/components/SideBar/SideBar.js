@@ -18,7 +18,7 @@ function SideBar () {
         if (
             pathname === '/stations' ||
             pathname === '/trains' ||
-            pathname === '/wagons' ||
+            pathname === '/сarriages' ||
             pathname === '/containers'
         ) {
             setOperationalOpen(true);
@@ -111,9 +111,9 @@ function SideBar () {
                                 <div className="side-bar__link-icon side-bar__link-icon_train" />
                                 <Link to={'/trains'} className={pathname === '/trains' ? 'side-bar__link side-bar__link_active' : 'side-bar__link'}>Поезда</Link>
                             </div>
-                            <div className={pathname === '/wagons' ? 'side-bar__link-container side-bar__link-container_active' : 'side-bar__link-container'}>
+                            <div className={pathname === '/сarriages' ? 'side-bar__link-container side-bar__link-container_active' : 'side-bar__link-container'}>
                                 <div className="side-bar__link-icon side-bar__link-icon_vagon" />
-                                <Link to={'/wagons'} className={pathname === '/wagons' ? 'side-bar__link side-bar__link_active' : 'side-bar__link'}>Вагоны</Link>
+                                <Link to={'/сarriages'} className={pathname === '/сarriages' ? 'side-bar__link side-bar__link_active' : 'side-bar__link'}>Вагоны</Link>
                             </div>
                             <div className={pathname === '/containers' ? 'side-bar__link-container side-bar__link-container_active' : 'side-bar__link-container'}>
                                 <div className="side-bar__link-icon side-bar__link-icon_container" />

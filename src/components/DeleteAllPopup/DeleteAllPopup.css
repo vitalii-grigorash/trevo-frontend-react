@@ -1,0 +1,106 @@
+.delete-all-popup {
+    display: flex;
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .1s, opacity .1s linear;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.32);
+}
+.delete-all-popup_opened {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .1s;
+}
+.delete-all-popup__confirmation-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
+    overflow: hidden;
+}
+.delete-all-popup__confirmation-red-line {
+    height: 4px;
+    background: #EC5555;
+    margin: 0;
+}
+.delete-all-popup__confirmation-trash-icon {
+    background-image: url('../../images/red-trash-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 36px;
+    height: 36px;
+    margin: 24px auto 0;
+}
+.delete-all-popup__confirmation-question {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 23px;
+    letter-spacing: 0.0015em;
+    color: #444C5C;
+    margin: 16px auto 0;
+}
+.delete-all-popup__confirmation-description {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: #444C5C;
+    max-width: 388px;
+    margin: 16px 24px 0;
+    text-align: center;
+}
+.delete-all-popup__buttons-container {
+    display: flex;
+    margin: 16px auto 24px;
+}
+.delete-all-popup__button-cancel {
+    margin: 0 16px 0 0;
+    width: 108px;
+    height: 40px;
+    background: #EC5555;
+    border-radius: 4px;
+    border: none;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.0125em;
+}
+.delete-all-popup__button-cancel:hover {
+    background: #f14040;
+}
+.delete-all-popup__button-delete {
+    width: 108px;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    background: #FFFFFF;
+    border: 1px solid #CFD4DD;
+    box-sizing: border-box;
+    color: #444C5C;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.0125em;
+}
+.delete-all-popup__button-delete:hover {
+    opacity: .8;
+}

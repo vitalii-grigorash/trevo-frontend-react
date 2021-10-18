@@ -7,7 +7,7 @@ function MyGroupResult(props) {
         carriageGroups,
         selectedGroup,
         isSearchGroupButtonClicked,
-        deleteCarriageGroups,
+        onDeleteGroupClick,
         postNewCarriages,
         deleteCarriagesFromGroup
     } = props;
@@ -106,7 +106,7 @@ function MyGroupResult(props) {
                                 description={data.description}
                                 isMyGroupResultTableItemsOpened={isMyGroupResultTableItemsOpened}
                                 handleMyGroupResultTableItemsOpened={handleMyGroupResultTableItemsOpened}
-                                deleteCarriageGroups={deleteCarriageGroups}
+                                onDeleteGroupClick={onDeleteGroupClick}
                                 postNewCarriages={postNewCarriages}
                                 deleteCarriagesFromGroup={deleteCarriagesFromGroup}
                             />

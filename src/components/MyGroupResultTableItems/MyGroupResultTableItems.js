@@ -11,7 +11,7 @@ function MyGroupResultTableItems(props) {
         description,
         isMyGroupResultTableItemsOpened,
         handleMyGroupResultTableItemsOpened,
-        deleteCarriageGroups,
+        onDeleteGroupClick,
         postNewCarriages,
         deleteCarriagesFromGroup
     } = props;
@@ -225,8 +225,7 @@ function MyGroupResultTableItems(props) {
     }
 
     function onRemoveGroupClick() {
-        console.log(groupNumber)
-        deleteCarriageGroups(groupNumber);
+        onDeleteGroupClick(groupNumber);
     }
 
     return (

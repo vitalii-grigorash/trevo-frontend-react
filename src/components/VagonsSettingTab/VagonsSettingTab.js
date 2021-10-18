@@ -19,14 +19,14 @@ function VagonsSettingTab(props) {
         onCheckboxChekedArray,
         selectAllWagons,
         isAllWagonsSelected,
-        deleteAllCarriagesAndGroups,
         getCarriageGroups,
         carriageGroups,
         selectedGroup,
         isSearchGroupButtonClicked,
         onSearchGroup,
-        deleteCarriageGroups,
-        deleteCarriagesFromGroup
+        onDeleteGroupClick,
+        deleteCarriagesFromGroup,
+        onDeleteAllClick
     } = props;
 
     const [isMyListTabOpen, setMyListTabOpen] = useState(true);
@@ -122,19 +122,19 @@ function VagonsSettingTab(props) {
                 onCheckboxChekedArray={onCheckboxChekedArray}
                 selectAllWagons={selectAllWagons}
                 isAllWagonsSelected={isAllWagonsSelected}
-                deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
+                onDeleteAllClick={onDeleteAllClick}
             />}
             {isMyGroupTabOpen && <MyGroupVagonsTab
                 carriageGroups={carriageGroups}
                 carriageList={carriageList}
                 postNewGroup={postNewGroup}
-                deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
                 onSearchGroup={onSearchGroup}
                 isSearchGroupButtonClicked={isSearchGroupButtonClicked}
                 selectedGroup={selectedGroup}
-                deleteCarriageGroups={deleteCarriageGroups}
+                onDeleteGroupClick={onDeleteGroupClick}
                 postNewCarriages={postNewCarriages}
                 deleteCarriagesFromGroup={deleteCarriagesFromGroup}
+                onDeleteAllClick={onDeleteAllClick}
             />}
             {isFieldVisibilityTabOpen && <FieldVisibilityVagonsTab />}
             {isScheduleAndMailingTabOpen && <ScheduleAndMailingVagonsTab />}

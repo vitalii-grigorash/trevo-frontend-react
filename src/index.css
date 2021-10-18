@@ -7,7 +7,7 @@
 @import url(./components/Header/Header.css);
 @import url(./components/Main/Main.css);
 @import url(./components/Trains/Trains.css);
-@import url(./components/Wagons/Wagons.css);
+@import url(./components/Carriages/Carriages.css);
 @import url(./components/Containers/Containers.css);
 @import url(./components/Dislocation/Dislocation.css);
 @import url(./components/Settings/Settings.css);
@@ -40,3 +40,5 @@
 @import url(./components/MyGroupResultTableItems/MyGroupResultTableItems.css);
 @import url(./components/VagonsList/VagonsList.css);
 @import url(./components/MyListResultItem/MyListResultItem.css);
+@import url(./components/DeleteAllPopup/DeleteAllPopup.css);
+@import url(./components/DeleteGroupPopup/DeleteGroupPopup.css);

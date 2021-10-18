@@ -5,7 +5,7 @@ import Response from '../Response/Response';
 import { useLocation } from 'react-router-dom';
 import * as StationsPageApi from '../../utils/StationsPageApi';
 
-function Wagons(props) {
+function Carriages(props) {
 
   const {
     handleOpenRequestList,
@@ -25,7 +25,7 @@ function Wagons(props) {
   const [requesList, setRequestList] = useState([]);
 
   useEffect(() => {
-    if (pathname === '/wagons') {
+    if (pathname === '/сarriages') {
       StationsPageApi.getRequestType()
         .then((data) => {
           setRequestList(data);
@@ -35,7 +35,7 @@ function Wagons(props) {
   }, [pathname]);
 
   return (
-    <div className="wagons">
+    <div className="carriages">
       <Helmet
         title='TREVO: Вагоны'
       />
@@ -62,4 +62,4 @@ function Wagons(props) {
 
 }
 
-export default Wagons;
+export default Carriages;

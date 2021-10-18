@@ -16,7 +16,7 @@ function MyListVagonsTab(props) {
         onCheckboxChekedArray,
         selectAllWagons,
         isAllWagonsSelected,
-        deleteAllCarriagesAndGroups
+        onDeleteAllClick
     } = props;
 
     const [checkboxSelectedData, setCheckboxSelectedData] = useState([]);
@@ -80,7 +80,7 @@ function MyListVagonsTab(props) {
             <GroupList
                 carriageGroups={carriageGroups}
                 onSearchGroupClick={onSearchGroupClick}
-                deleteAllCarriagesAndGroups={deleteAllCarriagesAndGroups}
+                onDeleteAllClick={onDeleteAllClick}
             />
             <div className="my-list-vagons-tab__add-vagons" onClick={handleAddVagonsClick}>
                 <div className={`my-list-vagons-tab__add-vagons-icon ${isVagonsAddActive && 'my-list-vagons-tab__add-vagons-icon_active'}`} />
