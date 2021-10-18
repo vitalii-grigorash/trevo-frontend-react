@@ -17,7 +17,7 @@ function Carriages(props) {
     isInfoShow,
     requestInfo,
     requesName,
-    requesId,
+    requestId,
     removeHistoryListRequest
   } = props;
 
@@ -54,7 +54,7 @@ function Carriages(props) {
         requestInfo={requestInfo}
         placeholder={'Номер вагона'}
         requesName={requesName}
-        requesId={requesId}
+        requestId={requestId}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

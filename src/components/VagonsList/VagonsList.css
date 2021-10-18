@@ -34,9 +34,30 @@
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 14px;
+    line-height: 17px;
     color: #444C5C;
     margin: auto auto auto 0;
-    min-width: 88px;
+    border: none;
+    width: 410px;
+}
+.vagons-list__description:focus {
+    color: #7C879B;
+    outline: none;
+}
+.vagons-list__save-button {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    height: 17px;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: #00A2E1;
+    border-bottom: 1px solid #00A2E1;
+    margin: auto 32px;
+    cursor: pointer;
+}
+.vagons-list__save-button:hover {
+    opacity: .8;
 }

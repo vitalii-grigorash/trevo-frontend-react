@@ -17,7 +17,7 @@ function Repairs(props) {
     isInfoShow,
     requestInfo,
     requesName,
-    requesId,
+    requestId,
     removeHistoryListRequest
   } = props;
 
@@ -54,7 +54,7 @@ function Repairs(props) {
         requestInfo={requestInfo}
         placeholder={'Введите параметр'}
         requesName={requesName}
-        requesId={requesId}
+        requestId={requestId}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

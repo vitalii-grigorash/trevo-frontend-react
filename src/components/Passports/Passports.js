@@ -17,7 +17,7 @@ function Passports(props) {
     isInfoShow,
     requestInfo,
     requesName,
-    requesId,
+    requestId,
     removeHistoryListRequest
   } = props;
 
@@ -54,7 +54,7 @@ function Passports(props) {
         requestInfo={requestInfo}
         placeholder={'Номер паспорта'}
         requesName={requesName}
-        requesId={requesId}
+        requestId={requestId}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

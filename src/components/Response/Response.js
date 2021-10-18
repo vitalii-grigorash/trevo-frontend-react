@@ -12,7 +12,7 @@ function Response(props) {
     requestInfo,
     placeholder,
     requesName,
-    requesId,
+    requestId,
     removeHistoryListRequest,
   } = props;
 
@@ -25,7 +25,7 @@ function Response(props) {
           isInfoShow={isInfoShow}
           requestInfo={requestInfo}
           requesName={requesName}
-          requesId={requesId}
+          requestId={requestId}
         />
       )}
 

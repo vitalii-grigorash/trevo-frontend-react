@@ -8,7 +8,7 @@ function RequestInfo(props) {
         isInfoShow,
         requestInfo,
         requesName,
-        requesId
+        requestId
     } = props;
 
     const lat = `${isPreloaderShow ? '' : requestInfo.result.lat}`
@@ -38,7 +38,7 @@ function RequestInfo(props) {
                 ) : (
                     <div className="request-info__options-container">
                         <div className="request-info__option-container">
-                            <a className="request-info__option-link-container" href={`http://evote65-vm.dltc.spbu.ru:5555/operational/station/request/download/${requesId}`} target="_blank" rel="noreferrer">
+                            <a className="request-info__option-link-container" href={`http://evote65-vm.dltc.spbu.ru:5555/operational/station/request/download/${requestId}`} target="_blank" rel="noreferrer">
                                 <div className="request-info__option-icon request-info__option-icon_download" />
                                 <p className="request-info__option-text">скачать</p>
                             </a>
