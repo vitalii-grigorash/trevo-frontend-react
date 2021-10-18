@@ -74,6 +74,16 @@
     color: #444C5C;
     margin: 24px auto 0 24px;
 }
+.my-group-vagons-tab__add-group-span_description {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.004em;
+    color: #444C5C;
+    margin: 7px auto 0 24px;
+}
 .my-group-vagons-tab__add-group-input {
     width: 300px;
     height: 40px;
@@ -81,6 +91,19 @@
     border: 1px solid #CFD4DD;
     box-sizing: border-box;
     border-radius: 4px;
+    padding: 0 8px;
+    color: #444C5C;
+}
+.my-group-vagons-tab__add-group-input-error {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.004em;
+    height: 12px;
+    color: red;
+    margin: 5px auto 0 24px;
 }
 .my-group-vagons-tab__add-group-button {
     width: 117px;

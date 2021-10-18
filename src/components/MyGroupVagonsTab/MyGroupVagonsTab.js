@@ -21,6 +21,7 @@ function MyGroupVagonsTab(props) {
     const [isShowDownloadTooltip, setShowDownloadTooltip] = useState(false);
     const [groupnNameInputValue, setGroupnNameInputValue] = useState('');
     const [descriptionInputValue, setDescriptionInputValue] = useState('');
+    const [nameInputErrorText, setNameInputErrorText] = useState('');
 
     function handleGroupNameChange(evt) {
         setGroupnNameInputValue(evt.target.value);
@@ -28,6 +29,14 @@ function MyGroupVagonsTab(props) {
 
     function handleDescriptionChange(evt) {
         setDescriptionInputValue(evt.target.value);
+    }
+
+    function validateFormAndSend() {
+        if (groupnNameInputValue === '') {
+            setNameInputErrorText('Необходимо ввести название');
+        } else {
+            addNewGroup();
+        }
     }
 
     function addNewGroup() {
@@ -38,6 +47,7 @@ function MyGroupVagonsTab(props) {
         postNewGroup(newGroupData);
         setGroupnNameInputValue('');
         setDescriptionInputValue('');
+        setNameInputErrorText('');
     }
 
     function handleShowSaveTooltip() {
@@ -60,6 +70,9 @@ function MyGroupVagonsTab(props) {
     function handleAddGroupClick() {
         if (isGroupAddActive) {
             setGroupAddActive(false);
+            setGroupnNameInputValue('');
+            setDescriptionInputValue('');
+            setNameInputErrorText('');
         } else {
             setGroupAddActive(true);
         }
@@ -81,10 +94,21 @@ function MyGroupVagonsTab(props) {
                     <div className="my-group-vagons-tab__add-group-close-icon" onClick={handleAddGroupClick} />
                     <p className="my-group-vagons-tab__add-group-heading">Добавить группу</p>
                     <span className="my-group-vagons-tab__add-group-span">Название</span>
-                    <input className="my-group-vagons-tab__add-group-input" type="text" onChange={handleGroupNameChange} value={groupnNameInputValue} />
-                    <span className="my-group-vagons-tab__add-group-span">Примечание к группе</span>
-                    <input className="my-group-vagons-tab__add-group-input" type="text" onChange={handleDescriptionChange} value={descriptionInputValue} />
-                    <button className="my-group-vagons-tab__add-group-button" onClick={addNewGroup}>добавить</button>
+                    <input
+                        className="my-group-vagons-tab__add-group-input"
+                        type="text"
+                        onChange={handleGroupNameChange}
+                        value={groupnNameInputValue}
+                    />
+                    <span className="my-group-vagons-tab__add-group-input-error">{nameInputErrorText}</span>
+                    <span className="my-group-vagons-tab__add-group-span_description">Примечание к группе</span>
+                    <input
+                        className="my-group-vagons-tab__add-group-input"
+                        type="text"
+                        onChange={handleDescriptionChange}
+                        value={descriptionInputValue}
+                    />
+                    <button className="my-group-vagons-tab__add-group-button" onClick={validateFormAndSend}>добавить</button>
                 </div>
             )}
             <div className="my-group-vagons-tab__table-heading-container">
