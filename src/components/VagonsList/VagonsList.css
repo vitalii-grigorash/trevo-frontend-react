@@ -40,6 +40,7 @@
     margin: auto auto auto 0;
     border: none;
     width: 410px;
+    text-overflow: ellipsis;
 }
 .vagons-list__description:focus {
     color: #7C879B;

@@ -46,6 +46,11 @@
     width: 182px;
     max-height: 52px;
     margin: auto 32px auto 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .my-group-result-table-items__vagons-value {
     min-width: 142px;

@@ -14,10 +14,7 @@ function VagonsList(props) {
     function handleChangeCarriageDescription(evt) {
         setCarriageDescriptionValue(evt.target.value);
         if (evt.target.focus) {
-            console.log('focus')
             setInputActive(true);
-        } else if (!evt.target.focus) {
-            setInputActive(false);
         }
     }
 
