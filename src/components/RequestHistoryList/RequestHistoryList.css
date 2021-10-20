@@ -53,6 +53,9 @@
 }
 .request-history-list__key {
     margin: 0 5px 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .request-history-list__val {
     color: #444C5C;

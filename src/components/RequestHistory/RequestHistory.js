@@ -8,6 +8,7 @@ function RequestHistory(props) {
     handleShowHistoryList,
     placeholder,
     removeHistoryListRequest,
+    urlTypeForDownload
   } = props;
 
   const [isShowSortOptions, setShowSortOptions] = useState(false);
@@ -114,6 +115,7 @@ function RequestHistory(props) {
               status={list.status}
               handleShowHistoryList={handleShowHistoryList}
               removeHistoryListRequest={removeHistoryListRequest}
+              urlTypeForDownload={urlTypeForDownload}
             />
           ))}
         </div>

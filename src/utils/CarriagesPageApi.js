@@ -1,7 +1,7 @@
 export const BASE_URL = 'http://evote65-vm.dltc.spbu.ru:5555';
 
 export const getRequestType = () => {
-    return fetch(`${BASE_URL}/operational/station/requestType`, {
+    return fetch(`${BASE_URL}/operational/carriage/requestType`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -20,7 +20,7 @@ export const getRequestType = () => {
 };
 
 export const getRequestHistoryList = () => {
-    return fetch(`${BASE_URL}/operational/station/request`, {
+    return fetch(`${BASE_URL}/operational/carriage/request`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ export const getRequestHistoryList = () => {
 };
 
 export const getInfo = (id) => {
-    return fetch(`${BASE_URL}/operational/station/request/${id}`, {
+    return fetch(`${BASE_URL}/operational/carriage/request/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ export const getInfo = (id) => {
 };
 
 export const postRequest = (request) => {
-    return fetch(`${BASE_URL}/operational/station/request`, {
+    return fetch(`${BASE_URL}/operational/carriage/request`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ export const postRequest = (request) => {
 };
 
 export const removeHistoryRequest = (id) => {
-    return fetch(`${BASE_URL}/operational/station/request/delete/${id}`, {
+    return fetch(`${BASE_URL}/operational/carriage/request/delete/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

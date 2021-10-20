@@ -18,7 +18,6 @@ import FinancialPanel from '../FinancialPanel/FinancialPanel';
 import Administration from '../Administration/Administration';
 import PersonalAccount from '../PersonalAccount/PersonalAccount';
 import NotFound from '../NotFound/NotFound';
-import * as StationsPageApi from '../../utils/StationsPageApi';
 import * as SettingsPageApi from '../../utils/SettingPageApi';
 import DeleteAllPopup from '../DeleteAllPopup/DeleteAllPopup';
 import DeleteGroupPopup from '../DeleteGroupPopup/DeleteGroupPopup';
@@ -186,54 +185,65 @@ function App() {
       .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
   }
 
-  function getRequestHistoryList() {
-    StationsPageApi.getRequestHistoryList()
+  function getRequestHistoryList(api) {
+    api.getRequestHistoryList()
       .then((data) => {
         setRequestHistoryList(data.reverse());
       })
       .catch((err) => console.log(`Ошибка при загрузке списка истории запросов: ${err}`));
   }
 
-  useEffect(() => {
-    getRequestHistoryList();
-  }, []);
-
-  function handleShowHistoryList(id) {
-    function filteredObj(idToSearch) {
-      return requestHistoryList.find((obj) => {
-        const filtered = () => {
-          if (obj.id === idToSearch) {
-            return obj
-          }
-        }
-        return filtered();
-      });
-    };
-    setRequestInfo(filteredObj(id));
-    setRequestId(id);
-    setInfoShow(true);
+  function closeInfoContainer() {
+    setInfoShow(false);
   }
 
-  function addRequest(requestData, requestName) {
-    setRequesName(requestName);
+  function handleShowInfo(id, api) {
     setPreloaderShow(true);
-    setInfoShow(true);
-    StationsPageApi.postRequest(requestData)
+    api.getInfo(id)
       .then((res) => {
-        setRequestInfo(res);
-        setRequestId(res.id);
+        if (res.status === 'done') {
+          setRequesName(res.requestTypeName);
+          setRequestInfo(res);
+          setRequestId(id);
+          setInfoShow(true);
+          setPreloaderShow(false);
+        } else {
+          setRequesName(res.requestTypeName);
+          setInfoShow(true);
+          setPreloaderShow(true);
+        }
       })
-      .then(() => {
-        getRequestHistoryList();
-      })
-      .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`))
-      .finally(() => setPreloaderShow(false));
+      .catch((err) => console.log(`Ошибка: ${err}`))
   }
 
-  function removeHistoryListRequest(id) {
-    StationsPageApi.removeHistoryRequest(id)
+  function sendRequest(requestData, api) {
+    api.postRequest(requestData)
+      .then((res) => {
+        if (res.status === 'done') {
+          setPreloaderShow(true);
+          setInfoShow(true);
+          api.getInfo(res.id)
+            .then((res) => {
+              setRequesName(res.requestTypeName);
+              setRequestInfo(res);
+              setRequestId(res.id);
+            })
+            .catch((err) => console.log(`Ошибка: ${err}`))
+            .finally(() => setPreloaderShow(false));
+        } else {
+          return
+        }
+      })
       .then(() => {
-        getRequestHistoryList();
+        getRequestHistoryList(api);
+      })
+      .catch((err) => console.log(`Ошибка при отправке запроса: ${err}`))
+  }
+
+  function removeRequestFromHistoryList(id, api) {
+    api.removeHistoryRequest(id)
+      .then(() => {
+        getRequestHistoryList(api);
       })
       .catch((err) => console.log(`Ошибка: ${err}`));
   }
@@ -246,7 +256,7 @@ function App() {
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     const firstName = userData.firstName.charAt(0);
     const lastName = userData.lastName;
     const middleName = function () {
@@ -278,15 +288,17 @@ function App() {
             <GeneralInquiries
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
-              removeHistoryListRequest={removeHistoryListRequest}
               requestId={requestId}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 
@@ -294,15 +306,17 @@ function App() {
             <Repairs
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
               requestId={requestId}
-              removeHistoryListRequest={removeHistoryListRequest}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 
@@ -310,15 +324,17 @@ function App() {
             <Details
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
               requestId={requestId}
-              removeHistoryListRequest={removeHistoryListRequest}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 
@@ -326,15 +342,17 @@ function App() {
             <Passports
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
               requestId={requestId}
-              removeHistoryListRequest={removeHistoryListRequest}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 
@@ -342,15 +360,17 @@ function App() {
             <Runs
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
               requestId={requestId}
-              removeHistoryListRequest={removeHistoryListRequest}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 
@@ -358,15 +378,17 @@ function App() {
             <Stations
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
               requestId={requestId}
-              removeHistoryListRequest={removeHistoryListRequest}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 
@@ -374,15 +396,17 @@ function App() {
             <Trains
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
               requestId={requestId}
-              removeHistoryListRequest={removeHistoryListRequest}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 
@@ -390,15 +414,17 @@ function App() {
             <Carriages
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
               requestId={requestId}
-              removeHistoryListRequest={removeHistoryListRequest}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 
@@ -406,15 +432,17 @@ function App() {
             <Containers
               handleOpenRequestList={handleOpenRequestList}
               isRequestListOpen={isRequestListOpen}
-              addRequest={addRequest}
+              getRequestHistoryList={getRequestHistoryList}
               requestHistoryList={requestHistoryList}
-              handleShowHistoryList={handleShowHistoryList}
+              sendRequest={sendRequest}
+              removeRequestFromHistoryList={removeRequestFromHistoryList}
+              handleShowInfo={handleShowInfo}
+              requesName={requesName}
               isPreloaderShow={isPreloaderShow}
               isInfoShow={isInfoShow}
               requestInfo={requestInfo}
-              requesName={requesName}
               requestId={requestId}
-              removeHistoryListRequest={removeHistoryListRequest}
+              closeInfoContainer={closeInfoContainer}
             />
           </Route>
 

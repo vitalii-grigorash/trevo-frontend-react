@@ -10,29 +10,47 @@ function Trains(props) {
   const {
     handleOpenRequestList,
     isRequestListOpen,
-    addRequest,
+    getRequestHistoryList,
     requestHistoryList,
-    handleShowHistoryList,
+    sendRequest,
+    removeRequestFromHistoryList,
+    handleShowInfo,
+    requesName,
     isPreloaderShow,
     isInfoShow,
     requestInfo,
-    requesName,
     requestId,
-    removeHistoryListRequest
+    closeInfoContainer
   } = props;
 
   const { pathname } = useLocation();
   const [requesList, setRequestList] = useState([]);
+  const urlTypeForDownload = 'station';
 
   useEffect(() => {
     if (pathname === '/trains') {
+      closeInfoContainer();
+      getRequestHistoryList(StationsPageApi);
       StationsPageApi.getRequestType()
         .then((data) => {
           setRequestList(data);
         })
         .catch((err) => console.log(`Ошибка при загрузке списка типов запросов: ${err}`));
     }
+    // eslint-disable-next-line
   }, [pathname]);
+
+  function addRequest(requestData) {
+    sendRequest(requestData, StationsPageApi);
+  }
+
+  function removeHistoryListRequest(id) {
+    removeRequestFromHistoryList(id, StationsPageApi);
+  }
+
+  function handleShowHistoryList(id) {
+    handleShowInfo(id, StationsPageApi);
+  }
 
   return (
     <div className="trains">
@@ -55,6 +73,7 @@ function Trains(props) {
         placeholder={'Номер поезда'}
         requesName={requesName}
         requestId={requestId}
+        urlTypeForDownload={urlTypeForDownload}
         removeHistoryListRequest={removeHistoryListRequest}
       />
     </div>

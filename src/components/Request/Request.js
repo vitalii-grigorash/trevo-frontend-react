@@ -42,7 +42,7 @@ function Request(props) {
             requestTypeId: requestTypeId,
             params: values,
         }
-        addRequest(requestData, request);
+        addRequest(requestData);
         resetFormInputs();
     }
 

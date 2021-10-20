@@ -13,6 +13,7 @@ function Response(props) {
     placeholder,
     requesName,
     requestId,
+    urlTypeForDownload,
     removeHistoryListRequest,
   } = props;
 
@@ -26,6 +27,7 @@ function Response(props) {
           requestInfo={requestInfo}
           requesName={requesName}
           requestId={requestId}
+          urlTypeForDownload={urlTypeForDownload}
         />
       )}
 
@@ -34,6 +36,7 @@ function Response(props) {
         handleShowHistoryList={handleShowHistoryList}
         placeholder={placeholder}
         removeHistoryListRequest={removeHistoryListRequest}
+        urlTypeForDownload={urlTypeForDownload}
       />
 
     </div>

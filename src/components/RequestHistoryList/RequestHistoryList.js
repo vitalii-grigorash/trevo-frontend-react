@@ -9,14 +9,15 @@ function RequestHistoryList(props) {
         params,
         status,
         handleShowHistoryList,
-        removeHistoryListRequest
+        removeHistoryListRequest,
+        urlTypeForDownload
     } = props;
 
     const showStatus = `${status === 'done' ? 'Выполнен' : 'В обработке'}`
     const statusStyles = `${status === 'done' ? 'request-history-list__status' : 'request-history-list__status request-history-list__status_processing'}`
     const [isOptionsShow, setOptionsShow] = useState(false);
     const [currentRow, setCurrentRow] = useState(0);
-    const allParams = Object.entries(params);
+    const allParams = params;
     const paramsPerRow = 1;
     const paramsToRender = allParams.slice(0, (currentRow + 1) * paramsPerRow);
     const isMoreParams = paramsToRender.length !== allParams.length;
@@ -25,7 +26,7 @@ function RequestHistoryList(props) {
         setCurrentRow(currentRow + allParams.length);
     }
 
-    function handleCollapseParams () {
+    function handleCollapseParams() {
         setCurrentRow(currentRow - allParams.length);
     }
 
@@ -43,10 +44,10 @@ function RequestHistoryList(props) {
             <p className="request-history-list__date">{date}</p>
             <p className="request-history-list__request" onClick={(evt) => handleShowHistoryList(id)}>{request}</p>
             <div className="request-history-list__params-container">
-                {paramsToRender.map(([key, val]) => (
-                    <div key={key} className="request-history-list__param-container">
-                        <p className="request-history-list__key">{key}:</p>
-                        <p className="request-history-list__val">{val}</p>
+                {paramsToRender.map((param) => (
+                    <div key={param.paramId} className="request-history-list__param-container">
+                        <p className="request-history-list__key">{param.name}:</p>
+                        <p className="request-history-list__val">{param.value}</p>
                     </div>
                 ))}
                 {isMoreParams === true ?
@@ -63,7 +64,7 @@ function RequestHistoryList(props) {
             </div>
             <p className={statusStyles}>{showStatus}</p>
             <div className="request-history-list__actions-container">
-                <a href={`http://evote65-vm.dltc.spbu.ru:5555/operational/station/request/download/${id}`} target="_blank" rel="noreferrer">
+                <a href={`http://evote65-vm.dltc.spbu.ru:5555/operational/${urlTypeForDownload}/request/download/${id}`} target="_blank" rel="noreferrer">
                     <div className="request-history-list__action-download" />
                 </a>
             </div>
