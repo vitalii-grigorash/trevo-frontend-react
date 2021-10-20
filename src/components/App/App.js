@@ -168,6 +168,14 @@ function App() {
       .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
   }
 
+  function replaceCarriages(groupId, carriagesToReplace) {
+    SettingsPageApi.replaceCarriages(groupId, carriagesToReplace)
+      .then(() => {
+        getAllCarriage();
+      })
+      .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
+  }
+
   function deleteCarriages(carriagesArray) {
     setAllWagonsSelected(false);
     SettingsPageApi.deleteCarriages(carriagesArray)
@@ -470,6 +478,7 @@ function App() {
               onDeleteGroupClick={onDeleteGroupClick}
               deleteCarriagesFromGroup={deleteCarriagesFromGroup}
               onDeleteAllClick={onDeleteAllClick}
+              replaceCarriages={replaceCarriages}
             />
           </Route>
 

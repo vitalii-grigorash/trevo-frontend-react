@@ -13,7 +13,8 @@ function MyGroupResultTableItems(props) {
         handleMyGroupResultTableItemsOpened,
         onDeleteGroupClick,
         postNewCarriages,
-        deleteCarriagesFromGroup
+        deleteCarriagesFromGroup,
+        replaceCarriages
     } = props;
 
     const [isGroupOptionsOpened, setGroupOptionsOpened] = useState(false);
@@ -91,7 +92,13 @@ function MyGroupResultTableItems(props) {
 
     function changeCarriages() {
         const carriagesArray = changeTextareaValue.trim().split(/(?:\n| |,)+/);
-        console.log(groupNumber, carriagesArray);
+        const carriagesToAdd = carriagesArray.map((carriage) => {
+            return {
+                carriageNumber: carriage,
+                description: description
+            }
+        })
+        replaceCarriages(groupNumber, carriagesToAdd);
         setChangeTextareaValue('');
         setTextareaChangeErrorText('');
     }

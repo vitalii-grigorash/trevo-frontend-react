@@ -9,7 +9,8 @@ function MyGroupResult(props) {
         isSearchGroupButtonClicked,
         onDeleteGroupClick,
         postNewCarriages,
-        deleteCarriagesFromGroup
+        deleteCarriagesFromGroup,
+        replaceCarriages
     } = props;
 
     const [dataToRender, setDataToRender] = useState([]);
@@ -109,6 +110,7 @@ function MyGroupResult(props) {
                                 onDeleteGroupClick={onDeleteGroupClick}
                                 postNewCarriages={postNewCarriages}
                                 deleteCarriagesFromGroup={deleteCarriagesFromGroup}
+                                replaceCarriages={replaceCarriages}
                             />
                         )
                     })}

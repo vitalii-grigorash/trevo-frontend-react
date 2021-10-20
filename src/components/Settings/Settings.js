@@ -25,7 +25,8 @@ function Settings(props) {
     onSearchGroup,
     onDeleteGroupClick,
     deleteCarriagesFromGroup,
-    onDeleteAllClick
+    onDeleteAllClick,
+    replaceCarriages
   } = props;
 
   const [isVagonsTabOpen, setVagonsTabOpen] = useState(true);
@@ -94,6 +95,7 @@ function Settings(props) {
           onDeleteGroupClick={onDeleteGroupClick}
           deleteCarriagesFromGroup={deleteCarriagesFromGroup}
           onDeleteAllClick={onDeleteAllClick}
+          replaceCarriages={replaceCarriages}
         />}
         {isContainersTabOpen && <ContainersSettingTab />}
         {isStationsTabOpen && <StationsSettingTab />}

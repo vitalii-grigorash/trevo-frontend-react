@@ -95,6 +95,25 @@ export const postNewCarriages = (groupId, carriagesToAdd) => {
         });
 };
 
+export const replaceCarriages = (groupId, carriagesToAdd) => {
+    return fetch(`${BASE_URL}/regulated/carriage/group/${groupId}/replaceCarriages`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(carriagesToAdd)
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            return data;
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};
+
 export const deleteCarriages = (carriagesArray) => {
     return fetch(`${BASE_URL}/regulated/carriage/delete`, {
         method: 'DELETE',
