@@ -1,5 +1,6 @@
 import React from 'react';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import CarriageInfoTable from '../CarriageInfoTable/CarriageInfoTable';
 
 function RequestInfo(props) {
 
@@ -58,9 +59,16 @@ function RequestInfo(props) {
             ) : (
                 isInfoShow && (
                     <div className="request-info__info-container">
-                        <div className="request-info__text-container">
-                            <p className="request-info__text">{requestInfo.result.text}</p>
-                        </div>
+                        {requestInfo.result.text ? (
+                            <div className="request-info__text-container">
+                                <p className="request-info__text">{requestInfo.result.text}</p>
+                            </div>
+                        ) : (
+                            <CarriageInfoTable
+                                carriageData={requestInfo.result.table.carriageData}
+                                locationData={requestInfo.result.table.locationData}
+                            />
+                        )}
                         <YMaps>
                             <div className="request-info__map-container">
                                 <Map
