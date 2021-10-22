@@ -193,6 +193,14 @@ function App() {
       .catch((err) => console.log(`Ошибка при загрузке списка вагонов: ${err}`));
   }
 
+  function updateCarriageDescription(id, description) {
+    SettingsPageApi.updateCarriageDescription(id, description)
+      .then(() => {
+        getAllCarriage();
+      })
+      .catch((err) => console.log(`Ошибка при отправке примечания: ${err}`));
+  }
+
   function getRequestHistoryList(api) {
     api.getRequestHistoryList()
       .then((data) => {
@@ -479,6 +487,7 @@ function App() {
               deleteCarriagesFromGroup={deleteCarriagesFromGroup}
               onDeleteAllClick={onDeleteAllClick}
               replaceCarriages={replaceCarriages}
+              updateCarriageDescription={updateCarriageDescription}
             />
           </Route>
 

@@ -14,7 +14,8 @@ function MyGroupVagonsTab(props) {
         postNewCarriages,
         deleteCarriagesFromGroup,
         onDeleteAllClick,
-        replaceCarriages
+        replaceCarriages,
+        updateCarriageDescription
     } = props;
 
     const [isGroupAddActive, setGroupAddActive] = useState(false);
@@ -135,6 +136,7 @@ function MyGroupVagonsTab(props) {
                 postNewCarriages={postNewCarriages}
                 deleteCarriagesFromGroup={deleteCarriagesFromGroup}
                 replaceCarriages={replaceCarriages}
+                updateCarriageDescription={updateCarriageDescription}
             />
         </div>
     );

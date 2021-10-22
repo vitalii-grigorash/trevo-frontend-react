@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 function VagonsList(props) {
 
     const {
+        id,
         vagonsNumber,
         vagonsDate,
         vagonsDescription,
+        updateCarriageDescription,
     } = props;
 
     const [carriageDescriptionValue, setCarriageDescriptionValue] = useState(vagonsDescription);
@@ -19,7 +21,10 @@ function VagonsList(props) {
     }
 
     function sendNewCarriageDescription() {
-        console.log(carriageDescriptionValue);
+        const descriptionToUpdate = {
+            description: carriageDescriptionValue
+        }
+        updateCarriageDescription(id, descriptionToUpdate);
         setInputActive(false);
     }
 

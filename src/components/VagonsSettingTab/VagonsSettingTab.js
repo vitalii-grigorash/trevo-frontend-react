@@ -27,7 +27,8 @@ function VagonsSettingTab(props) {
         onDeleteGroupClick,
         deleteCarriagesFromGroup,
         onDeleteAllClick,
-        replaceCarriages
+        replaceCarriages,
+        updateCarriageDescription
     } = props;
 
     const [isMyListTabOpen, setMyListTabOpen] = useState(true);
@@ -137,6 +138,7 @@ function VagonsSettingTab(props) {
                 deleteCarriagesFromGroup={deleteCarriagesFromGroup}
                 onDeleteAllClick={onDeleteAllClick}
                 replaceCarriages={replaceCarriages}
+                updateCarriageDescription={updateCarriageDescription}
             />}
             {isFieldVisibilityTabOpen && <FieldVisibilityVagonsTab />}
             {isScheduleAndMailingTabOpen && <ScheduleAndMailingVagonsTab />}

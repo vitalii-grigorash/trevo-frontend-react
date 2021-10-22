@@ -14,7 +14,8 @@ function MyGroupResultTableItems(props) {
         onDeleteGroupClick,
         postNewCarriages,
         deleteCarriagesFromGroup,
-        replaceCarriages
+        replaceCarriages,
+        updateCarriageDescription
     } = props;
 
     const [isGroupOptionsOpened, setGroupOptionsOpened] = useState(false);
@@ -48,6 +49,7 @@ function MyGroupResultTableItems(props) {
                     setCarriagesDataValid(false);
                 } else {
                     setCarriagesDataValid(true);
+                    setCarriages([]);
                     setCarriages(data.carriages);
                 }
             })
@@ -272,9 +274,11 @@ function MyGroupResultTableItems(props) {
                                     {carriages.slice(showResultsFrom, resultsShow).map((list) => {
                                         return <VagonsList
                                             key={list.id}
+                                            id={list.id}
                                             vagonsNumber={list.carriageNumber}
                                             vagonsDate={list.trackingStartDate}
                                             vagonsDescription={list.description}
+                                            updateCarriageDescription={updateCarriageDescription}
                                         />
                                     })}
                                 </>

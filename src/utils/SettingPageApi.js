@@ -114,6 +114,25 @@ export const replaceCarriages = (groupId, carriagesToAdd) => {
         });
 };
 
+export const updateCarriageDescription = (id, description) => {
+    return fetch(`${BASE_URL}/regulated/carriage/${id}/updateDescription`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(description)
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            return data;
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};
+
 export const deleteCarriages = (carriagesArray) => {
     return fetch(`${BASE_URL}/regulated/carriage/delete`, {
         method: 'DELETE',
