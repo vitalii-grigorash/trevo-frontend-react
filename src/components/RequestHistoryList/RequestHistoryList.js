@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function RequestHistoryList(props) {
 
@@ -17,10 +17,19 @@ function RequestHistoryList(props) {
     const statusStyles = `${status === 'done' ? 'request-history-list__status' : 'request-history-list__status request-history-list__status_processing'}`
     const [isOptionsShow, setOptionsShow] = useState(false);
     const [currentRow, setCurrentRow] = useState(0);
-    const allParams = params;
+    const [isParams, setParams] = useState([]);
+    const allParams = isParams;
     const paramsPerRow = 1;
     const paramsToRender = allParams.slice(0, (currentRow + 1) * paramsPerRow);
     const isMoreParams = paramsToRender.length !== allParams.length;
+
+    useEffect(() => {
+        if (params === null) {
+            setParams([]);
+        } else {
+            setParams(params);
+        }
+    }, [params])
 
     function handleShowMore() {
         setCurrentRow(currentRow + allParams.length);
