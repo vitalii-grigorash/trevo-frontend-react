@@ -17,7 +17,7 @@ function SummaryDislocationCarriages(props) {
 
     function handleSearchInputChange(evt) {
         setCarriageSearchInputValue(evt.target.value);
-        if (evt.target.value !== '') {
+        if (evt.target.value.trim() !== '') {
             setButtonEnable(true);
         } else {
             setButtonEnable(false);
