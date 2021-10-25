@@ -33,7 +33,6 @@ function Request(props) {
         setParams(params);
         setRequestSelected(true);
         setOptionsShow(true);
-        setButtonEnable(true);
         resetFormInputs();
     }
 
@@ -48,6 +47,11 @@ function Request(props) {
 
     function handleChange(evt, paramId) {
         Object.assign(values, {[paramId]: evt.target.value});
+        if (evt.target.value.trim() === '') {
+            setButtonEnable(false);
+        } else {
+            setButtonEnable(true);
+        }
     }
 
     return (
