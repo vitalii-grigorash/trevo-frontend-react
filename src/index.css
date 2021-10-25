@@ -43,3 +43,14 @@
 @import url(./components/DeleteAllPopup/DeleteAllPopup.css);
 @import url(./components/DeleteGroupPopup/DeleteGroupPopup.css);
 @import url(./components/CarriageInfoTable/CarriageInfoTable.css);
+@import url(./components/CarriagesDislocation/CarriagesDislocation.css);
+@import url(./components/ContainersDislocation/ContainersDislocation.css);
+@import url(./components/StationsDislocation/StationsDislocation.css);
+@import url(./components/TrainsDislocation/TrainsDislocation.css);
+@import url(./components/SummaryDislocationCarriages/SummaryDislocationCarriages.css);
+@import url(./components/DislocationCarriages/DislocationCarriages.css);
+@import url(./components/PassportsCarriages/PassportsCarriages.css);
+@import url(./components/RepairsCarriages/RepairsCarriages.css);
+@import url(./components/RunsCarriages/RunsCarriages.css);
+@import url(./components/InvoiceCarriages/InvoiceCarriages.css);
+@import url(./components/DetailsCarriages/DetailsCarriages.css);

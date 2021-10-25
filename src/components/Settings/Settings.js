@@ -76,7 +76,6 @@ function Settings(props) {
           <p className={`settings-content__nav-link ${isStationsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleStationsTabOpen}>станции (198)</p>
           <p className={`settings-content__nav-link ${isTrainsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleTrainsTabOpen}>поезда (4 235)</p>
         </div>
-
         {isVagonsTabOpen && <VagonsSettingTab
           carriageList={carriageList}
           getAllCarriage={getAllCarriage}
@@ -102,7 +101,6 @@ function Settings(props) {
         {isContainersTabOpen && <ContainersSettingTab />}
         {isStationsTabOpen && <StationsSettingTab />}
         {isTrainsTabOpen && <TrainsSettingTab />}
-
       </div>
     </div>
   );

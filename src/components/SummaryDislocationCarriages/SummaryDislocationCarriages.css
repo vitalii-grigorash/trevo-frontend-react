@@ -1,0 +1,72 @@
+.summary-dislocation-carriages {
+    display: flex;
+    flex-direction: column;
+    background: #F6F6F6;
+    border-radius: 4px;
+}
+.summary-dislocation-carriages__carriage-search-name {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.004em;
+    color: #444C5C;
+    margin: 32px auto 0 32px;
+}
+.summary-dislocation-carriages__carriage-search-container {
+    display: flex;
+    margin: 4px auto 0 32px;
+}
+.summary-dislocation-carriages__carriage-search-input {
+    width: 209px;
+    height: 40px;
+    margin: 0 16px 0 0;
+    border: 1px solid #CFD4DD;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #FFFFFF;
+    padding: 0 16px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: #444C5C;
+}
+.summary-dislocation-carriages__carriage-search-input::placeholder {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: #939CAD;
+}
+.summary-dislocation-carriages__carriage-search-button {
+    width: 93px;
+    height: 40px;
+    background: #00A2E1;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.summary-dislocation-carriages__carriage-search-button_disabled {
+    background: #FFFFFF;
+    border: 1px solid #CFD4DD;
+    box-sizing: border-box;
+    color: #CFD4DD;
+    cursor: default;
+}
+.summary-dislocation-carriages__carriage-search-button:active {
+    box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
+}
