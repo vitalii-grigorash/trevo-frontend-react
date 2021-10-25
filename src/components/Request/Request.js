@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function Request(props) {
 
@@ -18,6 +19,7 @@ function Request(props) {
     const [isOptionsShow, setOptionsShow] = useState(false);
     const [values, setValues] = useState({});
     const [isButtonEnable, setButtonEnable] = useState(false);
+    const { pathname } = useLocation();
 
     const resetFormInputs = () => {
         if (document.getElementById("form")) {
@@ -34,6 +36,9 @@ function Request(props) {
         setRequestSelected(true);
         setOptionsShow(true);
         resetFormInputs();
+        if (pathname === '/stations') {
+            setButtonEnable(true);
+        }
     }
 
     const sendRequest = () => {
@@ -46,11 +51,13 @@ function Request(props) {
     }
 
     function handleChange(evt, paramId) {
-        Object.assign(values, {[paramId]: evt.target.value});
-        if (evt.target.value.trim() === '') {
-            setButtonEnable(false);
-        } else {
-            setButtonEnable(true);
+        Object.assign(values, { [paramId]: evt.target.value });
+        if (pathname === '/сarriages') {
+            if (evt.target.value.trim() === '') {
+                setButtonEnable(false);
+            } else {
+                setButtonEnable(true);
+            }
         }
     }
 
