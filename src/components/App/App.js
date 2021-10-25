@@ -463,7 +463,11 @@ function App() {
           </Route>
 
           <Route path='/dislocation'>
-            <Dislocation />
+            <Dislocation
+              carriageGroups={carriageGroups}
+              postNewCarriages={postNewCarriages}
+              getCarriageGroups={getCarriageGroups}
+            />
           </Route>
 
           <Route path='/settings'>

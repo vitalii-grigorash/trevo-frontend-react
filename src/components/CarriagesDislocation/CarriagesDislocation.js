@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SummaryDislocationCarriages from '../SummaryDislocationCarriages/SummaryDislocationCarriages';
 import DislocationCarriages from '../DislocationCarriages/DislocationCarriages';
 import PassportsCarriages from '../PassportsCarriages/PassportsCarriages';
@@ -7,7 +7,13 @@ import RunsCarriages from '../RunsCarriages/RunsCarriages';
 import InvoiceCarriages from '../InvoiceCarriages/InvoiceCarriages';
 import DetailsCarriages from '../DetailsCarriages/DetailsCarriages';
 
-function CarriagesDislocation() {
+function CarriagesDislocation(props) {
+
+  const {
+    carriageGroups,
+    postNewCarriages,
+    getCarriageGroups
+  } = props;
 
   const [isSummaryDislocationCarriagesTabOpen, setSummaryDislocationCarriagesTabOpen] = useState(true);
   const [isDislocationCarriagesTabOpen, setDislocationCarriagesTabOpen] = useState(false);
@@ -16,6 +22,11 @@ function CarriagesDislocation() {
   const [isRunsCarriagesTabOpen, setRunsCarriagesTabOpen] = useState(false);
   const [isInvoiceCarriagesTabOpen, setInvoiceCarriagesTabOpen] = useState(false);
   const [isDetailsCarriagesTabOpen, setDetailsCarriagesTabOpen] = useState(false);
+
+  useEffect(() => {
+    getCarriageGroups();
+    // eslint-disable-next-line
+  }, []);
 
   function handleSummaryDislocationCarriagesTabOpen() {
     setSummaryDislocationCarriagesTabOpen(true);
@@ -112,7 +123,10 @@ function CarriagesDislocation() {
           <p className={`carriages-dislocation__tab ${isDetailsCarriagesTabOpen && 'carriages-dislocation__tab_active'}`}>Узлы и детали</p>
         </div>
       </div>
-      {isSummaryDislocationCarriagesTabOpen && <SummaryDislocationCarriages />}
+      {isSummaryDislocationCarriagesTabOpen && <SummaryDislocationCarriages
+        carriageGroups={carriageGroups}
+        postNewCarriages={postNewCarriages}
+      />}
       {isDislocationCarriagesTabOpen && <DislocationCarriages />}
       {isPassportsCarriagesTabOpen && <PassportsCarriages />}
       {isRepairsCarriagesTabOpen && <RepairsCarriages />}

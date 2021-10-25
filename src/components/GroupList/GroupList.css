@@ -106,9 +106,10 @@
     margin: 0 auto 0 16px;
 }
 .group-list__select-group-button {
-    background: #DCDCDC;
+    background: #FFFFFF;
+    border: 1px solid #CFD4DD;
+    box-sizing: border-box;
     border-radius: 4px;
-    border: none;
     width: 93px;
     height: 40px;
     font-family: 'Inter', sans-serif;
@@ -118,17 +119,14 @@
     line-height: 15px;
     letter-spacing: 0.0125em;
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: #CFD4DD;
 }
 .group-list__select-group-button_active {
     background: #00A2E1;
     cursor: pointer;
-}
-.group-list__select-group-button_active:hover {
-    background: #00A2E1;
+    color: #FFFFFF;
 }
 .group-list__select-group-button_active:active {
-    background: #00A2E1;
     box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
 }
 .group-list__remove-all {

@@ -51,7 +51,7 @@
 .my-list-vagons-tab__table-heading-icons-container {
     display: flex;
     justify-content: space-between;
-    width: 106px;
+    width: 60px;
     margin: 0 0 0 auto;
 }
 .my-list-vagons-tab__table-heading-icon-remove {
@@ -96,7 +96,7 @@
     left: -31px;
     cursor: default;
 }
-.my-list-vagons-tab__table-heading-icon-download {
+/* .my-list-vagons-tab__table-heading-icon-download {
     background-image: url('../../images/export-icon.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -116,4 +116,4 @@
     bottom: 18px;
     left: -62.5px;
     cursor: default;
-}
+} */

@@ -20,7 +20,7 @@ function MyGroupVagonsTab(props) {
 
     const [isGroupAddActive, setGroupAddActive] = useState(false);
     const [isShowSaveTooltip, setShowSaveTooltip] = useState(false);
-    const [isShowDownloadTooltip, setShowDownloadTooltip] = useState(false);
+    // const [isShowDownloadTooltip, setShowDownloadTooltip] = useState(false);
     const [groupnNameInputValue, setGroupnNameInputValue] = useState('');
     const [descriptionInputValue, setDescriptionInputValue] = useState('');
     const [nameInputErrorText, setNameInputErrorText] = useState('');
@@ -60,13 +60,13 @@ function MyGroupVagonsTab(props) {
         setShowSaveTooltip(false);
     }
 
-    function handleShowDownloadTooltip() {
-        setShowDownloadTooltip(true);
-    }
+    // function handleShowDownloadTooltip() {
+    //     setShowDownloadTooltip(true);
+    // }
 
-    function handleCloseDownloadTooltip() {
-        setShowDownloadTooltip(false);
-    }
+    // function handleCloseDownloadTooltip() {
+    //     setShowDownloadTooltip(false);
+    // }
 
 
     function handleAddGroupClick() {
@@ -121,11 +121,12 @@ function MyGroupVagonsTab(props) {
                             <div className="my-group-vagons-tab__table-heading-above-icon-tooltip-save" />
                         )}
                     </div>
-                    <div className="my-group-vagons-tab__table-heading-icon-download" onMouseEnter={handleShowDownloadTooltip} onMouseLeave={handleCloseDownloadTooltip}>
+                    {/* Пока скрываем иконку "Загрузить из файла", может потом достанем. */}
+                    {/* <div className="my-group-vagons-tab__table-heading-icon-download" onMouseEnter={handleShowDownloadTooltip} onMouseLeave={handleCloseDownloadTooltip}>
                         {isShowDownloadTooltip && (
                             <div className="my-group-vagons-tab__table-heading-above-icon-tooltip-download" />
                         )}
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <MyGroupResult

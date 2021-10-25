@@ -5,7 +5,13 @@ import ContainersDislocation from '../ContainersDislocation/ContainersDislocatio
 import StationsDislocation from '../StationsDislocation/StationsDislocation';
 import TrainsDislocation from '../TrainsDislocation/TrainsDislocation';
 
-function Dislocation() {
+function Dislocation(props) {
+
+  const {
+    carriageGroups,
+    postNewCarriages,
+    getCarriageGroups
+  } = props;
 
   const [isCarriagesTabOpen, setCarriagesTabOpen] = useState(true);
   const [isContainersTabOpen, setContainersTabOpen] = useState(false);
@@ -53,7 +59,11 @@ function Dislocation() {
           <p className={`dislocation-content__nav-link ${isStationsTabOpen && 'dislocation-content__nav-link_active'}`} onClick={handleStationsTabOpen}>станции (198)</p>
           <p className={`dislocation-content__nav-link ${isTrainsTabOpen && 'dislocation-content__nav-link_active'}`} onClick={handleTrainsTabOpen}>поезда (4 235)</p>
         </div>
-        {isCarriagesTabOpen && <CarriagesDislocation />}
+        {isCarriagesTabOpen && <CarriagesDislocation
+          carriageGroups={carriageGroups}
+          postNewCarriages={postNewCarriages}
+          getCarriageGroups={getCarriageGroups}
+        />}
         {isContainersTabOpen && <ContainersDislocation />}
         {isStationsTabOpen && <StationsDislocation />}
         {isTrainsTabOpen && <TrainsDislocation />}
