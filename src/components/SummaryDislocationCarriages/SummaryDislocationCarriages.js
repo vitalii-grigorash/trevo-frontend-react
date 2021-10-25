@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import VagonsAdd from '../VagonsAdd/VagonsAdd';
+import GroupListForFilter from '../GroupListForFilter/GroupListForFilter';
 
 function SummaryDislocationCarriages(props) {
 
@@ -97,7 +98,13 @@ function SummaryDislocationCarriages(props) {
                                 <div className="summary-dislocation-carriages__filter-group-select-icon" onClick={handleGroupListShow} />
                                 {isGroupListActive && (
                                     <div className="summary-dislocation-carriages__filter-group-list-container">
-
+                                        {carriageGroups.map((group) => {
+                                            return <GroupListForFilter
+                                                key={group.id}
+                                                id={group.id}
+                                                name={group.name}
+                                            />
+                                        })}
                                     </div>
                                 )}
                             </div>

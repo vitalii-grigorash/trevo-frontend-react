@@ -239,4 +239,15 @@
     height: 245px;
     box-shadow: 0px 3px 4px rgba(177, 184, 197, 0.14), 0px 3px 3px rgba(177, 184, 197, 0.12), 0px 1px 8px rgba(177, 184, 197, 0.2);
     border-radius: 4px;
+    overflow-y: scroll;
+    z-index: 1;
+}
+.summary-dislocation-carriages__filter-group-list-container::-webkit-scrollbar {
+    width: 10px;
+    background: #ECEDF3;
+    border-radius: 0 4px 4px 0;
+}
+.summary-dislocation-carriages__filter-group-list-container::-webkit-scrollbar-thumb {
+    background: #CFD4DD;
+    border-radius: 0 4px 4px 0;
 }
