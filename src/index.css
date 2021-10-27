@@ -54,4 +54,5 @@
 @import url(./components/RunsCarriages/RunsCarriages.css);
 @import url(./components/InvoiceCarriages/InvoiceCarriages.css);
 @import url(./components/DetailsCarriages/DetailsCarriages.css);
-@import url(./components/GroupListForFilter/GroupListForFilter.css)
+@import url(./components/GroupListForFilter/GroupListForFilter.css);
+@import url(./components/SummaryDislocationTable/SummaryDislocationTable.css);

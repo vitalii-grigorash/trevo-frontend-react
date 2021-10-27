@@ -106,7 +106,7 @@
 .summary-dislocation-carriages__table-heading-container {
     display: flex;
     justify-content: space-between;
-    margin: 32px 32px 500px;
+    margin: 32px 32px 0;
 }
 .summary-dislocation-carriages__table-heading-results {
     font-family: 'Inter', sans-serif;

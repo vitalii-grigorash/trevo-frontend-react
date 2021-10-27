@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import VagonsAdd from '../VagonsAdd/VagonsAdd';
 import GroupListForFilter from '../GroupListForFilter/GroupListForFilter';
+import SummaryDislocationTable from '../SummaryDislocationTable/SummaryDislocationTable';
 
 function SummaryDislocationCarriages(props) {
 
@@ -210,6 +211,7 @@ function SummaryDislocationCarriages(props) {
                     )}
                 </div>
             </div>
+            <SummaryDislocationTable />
         </div>
     );
 
