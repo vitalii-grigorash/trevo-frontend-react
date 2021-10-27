@@ -14,6 +14,21 @@ function SummaryDislocationCarriages(props) {
     const [isVagonsAddActive, setVagonsAddActive] = useState(false);
     const [isFilterActive, setFilterActive] = useState(false);
     const [isGroupListActive, setGroupListActive] = useState(false);
+    const [condition, setCondition] = useState('Все');
+    const [data, setData] = useState([]);
+
+    function onRadioСhange(evt) {
+        setCondition(evt.target.value);
+    };
+
+    function onCheckboxСhange(evt) {
+        if (evt.target.checked === true) {
+            setData([...data, evt.target.value]);
+        } else {
+            const newData = data.filter(item => item !== evt.target.value);
+            setData(newData);
+        }
+    }
 
     function handleSearchInputChange(evt) {
         setCarriageSearchInputValue(evt.target.value);
@@ -50,6 +65,16 @@ function SummaryDislocationCarriages(props) {
         } else {
             setGroupListActive(true);
         }
+    }
+
+    function applyFilter () {
+        console.log(condition);
+        console.log(data);
+    }
+
+    function resetFilter () {
+        setCondition('Все');
+        setData([]);
     }
 
     return (
@@ -107,6 +132,79 @@ function SummaryDislocationCarriages(props) {
                                         })}
                                     </div>
                                 )}
+                            </div>
+                            <div className="summary-dislocation-carriages__filter-buttons-container">
+                                <div className="summary-dislocation-carriages__filter-radio-buttons-container">
+                                    <p className="summary-dislocation-carriages__filter-radio-buttons-heading">Состояние</p>
+                                    <div className="summary-dislocation-carriages__filter-radio-buttons">
+                                        <input
+                                            id="all"
+                                            type="radio"
+                                            name="condition"
+                                            value="Все"
+                                            onChange={onRadioСhange}
+                                            defaultChecked={true}
+                                        />
+                                        <label htmlFor="all">Все</label>
+                                    </div>
+                                    <div className="summary-dislocation-carriages__filter-radio-buttons">
+                                        <input
+                                            id="serviceable"
+                                            type="radio"
+                                            name="condition"
+                                            value="Исправные"
+                                            onChange={onRadioСhange}
+                                        />
+                                        <label htmlFor="serviceable">Исправные</label>
+                                    </div>
+                                    <div className="summary-dislocation-carriages__filter-radio-buttons">
+                                        <input
+                                            id="defective"
+                                            type="radio"
+                                            name="condition"
+                                            value="Неисправные"
+                                            onChange={onRadioСhange}
+                                        />
+                                        <label htmlFor="defective">Неисправные</label>
+                                    </div>
+                                </div>
+                                <div className="summary-dislocation-carriages__filter-checkbox-buttons-container">
+                                    <p className="summary-dislocation-carriages__filter-checkbox-buttons-heading">Показывать данные</p>
+                                    <div className="summary-dislocation-carriages__filter-checkbox-buttons">
+                                        <input
+                                            id="unreleased"
+                                            type="checkbox"
+                                            name="data"
+                                            value="Невышедшие"
+                                            onChange={onCheckboxСhange}
+                                        />
+                                        <label htmlFor="unreleased">Невышедшие</label>
+                                    </div>
+                                    <div className="summary-dislocation-carriages__filter-checkbox-buttons">
+                                        <input
+                                            id="on-way"
+                                            type="checkbox"
+                                            name="data"
+                                            value="В пути"
+                                            onChange={onCheckboxСhange}
+                                        />
+                                        <label htmlFor="on-way">В пути</label>
+                                    </div>
+                                    <div className="summary-dislocation-carriages__filter-checkbox-buttons">
+                                        <input
+                                            id="reached"
+                                            type="checkbox"
+                                            name="data"
+                                            value="Дошедшие"
+                                            onChange={onCheckboxСhange}
+                                        />
+                                        <label htmlFor="reached">Дошедшие</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="summary-dislocation-carriages__filter-submit-buttons-container">
+                                <button type="button" className="summary-dislocation-carriages__filter-submit-button" onClick={applyFilter}>применить</button>
+                                <p className="summary-dislocation-carriages__filter-reset-button" onClick={resetFilter}>Сбросить все фильтры</p>
                             </div>
                         </div>
                     )}

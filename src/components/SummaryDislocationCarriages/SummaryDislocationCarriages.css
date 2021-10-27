@@ -202,7 +202,7 @@
 }
 .summary-dislocation-carriages__filter-group-select-container {
     display: flex;
-    margin: 4px 24px 300px;
+    margin: 4px 24px 0;
     width: 324px;
     height: 40px;
     background: #FFFFFF;
@@ -250,4 +250,144 @@
 .summary-dislocation-carriages__filter-group-list-container::-webkit-scrollbar-thumb {
     background: #CFD4DD;
     border-radius: 0 4px 4px 0;
+}
+.summary-dislocation-carriages__filter-buttons-container {
+    display: flex;
+    margin: 24px 24px 0;
+}
+.summary-dislocation-carriages__filter-radio-buttons-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 34px 0 0;
+}
+.summary-dislocation-carriages__filter-radio-buttons-heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.004em;
+    color: #444C5C;
+    margin: 0 auto 0 0;
+}
+.summary-dislocation-carriages__filter-radio-buttons {
+    margin: 8px auto 0 0;
+}
+.summary-dislocation-carriages__filter-radio-buttons input[type=radio] {
+	display: none;
+}
+.summary-dislocation-carriages__filter-radio-buttons input[type=radio]:checked + label:before {
+	background-image: url('../../images/active-radio-button.svg');
+    background-repeat: no-repeat;
+}
+.summary-dislocation-carriages__filter-radio-buttons label:before {
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+    background-image: url('../../images/default-radio-button.svg');
+    background-repeat: no-repeat;
+}
+.summary-dislocation-carriages__filter-radio-buttons label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 24px;
+	user-select: none;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #444C5C;
+}
+.summary-dislocation-carriages__filter-checkbox-buttons-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 0 0;
+}
+.summary-dislocation-carriages__filter-checkbox-buttons-heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.004em;
+    color: #444C5C;
+    margin: 0 auto 0 0;
+}
+.summary-dislocation-carriages__filter-checkbox-buttons {
+    margin: 8px auto 0 0;
+}
+.summary-dislocation-carriages__filter-checkbox-buttons input[type=checkbox] {
+	display: none;
+}
+.summary-dislocation-carriages__filter-checkbox-buttons input[type=checkbox]:checked + label:before {
+	background-image: url('../../images/checkbox-active.svg');
+    background-repeat: no-repeat;
+}
+.summary-dislocation-carriages__filter-checkbox-buttons label:before {
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+    background-image: url('../../images/checkbox-default.svg');
+    background-repeat: no-repeat;
+}
+.summary-dislocation-carriages__filter-checkbox-buttons label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 24px;
+	user-select: none;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #444C5C;
+}
+.summary-dislocation-carriages__filter-submit-buttons-container {
+    display: flex;
+    margin: 24px auto 24px 24px;
+}
+.summary-dislocation-carriages__filter-submit-button {
+    width: 127px;
+    height: 40px;
+    margin: 0 24px 0 0;
+    background: #00A2E1;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.summary-dislocation-carriages__filter-submit-button:active {
+    box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
+}
+.summary-dislocation-carriages__filter-reset-button {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: #00A2E1;
+    margin: auto auto auto 0;
+    cursor: pointer;
+}
+.summary-dislocation-carriages__filter-reset-button:hover {
+    opacity: .8;
 }
