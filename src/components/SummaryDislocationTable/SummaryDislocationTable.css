@@ -37,6 +37,8 @@
 .summary-dislocation-table__table-heading-container {
     display: flex;
     height: 31px;
+    box-sizing: border-box;
+    border-right: 1px solid #ECEDF3;
 }
 .summary-dislocation-table__table-heading {
     font-family: 'Inter', sans-serif;
@@ -50,6 +52,8 @@
 }
 .summary-dislocation-table__table-columns-container {
     display: flex;
+    box-sizing: border-box;
+    border-right: 1px solid #ECEDF3;
 }
 .summary-dislocation-table__table-column {
     display: flex;
@@ -160,6 +164,41 @@
 }
 .summary-dislocation-table__table-column-heading_cargo-weight-kg {
     width: 63px;
+}
+.summary-dislocation-table__table-column-heading_loaded-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-column-heading_empty-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-column-heading_total-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-column-heading_standard-mileage-km {
+    width: 140px;
+}
+.summary-dislocation-table__table-column-heading_remaining-mileage-km {
+    width: 140px;
+}
+.summary-dislocation-table__table-column-heading_mileage-sign {
+    width: 140px;
+}
+.summary-dislocation-table__table-column-heading_special-marks {
+    width: 140px;
+}
+.summary-dislocation-table__table-column-heading_previously-unloaded-cargo {
+    width: 127px;
+    text-align: left;
+    margin: auto 16px auto 24px;
+}
+.summary-dislocation-table__table-column-heading_operation-station {
+    width: 127px;
+    text-align: left;
+    margin: auto 0 auto 16px;
+}
+.summary-dislocation-table__table-column-heading_operation-road {
+    width: 127px;
+    text-align: left;
 }
 
 
@@ -276,7 +315,41 @@
 .summary-dislocation-table__table-row-text_cargo-weight-kg {
     width: 63px;
 }
-
+.summary-dislocation-table__table-row-text_loaded-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-row-text_empty-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-row-text_total-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-row-text_standard-mileage-km {
+    width: 140px;
+}
+.summary-dislocation-table__table-row-text_remaining-mileage-km {
+    width: 140px;
+}
+.summary-dislocation-table__table-row-text_mileage-sign {
+    width: 140px;
+}
+.summary-dislocation-table__table-row-text_special-marks {
+    width: 140px;
+}
+.summary-dislocation-table__table-row-text_previously-unloaded-cargo {
+    width: 127px;
+    text-align: left;
+    margin: auto 16px auto 24px;
+}
+.summary-dislocation-table__table-row-text_operation-station {
+    width: 127px;
+    text-align: left;
+    margin: auto 0 auto 16px;
+}
+.summary-dislocation-table__table-row-text_operation-road{
+    width: 127px;
+    text-align: left;
+}
 
 
 
