@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import VagonsSettingTab from '../VagonsSettingTab/VagonsSettingTab';
 import ContainersSettingTab from '../ContainersSettingTab/ContainersSettingTab';
 import StationsSettingTab from '../StationsSettingTab/StationsSettingTab';
-import TrainsSettingTab from '../TrainsSettingTab/TrainsSettingTab';
+// import TrainsSettingTab from '../TrainsSettingTab/TrainsSettingTab';
 
 function Settings(props) {
 
@@ -33,35 +33,35 @@ function Settings(props) {
   const [isVagonsTabOpen, setVagonsTabOpen] = useState(true);
   const [isContainersTabOpen, setContainersTabOpen] = useState(false);
   const [isStationsTabOpen, setStationsTabOpen] = useState(false);
-  const [isTrainsTabOpen, setTrainsTabOpen] = useState(false);
+  // const [isTrainsTabOpen, setTrainsTabOpen] = useState(false);
 
   function handleVagonsTabOpen() {
     setVagonsTabOpen(true);
     setContainersTabOpen(false);
     setStationsTabOpen(false);
-    setTrainsTabOpen(false);
+    // setTrainsTabOpen(false);
   }
 
   function handleContainersTabOpen() {
     setContainersTabOpen(true);
     setVagonsTabOpen(false);
     setStationsTabOpen(false);
-    setTrainsTabOpen(false);
+    // setTrainsTabOpen(false);
   }
 
   function handleStationsTabOpen() {
     setStationsTabOpen(true);
     setContainersTabOpen(false);
     setVagonsTabOpen(false);
-    setTrainsTabOpen(false);
+    // setTrainsTabOpen(false);
   }
 
-  function handleTrainsTabOpen() {
-    setTrainsTabOpen(true);
-    setStationsTabOpen(false);
-    setContainersTabOpen(false);
-    setVagonsTabOpen(false);
-  }
+  // function handleTrainsTabOpen() {
+  //   setTrainsTabOpen(true);
+  //   setStationsTabOpen(false);
+  //   setContainersTabOpen(false);
+  //   setVagonsTabOpen(false);
+  // }
 
   return (
     <div className="settings">
@@ -74,7 +74,7 @@ function Settings(props) {
           <p className={`settings-content__nav-link ${isVagonsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleVagonsTabOpen}>вагоны (132 258)</p>
           <p className={`settings-content__nav-link ${isContainersTabOpen && 'settings-content__nav-link_active'}`} onClick={handleContainersTabOpen}>контейнеры (125 545)</p>
           <p className={`settings-content__nav-link ${isStationsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleStationsTabOpen}>станции (198)</p>
-          <p className={`settings-content__nav-link ${isTrainsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleTrainsTabOpen}>поезда (4 235)</p>
+          {/* <p className={`settings-content__nav-link ${isTrainsTabOpen && 'settings-content__nav-link_active'}`} onClick={handleTrainsTabOpen}>поезда (4 235)</p> */}
         </div>
         {isVagonsTabOpen && <VagonsSettingTab
           carriageList={carriageList}
@@ -100,7 +100,7 @@ function Settings(props) {
         />}
         {isContainersTabOpen && <ContainersSettingTab />}
         {isStationsTabOpen && <StationsSettingTab />}
-        {isTrainsTabOpen && <TrainsSettingTab />}
+        {/* {isTrainsTabOpen && <TrainsSettingTab />} */}
       </div>
     </div>
   );
