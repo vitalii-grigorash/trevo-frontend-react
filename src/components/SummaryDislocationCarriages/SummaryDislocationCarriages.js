@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import VagonsAdd from '../VagonsAdd/VagonsAdd';
-import GroupListForFilter from '../GroupListForFilter/GroupListForFilter';
 import SummaryDislocationTable from '../SummaryDislocationTable/SummaryDislocationTable';
 
 function SummaryDislocationCarriages(props) {
@@ -17,6 +16,17 @@ function SummaryDislocationCarriages(props) {
     const [isGroupListActive, setGroupListActive] = useState(false);
     const [condition, setCondition] = useState('Все');
     const [data, setData] = useState([]);
+    const [groupName, setGroupName] = useState('Выберите группу');
+    const [groupId, setGroupId] = useState('');
+    const [groupDescription, setGroupDescription] = useState('');
+    const [isGroupSelected, setGroupSelected] = useState(false);
+
+    const selectData = (groupName, groupId, groupDescription) => {
+        setGroupName(groupName);
+        setGroupId(groupId);
+        setGroupDescription(groupDescription);
+        setGroupSelected(true);
+    }
 
     function onRadioСhange(evt) {
         setCondition(evt.target.value);
@@ -68,12 +78,15 @@ function SummaryDislocationCarriages(props) {
         }
     }
 
-    function applyFilter () {
+    function applyFilter() {
         console.log(condition);
         console.log(data);
+        console.log(groupId);
+        console.log(groupDescription);
+        handleShowFilter();
     }
 
-    function resetFilter () {
+    function resetFilter() {
         setCondition('Все');
         setData([]);
     }
@@ -119,18 +132,22 @@ function SummaryDislocationCarriages(props) {
                                 <p className="summary-dislocation-carriages__filter-heading">Фильтр</p>
                             </div>
                             <p className="summary-dislocation-carriages__filter-group-select-heading">Группы</p>
-                            <div className="summary-dislocation-carriages__filter-group-select-container">
-                                <p className="summary-dislocation-carriages__filter-group-select-text">Выберите группы</p>
-                                <div className="summary-dislocation-carriages__filter-group-select-icon" onClick={handleGroupListShow} />
+                            <div className="summary-dislocation-carriages__filter-group-select-container" onClick={handleGroupListShow}>
+                                <p className={`summary-dislocation-carriages__filter-group-select-text ${isGroupSelected && 'summary-dislocation-carriages__filter-group-select-text_active'}`}>{groupName}</p>
+                                <div className="summary-dislocation-carriages__filter-group-select-icon" />
                                 {isGroupListActive && (
                                     <div className="summary-dislocation-carriages__filter-group-list-container">
-                                        {carriageGroups.map((group) => {
-                                            return <GroupListForFilter
-                                                key={group.id}
-                                                id={group.id}
-                                                name={group.name}
-                                            />
-                                        })}
+                                        {carriageGroups === null ? (
+                                            <div className="summary-dislocation-carriages__filter-group-container">
+                                                <p className="summary-dislocation-carriages__filter-group-text">Необходимо добавить группу</p>
+                                            </div>
+                                        ) : (
+                                            carriageGroups.map((data) => (
+                                                <div key={data.id} className="summary-dislocation-carriages__filter-group-container summary-dislocation-carriages__filter-group-container_result" onClick={() => selectData(data.name, data.id, data.description)}>
+                                                    <p className="summary-dislocation-carriages__filter-group-text">{data.name}</p>
+                                                </div>
+                                            ))
+                                        )}
                                     </div>
                                 )}
                             </div>
@@ -173,33 +190,33 @@ function SummaryDislocationCarriages(props) {
                                     <p className="summary-dislocation-carriages__filter-checkbox-buttons-heading">Показывать данные</p>
                                     <div className="summary-dislocation-carriages__filter-checkbox-buttons">
                                         <input
-                                            id="unreleased"
+                                            id="onloading"
                                             type="checkbox"
                                             name="data"
-                                            value="Невышедшие"
+                                            value="На погрузке"
                                             onChange={onCheckboxСhange}
                                         />
-                                        <label htmlFor="unreleased">Невышедшие</label>
+                                        <label htmlFor="onloading">На погрузке</label>
                                     </div>
                                     <div className="summary-dislocation-carriages__filter-checkbox-buttons">
                                         <input
-                                            id="on-way"
+                                            id="unloading"
+                                            type="checkbox"
+                                            name="data"
+                                            value="На выгрузке"
+                                            onChange={onCheckboxСhange}
+                                        />
+                                        <label htmlFor="unloading">На выгрузке</label>
+                                    </div>
+                                    <div className="summary-dislocation-carriages__filter-checkbox-buttons">
+                                        <input
+                                            id="onway"
                                             type="checkbox"
                                             name="data"
                                             value="В пути"
                                             onChange={onCheckboxСhange}
                                         />
-                                        <label htmlFor="on-way">В пути</label>
-                                    </div>
-                                    <div className="summary-dislocation-carriages__filter-checkbox-buttons">
-                                        <input
-                                            id="reached"
-                                            type="checkbox"
-                                            name="data"
-                                            value="Дошедшие"
-                                            onChange={onCheckboxСhange}
-                                        />
-                                        <label htmlFor="reached">Дошедшие</label>
+                                        <label htmlFor="onway">В пути</label>
                                     </div>
                                 </div>
                             </div>

@@ -211,6 +211,7 @@
     border-radius: 4px;
     align-items: center;
     position: relative;
+    cursor: pointer;
 }
 .summary-dislocation-carriages__filter-group-select-text {
     font-family: 'Inter', sans-serif;
@@ -222,6 +223,9 @@
     color: #939CAD;
     margin: 0 auto 0 20px;
 }
+.summary-dislocation-carriages__filter-group-select-text_active {
+    color: #444C5C;
+}
 .summary-dislocation-carriages__filter-group-select-icon {
     background-image: url('../../images/arrow-down-dark.svg');
     background-size: cover;
@@ -229,7 +233,6 @@
     width: 8px;
     height: 4.94px;
     margin: 0 11px 0 auto;
-    cursor: pointer;
 }
 .summary-dislocation-carriages__filter-group-list-container {
     position: absolute;
@@ -241,6 +244,7 @@
     border-radius: 4px;
     overflow-y: scroll;
     z-index: 1;
+    background: #FFFFFF;
 }
 .summary-dislocation-carriages__filter-group-list-container::-webkit-scrollbar {
     width: 10px;
@@ -250,6 +254,30 @@
 .summary-dislocation-carriages__filter-group-list-container::-webkit-scrollbar-thumb {
     background: #CFD4DD;
     border-radius: 0 4px 4px 0;
+}
+.summary-dislocation-carriages__filter-group-container {
+    display: flex;
+    min-height: 40px;
+    border-bottom: 1px solid #E5E5E5;
+    align-items: center;
+    cursor: default;
+}
+.summary-dislocation-carriages__filter-group-container_result:hover {
+    background: #ECEDF3;
+    cursor: pointer;
+}
+.summary-dislocation-carriages__filter-group-container:last-of-type {
+    border-bottom: none;
+}
+.summary-dislocation-carriages__filter-group-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #444C5C;
+    letter-spacing: 0.0025em;
+    margin: 0 auto 0 16px;
 }
 .summary-dislocation-carriages__filter-buttons-container {
     display: flex;
