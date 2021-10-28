@@ -55,3 +55,5 @@
 @import url(./components/InvoiceCarriages/InvoiceCarriages.css);
 @import url(./components/DetailsCarriages/DetailsCarriages.css);
 @import url(./components/SummaryDislocationTable/SummaryDislocationTable.css);
+@import url(./components/CarriageDataTable/CarriageDataTable.css);
+@import url(./components/CarriageDislocationTable/CarriageDislocationTable.css);

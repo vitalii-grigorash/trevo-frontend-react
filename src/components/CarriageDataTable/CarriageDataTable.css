@@ -1,0 +1,296 @@
+.summary-dislocation-table__table {
+    display: flex;
+    flex-direction: column;
+}
+.summary-dislocation-table__table-heading-container {
+    display: flex;
+    height: 31px;
+    box-sizing: border-box;
+    border-right: 1px solid #ECEDF3;
+}
+.summary-dislocation-table__table-heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.001em;
+    color: #444C5C;
+    margin: auto auto auto 16px;
+}
+.summary-dislocation-table__table-columns-container {
+    display: flex;
+    box-sizing: border-box;
+    border-right: 1px solid #ECEDF3;
+}
+.summary-dislocation-table__table-column {
+    display: flex;
+    flex-direction: column;
+}
+.summary-dislocation-table__table-column-heading-container {
+    display: flex;
+    height: 61px;
+    box-sizing: border-box;
+    background: #ECEDF3;
+}
+.summary-dislocation-table__table-column-heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.001em;
+    color: #444C5C;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: auto 0 auto 24px;
+    text-align: right;
+    border: 1px solid red;
+}
+.summary-dislocation-table__table-column-heading_carriage-number {
+    width: 94px;
+    margin: auto 0 auto 16px;
+}
+.summary-dislocation-table__table-column-heading_group-name {
+    width: 100px;
+}
+.summary-dislocation-table__table-column-heading_invoice-number {
+    width: 66px;
+}
+.summary-dislocation-table__table-column-heading_type-of-carriage {
+    width: 86px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_owner-administration {
+    width: 100px;
+}
+.summary-dislocation-table__table-column-heading_start-date-and-time {
+    width: 96px;
+}
+.summary-dislocation-table__table-column-heading_state-of-departure {
+    width: 111px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_departure-road {
+    width: 110px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_departure-station {
+    width: 168px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_end-date-and-time {
+    width: 104px;
+}
+.summary-dislocation-table__table-column-heading_state-of-destination {
+    width: 103px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_destination-road {
+    width: 94px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_destination-station {
+    width: 181px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_shipper-tgnl {
+    width: 111px;
+}
+.summary-dislocation-table__table-column-heading_shipper {
+    width: 164px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_shipper-okpo {
+    width: 111px;
+}
+.summary-dislocation-table__table-column-heading_shipper-name {
+    width: 164px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_consignee-tgnl {
+    width: 111px;
+}
+.summary-dislocation-table__table-column-heading_consignee {
+    width: 111px;
+}
+.summary-dislocation-table__table-column-heading_consignee-okpo {
+    width: 111px;
+}
+.summary-dislocation-table__table-column-heading_consignee-name {
+    width: 111px;
+}
+.summary-dislocation-table__table-column-heading_shipping-name {
+    width: 222px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_cargo-code-gng {
+    width: 63px;
+}
+.summary-dislocation-table__table-column-heading_cargo-weight-kg {
+    width: 63px;
+}
+.summary-dislocation-table__table-column-heading_loaded-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-column-heading_empty-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-column-heading_total-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-column-heading_standard-mileage-km {
+    width: 140px;
+}
+.summary-dislocation-table__table-column-heading_remaining-mileage-km {
+    width: 140px;
+}
+.summary-dislocation-table__table-column-heading_mileage-sign {
+    width: 140px;
+}
+.summary-dislocation-table__table-column-heading_special-marks {
+    width: 140px;
+}
+.summary-dislocation-table__table-column-heading_previously-unloaded-cargo {
+    width: 127px;
+    text-align: left;
+    margin: auto 16px auto 24px;
+}
+.summary-dislocation-table__table-row-container {
+    display: flex;
+    height: 46px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ECEDF3;
+}
+.summary-dislocation-table__table-row-container:last-of-type {
+    border-bottom: none;
+}
+.summary-dislocation-table__table-row-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.001em;
+    color: #444C5C;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: auto 0 auto 24px;
+    text-align: right;
+    border: 1px solid red;
+}
+.summary-dislocation-table__table-row-text_carriage-number {
+    width: 94px;
+    margin: auto 0 auto 16px;
+}
+.summary-dislocation-table__table-row-text_group-name {
+    width: 100px;
+}
+.summary-dislocation-table__table-row-text_invoice-number {
+    width: 66px;
+}
+.summary-dislocation-table__table-row-text_type-of-carriage {
+    width: 86px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_owner-administration {
+    width: 100px;
+}
+.summary-dislocation-table__table-row-text_start-date-and-time {
+    width: 96px;
+}
+.summary-dislocation-table__table-row-text_state-of-departure {
+    width: 111px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_departure-road {
+    width: 110px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_departure-station {
+    width: 168px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_end-date-and-time {
+    width: 104px;
+}
+.summary-dislocation-table__table-row-text_state-of-destination {
+    width: 103px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_destination-road {
+    width: 94px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_destination-station {
+    width: 181px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_shipper-tgnl {
+    width: 111px;
+}
+.summary-dislocation-table__table-row-text_shipper {
+    width: 164px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_shipper-okpo {
+    width: 111px;
+}
+.summary-dislocation-table__table-row-text_shipper-name {
+    width: 164px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_consignee-tgnl {
+    width: 111px;
+}
+.summary-dislocation-table__table-row-text_consignee {
+    width: 111px;
+}
+.summary-dislocation-table__table-row-text_consignee-okpo {
+    width: 111px;
+}
+.summary-dislocation-table__table-row-text_consignee-name {
+    width: 111px;
+}
+.summary-dislocation-table__table-row-text_shipping-name {
+    width: 222px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_cargo-code-gng {
+    width: 63px;
+}
+.summary-dislocation-table__table-row-text_cargo-weight-kg {
+    width: 63px;
+}
+.summary-dislocation-table__table-row-text_loaded-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-row-text_empty-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-row-text_total-mileage-km {
+    width: 119px;
+}
+.summary-dislocation-table__table-row-text_standard-mileage-km {
+    width: 140px;
+}
+.summary-dislocation-table__table-row-text_remaining-mileage-km {
+    width: 140px;
+}
+.summary-dislocation-table__table-row-text_mileage-sign {
+    width: 140px;
+}
+.summary-dislocation-table__table-row-text_special-marks {
+    width: 140px;
+}
+.summary-dislocation-table__table-row-text_previously-unloaded-cargo {
+    width: 127px;
+    text-align: left;
+    margin: auto 16px auto 24px;
+}
