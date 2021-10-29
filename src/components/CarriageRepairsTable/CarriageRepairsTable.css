@@ -1,0 +1,107 @@
+.summary-dislocation-table__table-column-heading_date-time-data-entry {
+    width: 97px;
+    margin: auto 0 auto 16px;
+}
+.summary-dislocation-table__table-column-heading_repair-carriage-type {
+    width: 133px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_repair-road {
+    width: 110px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_repair-depot {
+    width: 114px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_fault-one {
+    width: 107px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_fault-two {
+    width: 103px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_fault-three {
+    width: 107px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_date-and-time-of-failure {
+    width: 98px;
+}
+.summary-dislocation-table__table-column-heading_date-time-start-repair {
+    width: 98px;
+}
+.summary-dislocation-table__table-column-heading_transfer-uncoupling-station {
+    width: 115px;
+}
+.summary-dislocation-table__table-column-heading_notification-number-vu-twenty-three {
+    width: 127px;
+}
+.summary-dislocation-table__table-column-heading_notification-number-vu-thirty-six {
+    width: 126px;
+}
+.summary-dislocation-table__table-column-heading_modernization {
+    width: 106px;
+    text-align: left;
+}
+.summary-dislocation-table__table-column-heading_car-condition {
+    width: 108px;
+    text-align: left;
+    margin: auto 16px auto 24px;
+}
+
+
+
+.summary-dislocation-table__table-row-text_date-time-data-entry {
+    width: 97px;
+    margin: auto 0 auto 16px;
+}
+.summary-dislocation-table__table-row-text_repair-carriage-type {
+    width: 133px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_repair-road {
+    width: 110px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_repair-depot {
+    width: 114px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_fault-one {
+    width: 107px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_fault-two {
+    width: 103px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_fault-three {
+    width: 107px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_date-and-time-of-failure {
+    width: 98px;
+}
+.summary-dislocation-table__table-row-text_date-time-start-repair {
+    width: 98px;
+}
+.summary-dislocation-table__table-row-text_transfer-uncoupling-station {
+    width: 115px;
+}
+.summary-dislocation-table__table-row-text_notification-number-vu-twenty-three {
+    width: 127px;
+}
+.summary-dislocation-table__table-row-text_notification-number-vu-thirty-six {
+    width: 126px;
+}
+.summary-dislocation-table__table-row-text_modernization {
+    width: 106px;
+    text-align: left;
+}
+.summary-dislocation-table__table-row-text_car-condition {
+    width: 108px;
+    text-align: left;
+    margin: auto 16px auto 24px;
+}

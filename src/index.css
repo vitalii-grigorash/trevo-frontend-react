@@ -57,3 +57,6 @@
 @import url(./components/SummaryDislocationTable/SummaryDislocationTable.css);
 @import url(./components/CarriageDataTable/CarriageDataTable.css);
 @import url(./components/CarriageDislocationTable/CarriageDislocationTable.css);
+@import url(./components/CarriageTechnicalConditionTable/CarriageTechnicalConditionTable.css);
+@import url(./components/CarriageDataSmallTable/CarriageDataSmallTable.css);
+@import url(./components/CarriageRepairsTable/CarriageRepairsTable.css);

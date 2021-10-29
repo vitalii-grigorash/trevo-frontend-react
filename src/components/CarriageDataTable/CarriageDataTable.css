@@ -42,13 +42,12 @@
     letter-spacing: 0.001em;
     color: #444C5C;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: auto 0 auto 24px;
     text-align: right;
-    border: 1px solid red;
 }
 .summary-dislocation-table__table-column-heading_carriage-number {
     width: 94px;
@@ -183,7 +182,6 @@
     text-overflow: ellipsis;
     margin: auto 0 auto 24px;
     text-align: right;
-    border: 1px solid red;
 }
 .summary-dislocation-table__table-row-text_carriage-number {
     width: 94px;
