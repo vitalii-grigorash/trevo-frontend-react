@@ -60,3 +60,5 @@
 @import url(./components/CarriageTechnicalConditionTable/CarriageTechnicalConditionTable.css);
 @import url(./components/CarriageDataSmallTable/CarriageDataSmallTable.css);
 @import url(./components/CarriageRepairsTable/CarriageRepairsTable.css);
+@import url(./components/FieldVisibilityTable/FieldVisibilityTable.css);
+@import url(./components/FieldVisibilityTableItem/FieldVisibilityTableItem.css);

@@ -1,0 +1,19 @@
+.field-visibility-table {
+    display: flex;
+    flex-direction: column;
+}
+.field-visibility-table__heading-container {
+    display: flex;
+    height: 49px;
+    border-bottom: 1px solid #ECEDF3;
+}
+.field-visibility-table__heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.001em;
+    color: #313744;
+    margin: auto auto auto 16px;
+}

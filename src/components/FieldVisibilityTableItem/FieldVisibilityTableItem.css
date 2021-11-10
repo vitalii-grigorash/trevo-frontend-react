@@ -1,0 +1,50 @@
+.field-visibility-table-item {
+    display: flex;
+    height: 49px;
+    border-bottom: 1px solid #ECEDF3;
+}
+.field-visibility-table-item__active {
+    background: #F5F6F9;
+}
+.field-visibility-table-item__checkbox {
+    margin: auto 10px auto 18px;
+    width: 12px;
+    height: 12px;
+    position: relative;
+}
+.field-visibility-table-item__checkbox input[type=checkbox] {
+	display: none;
+}
+.field-visibility-table-item__checkbox input[type=checkbox]:checked + label:before {
+	background-image: url('../../images/checkbox-active.svg');
+    background-repeat: no-repeat;
+}
+.field-visibility-table-item__checkbox label:before{
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+    background-image: url('../../images/checkbox-default.svg');
+    background-repeat: no-repeat;
+}
+.field-visibility-table-item__checkbox label {
+	cursor: pointer;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 0;
+	bottom: 0;
+}
+.field-visibility-table-item__heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: #444C5C;
+    margin: auto auto auto 0;
+}
