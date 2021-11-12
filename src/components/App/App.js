@@ -20,7 +20,7 @@ import PersonalAccount from '../PersonalAccount/PersonalAccount';
 import NotFound from '../NotFound/NotFound';
 import * as SettingsPageApi from '../../utils/SettingPageApi';
 import DeleteAllPopup from '../DeleteAllPopup/DeleteAllPopup';
-import DeleteGroupPopup from '../DeleteGroupPopup/DeleteGroupPopup';
+import DeleteGroupPopup from '../DeleteGroupPopup/DeleteGroupPopup'
 
 function App() {
 
