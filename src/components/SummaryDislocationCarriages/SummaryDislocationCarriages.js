@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import VagonsAdd from '../VagonsAdd/VagonsAdd';
 import SummaryDislocationTable from '../SummaryDislocationTable/SummaryDislocationTable';
+import * as DislocationPageApi from '../../utils/DislocationPageApi';
 
 function SummaryDislocationCarriages(props) {
 
@@ -20,6 +21,14 @@ function SummaryDislocationCarriages(props) {
     const [groupId, setGroupId] = useState('');
     const [groupDescription, setGroupDescription] = useState('');
     const [isGroupSelected, setGroupSelected] = useState(false);
+    const [tables, setTables] = useState({});
+
+    useEffect(() => {
+        DislocationPageApi.getAllTables()
+        .then((tables) => {
+            setTables(tables);
+        })
+    }, [])
 
     const selectData = (groupName, groupId, groupDescription) => {
         setGroupName(groupName);
@@ -228,7 +237,14 @@ function SummaryDislocationCarriages(props) {
                     )}
                 </div>
             </div>
-            <SummaryDislocationTable />
+            <SummaryDislocationTable
+               carriageData={tables.carriageData} 
+               carriageDislocation={tables.carriageDislocation}
+               carriageTechnicalCondition={tables.carriageTechnicalCondition}
+               carriageDataSmall={tables.carriageDataSmall}
+               carriageRepairs={tables.carriageRepairs}
+
+            />
         </div>
     );
 

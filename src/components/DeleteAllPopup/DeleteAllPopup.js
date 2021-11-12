@@ -17,7 +17,6 @@ function DeleteAllPopup(props) {
     return (
         <div className={`delete-all-popup ${isOpen && 'delete-all-popup_opened'}`} onClick={handleOverlayClose}>
             <div className="delete-all-popup__confirmation-container">
-                <div className="delete-all-popup__confirmation-red-line" />
                 <div className="delete-all-popup__confirmation-trash-icon" />
                 <h2 className="delete-all-popup__confirmation-question">Удалить все вагоны и группы?</h2>
                 <p className="delete-all-popup__confirmation-description">Вы действительно хотите удалить все вагоны и группы? Восстановить их будет невозможно.</p>

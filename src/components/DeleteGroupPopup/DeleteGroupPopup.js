@@ -17,7 +17,6 @@ function DeleteGroupPopup(props) {
     return (
         <div className={`delete-group-popup ${isOpen && 'delete-group-popup_opened'}`} onClick={handleOverlayClose}>
             <div className="delete-group-popup__confirmation-container">
-                <div className="delete-group-popup__confirmation-red-line" />
                 <div className="delete-group-popup__confirmation-trash-icon" />
                 <h2 className="delete-group-popup__confirmation-question">Удалить группу</h2>
                 <p className="delete-group-popup__confirmation-description">Вы действительно хотите удалить группу? Восстановить ее будет невозможно.</p>

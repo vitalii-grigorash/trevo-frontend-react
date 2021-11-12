@@ -1,20 +1,28 @@
 import React from 'react';
-import CarriageDataTable from '../CarriageDataTable/CarriageDataTable';
-import CarriageDislocationTable from '../CarriageDislocationTable/CarriageDislocationTable';
-import CarriageTechnicalConditionTable from '../CarriageTechnicalConditionTable/CarriageTechnicalConditionTable';
-import CarriageDataSmallTable from '../CarriageDataSmallTable/CarriageDataSmallTable';
-import CarriageRepairsTable from '../CarriageRepairsTable/CarriageRepairsTable';
+import Table from '../Table/Table';
 
-function SummaryDislocationTable() {
+function SummaryDislocationTable(props) {
+
+    const {
+        carriageData,
+        carriageDislocation,
+        carriageTechnicalCondition,
+        carriageDataSmall,
+        carriageRepairs,
+    } = props;
+
+    console.log(carriageData);
+    console.log(carriageDislocation);
+    console.log(carriageTechnicalCondition);
+    console.log(carriageDataSmall);
+    console.log(carriageRepairs);
 
     return (
         <div className="summary-dislocation-table">
             <div className="summary-dislocation-table__tables-container">
-                <CarriageDataTable />
-                <CarriageDislocationTable />
-                <CarriageTechnicalConditionTable />
-                <CarriageDataSmallTable />
-                <CarriageRepairsTable  />
+                <Table 
+                    table={carriageData}
+                />
             </div>
             <div className="summary-dislocation-table__bottom-container"></div>
         </div>
