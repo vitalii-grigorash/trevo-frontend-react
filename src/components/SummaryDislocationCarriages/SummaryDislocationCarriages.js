@@ -22,12 +22,16 @@ function SummaryDislocationCarriages(props) {
     const [groupDescription, setGroupDescription] = useState('');
     const [isGroupSelected, setGroupSelected] = useState(false);
     const [tables, setTables] = useState({});
+    const [isSummaryDislocationTableActive, setSummaryDislocationTableActive] = useState(false);
 
     useEffect(() => {
         DislocationPageApi.getAllTables()
-        .then((tables) => {
-            setTables(tables);
-        })
+            .then((tables) => {
+                setTables(tables);
+            })
+            .then(() => {
+                setSummaryDislocationTableActive(true);
+            })
     }, [])
 
     const selectData = (groupName, groupId, groupDescription) => {
@@ -81,7 +85,7 @@ function SummaryDislocationCarriages(props) {
 
     function handleGroupListShow() {
         if (isGroupListActive) {
-            setGroupListActive(false)
+            setGroupListActive(false);
         } else {
             setGroupListActive(true);
         }
@@ -237,14 +241,16 @@ function SummaryDislocationCarriages(props) {
                     )}
                 </div>
             </div>
-            <SummaryDislocationTable
-               carriageData={tables.carriageData} 
-               carriageDislocation={tables.carriageDislocation}
-               carriageTechnicalCondition={tables.carriageTechnicalCondition}
-               carriageDataSmall={tables.carriageDataSmall}
-               carriageRepairs={tables.carriageRepairs}
+            {isSummaryDislocationTableActive && (
+                <SummaryDislocationTable
+                    carriageData={tables.carriageData}
+                    carriageDislocation={tables.carriageDislocation}
+                    carriageTechnicalCondition={tables.carriageTechnicalCondition}
+                    carriageDataSmall={tables.carriageDataSmall}
+                    carriageRepairs={tables.carriageRepairs}
 
-            />
+                />
+            )}
         </div>
     );
 

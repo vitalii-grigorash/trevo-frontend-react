@@ -16,7 +16,7 @@
     line-height: 15px;
     letter-spacing: 0.001em;
     color: #444C5C;
-    margin: auto auto auto 16px;
+    margin: auto auto auto 12px;
 }
 .table__columns-container {
     display: flex;
@@ -30,7 +30,6 @@
 .table__column-heading-container {
     display: flex;
     height: 61px;
-    box-sizing: border-box;
     background: #ECEDF3;
 }
 .table__column-heading {
@@ -41,19 +40,20 @@
     line-height: 15px;
     letter-spacing: 0.001em;
     color: #444C5C;
+    width: 150px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: auto 0 auto 24px;
-    text-align: right;
+    margin: auto 12px;
 }
 .table__row-container {
     display: flex;
-    height: 46px;
+    min-height: 46px;
     box-sizing: border-box;
     border-bottom: 1px solid #ECEDF3;
+    padding: 8px 0;
 }
 .table__row-container:last-of-type {
     border-bottom: none;
@@ -66,11 +66,11 @@
     line-height: 15px;
     letter-spacing: 0.001em;
     color: #444C5C;
+    width: 150px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: auto 0 auto 24px;
-    text-align: right;
+    margin: auto 12px;
 }

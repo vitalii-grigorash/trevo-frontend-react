@@ -11,18 +11,34 @@ function SummaryDislocationTable(props) {
         carriageRepairs,
     } = props;
 
-    console.log(carriageData);
-    console.log(carriageDislocation);
-    console.log(carriageTechnicalCondition);
-    console.log(carriageDataSmall);
-    console.log(carriageRepairs);
-
     return (
         <div className="summary-dislocation-table">
             <div className="summary-dislocation-table__tables-container">
-                <Table 
-                    table={carriageData}
-                />
+                {carriageData !== null && (
+                    <Table
+                        table={carriageData}
+                    />
+                )}
+                {carriageDislocation !== null && (
+                    <Table
+                        table={carriageDislocation}
+                    />
+                )}
+                {carriageTechnicalCondition !== null && (
+                    <Table
+                        table={carriageTechnicalCondition}
+                    />
+                )}
+                {carriageDataSmall !== null && (
+                    <Table
+                        table={carriageDataSmall}
+                    />
+                )}
+                {carriageRepairs !== null && (
+                    <Table
+                        table={carriageRepairs}
+                    />
+                )}
             </div>
             <div className="summary-dislocation-table__bottom-container"></div>
         </div>

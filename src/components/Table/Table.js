@@ -12,14 +12,24 @@ function Table(props) {
                 <p className="table__heading">{table.name}</p>
             </div>
             <div className="table__columns-container">
-                <div className="table__column">
-                    <div className="table__column-heading-container">
-                        <p className="table__column-heading">Номер вагона</p>
-                    </div>
-                    <div className="table__row-container">
-                        <p className="table__row-text">50000090</p>
-                    </div>
-                </div>
+                {table.columns.map((column) => {
+                    return (
+                        <div key={column.id}>
+                            {column.isVisible && (
+                                <div className="table__column">
+                                    <div className="table__column-heading-container">
+                                        <p className="table__column-heading">{column.heading}</p>
+                                    </div>
+                                    {column.data.map((value, index) => (
+                                        <div className="table__row-container" key={index}>
+                                            <p className="table__row-text">{value}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );
