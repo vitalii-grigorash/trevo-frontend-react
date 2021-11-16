@@ -50,10 +50,9 @@
 }
 .table__row-container {
     display: flex;
-    min-height: 46px;
+    height: 50px;
     box-sizing: border-box;
     border-bottom: 1px solid #ECEDF3;
-    padding: 8px 0;
 }
 .table__row-container:last-of-type {
     border-bottom: none;
@@ -68,7 +67,7 @@
     color: #444C5C;
     width: 150px;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;

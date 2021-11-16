@@ -23,11 +23,14 @@ function SummaryDislocationCarriages(props) {
     const [isGroupSelected, setGroupSelected] = useState(false);
     const [tables, setTables] = useState({});
     const [isSummaryDislocationTableActive, setSummaryDislocationTableActive] = useState(false);
+    const [carriageValue, setCarriageValue] = useState('');
 
     useEffect(() => {
         DislocationPageApi.getAllTables()
             .then((tables) => {
                 setTables(tables);
+                const carriageLength = tables.carriageData.columns.map((column) => column.data.length);
+                setCarriageValue(carriageLength[0]);
             })
             .then(() => {
                 setSummaryDislocationTableActive(true);
@@ -133,7 +136,7 @@ function SummaryDislocationCarriages(props) {
                 />
             )}
             <div className="summary-dislocation-carriages__table-heading-container">
-                <p className="summary-dislocation-carriages__table-heading-results">Найдено 423 456 вагонов</p>
+                <p className="summary-dislocation-carriages__table-heading-results">Найдено {carriageValue} вагонов</p>
                 <div className="summary-dislocation-carriages__table-heading-icons-container">
                     <div className="summary-dislocation-carriages__table-heading-email-icon" />
                     <div className="summary-dislocation-carriages__table-heading-save-icon" />
