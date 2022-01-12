@@ -1,4 +1,4 @@
-.vagons-add {
+.containers-add {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -8,7 +8,7 @@
     border-radius: 4px;
     margin: 32px auto 0 32px;
 }
-.vagons-add__close-icon {
+.containers-add__close-icon {
     position: absolute;
     background-image: url('../../images/close-icon.svg');
     background-size: cover;
@@ -19,7 +19,7 @@
     right: 19px;
     cursor: pointer;
 }
-.vagons-add__heading {
+.containers-add__heading {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -29,7 +29,7 @@
     color: #444C5C;
     margin: 24px auto 0 24px;
 }
-.vagons-add__span {
+.containers-add__span {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -38,7 +38,7 @@
     color: #444C5C;
     margin: 24px auto 0 24px;
 }
-.vagons-add__group-add-span {
+.containers-add__group-add-span {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -47,7 +47,7 @@
     color: #444C5C;
     margin: 7px auto 0 24px;
 }
-.vagons-add__textarea {
+.containers-add__textarea {
     width: 300px;
     height: 80px;
     margin: 8px auto 0 24px;
@@ -59,7 +59,7 @@
     padding: 8px;
     color: #444C5C;
 }
-.vagons-add__textarea-error {
+.containers-add__textarea-error {
     height: 12px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -69,7 +69,7 @@
     color: red;
     margin: 5px auto 0 24px;
 }
-.vagons-add__group-select-error {
+.containers-add__group-select-error {
     height: 12px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -79,7 +79,7 @@
     color: red;
     margin: 5px auto 0 24px;
 }
-.vagons-add__group-add {
+.containers-add__group-add {
     display: flex;
     position: relative;
     border: 1px solid #CFD4DD;
@@ -92,7 +92,7 @@
     cursor: pointer;
     background: #FFFFFF;
 }
-.vagons-add__select-group-text {
+.containers-add__select-group-text {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -102,10 +102,10 @@
     color: #939CAD;
     margin: 0 auto 0 16px;
 }
-.vagons-add__select-group-text_active {
+.containers-add__select-group-text_active {
     color: #444C5C;
 }
-.vagons-add__select-group-arrow {
+.containers-add__select-group-arrow {
     background-image: url('../../images/arrow-down-dark.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -113,7 +113,7 @@
     height: 5px;
     margin: 0 19px 0 0;
 }
-.vagons-add__group-select-container {
+.containers-add__group-select-container {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -128,30 +128,30 @@
     background: #FFFFFF;
     z-index: 1;
 }
-.vagons-add__group-select-container::-webkit-scrollbar {
+.containers-add__group-select-container::-webkit-scrollbar {
     width: 10px;
     background: #ECEDF3;
     border-radius: 4px;
 }
-.vagons-add__group-select-container::-webkit-scrollbar-thumb {
+.containers-add__group-select-container::-webkit-scrollbar-thumb {
     background: #CFD4DD;
     border-radius: 4px;
 }
-.vagons-add__group-select-group-container {
+.containers-add__group-select-group-container {
     display: flex;
     min-height: 40px;
     border-bottom: 1px solid #E5E5E5;
     align-items: center;
     cursor: default;
 }
-.vagons-add__group-select-group-container_result:hover {
+.containers-add__group-select-group-container_result:hover {
     background: #ECEDF3;
     cursor: pointer;
 }
-.vagons-add__group-select-group-container:last-of-type {
+.containers-add__group-select-group-container:last-of-type {
     border-bottom: none;
 }
-.vagons-add__group-select-group-text {
+.containers-add__group-select-group-text {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -161,7 +161,7 @@
     letter-spacing: 0.0025em;
     margin: 0 auto 0 16px;
 }
-.vagons-add__add-button {
+.containers-add__add-button {
     background: #00A2E1;
     border-radius: 4px;
     border: none;
@@ -178,10 +178,10 @@
     margin: 7px auto 24px 24px;
     cursor: pointer;
 }
-.vagons-add__add-button:hover {
+.containers-add__add-button:hover {
     background: #00A2E1;
 }
-.vagons-add__add-button:active {
+.containers-add__add-button:active {
     background: #00A2E1;
     box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
 }

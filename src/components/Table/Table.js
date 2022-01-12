@@ -3,14 +3,18 @@ import React from 'react';
 function Table(props) {
 
     const {
-        table
+        table,
+        resultsShow,
+        showResultsFrom,
     } = props;
 
     return (
         <div className="table">
-            <div className="table__heading-container">
-                <p className="table__heading">{table.name}</p>
-            </div>
+            {table.name !== '' && (
+                <div className="table__heading-container">
+                    <p className="table__heading">{table.name}</p>
+                </div>
+            )}
             <div className="table__columns-container">
                 {table.columns.map((column) => {
                     return (
@@ -20,7 +24,7 @@ function Table(props) {
                                     <div className="table__column-heading-container">
                                         <p className="table__column-heading">{column.heading}</p>
                                     </div>
-                                    {column.data.map((value, index) => (
+                                    {column.data.slice(showResultsFrom, resultsShow).map((value, index) => (
                                         <div className="table__row-container" key={index}>
                                             <p className="table__row-text">{value}</p>
                                         </div>

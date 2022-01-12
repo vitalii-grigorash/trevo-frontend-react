@@ -29,8 +29,10 @@
 @import url(./components/TrainsSettingTab/TrainsSettingTab.css);
 @import url(./components/MyListVagonsTab/MyListVagonsTab.css);
 @import url(./components/FieldVisibilityVagonsTab/FieldVisibilityVagonsTab.css);
-@import url(./components/ScheduleAndMailingVagonsTab/ScheduleAndMailingVagonsTab.css);
-@import url(./components/AlertsVagonsTab/AlertsVagonsTab.css);
+@import url(./components/ScheduleAndMailingCarriagesTab/ScheduleAndMailingCarriagesTab.css);
+@import url(./components/ScheduleAndMailingCarriagesTabHistory/ScheduleAndMailingCarriagesTabHistory.css);
+@import url(./components/AlertsCarriagesTab/AlertsCarriagesTab.css);
+@import url(./components/AlertsCarriagesTabHistory/AlertsCarriagesTabHistory.css);
 @import url(./components/GroupList/GroupList.css);
 @import url(./components/PersonalAccount/PersonalAccount.css);
 @import url(./components/MyGroupVagonsTab/MyGroupVagonsTab.css);
@@ -58,3 +60,7 @@
 @import url(./components/Table/Table.css);
 @import url(./components/FieldVisibilityTable/FieldVisibilityTable.css);
 @import url(./components/FieldVisibilityTableItem/FieldVisibilityTableItem.css);
+@import url(./components/AddForm/AddForm.css);
+@import url(./components/ContainersAdd/ContainersAdd.css);
+@import url(./components/ContainersDislocationTable/ContainersDislocationTable.css);
+@import url(./components/StationsDislocationTable/StationsDislocationTable.css);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import * as SettingsPageApi from '../../utils/SettingPageApi';
 
 function FieldVisibilityTableItem(props) {
 
@@ -35,8 +36,22 @@ function FieldVisibilityTableItem(props) {
     function handleCheckboxCheck() {
         if (isCheckboxChecked) {
             setCheckboxChecked(false);
+            const settings = ([
+                {
+                    id: id,
+                    isVisible: false
+                }
+            ])
+            SettingsPageApi.postVisibilitySettings(settings);
         } else {
             setCheckboxChecked(true);
+            const settings = ([
+                {
+                    id: id,
+                    isVisible: true
+                }
+            ])
+            SettingsPageApi.postVisibilitySettings(settings);
         }
     }
 

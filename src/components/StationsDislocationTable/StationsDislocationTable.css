@@ -1,21 +1,21 @@
-.summary-dislocation-table {
+.stations-dislocation-table {
     display: flex;
     flex-direction: column;
     margin: 16px 32px 32px 32px;
     background: #FFFFFF;
 }
-.summary-dislocation-table__tables-container {
+.stations-dislocation-table__tables-container {
     display: flex;
     overflow-x: scroll;
 }
-.summary-dislocation-table__tables-container::-webkit-scrollbar {
+.stations-dislocation-table__tables-container::-webkit-scrollbar {
     height: 15px;
     background: #F6F6F6;
 }
-.summary-dislocation-table__tables-container::-webkit-scrollbar-thumb {
+.stations-dislocation-table__tables-container::-webkit-scrollbar-thumb {
     background: #CFD4DD;
 }
-.summary-dislocation-table__tables-container::-webkit-scrollbar-button:horizontal:start:decrement {
+.stations-dislocation-table__tables-container::-webkit-scrollbar-button:horizontal:start:decrement {
     background:
         linear-gradient(30deg, #F6F6F6 40%, rgba(0, 0, 0, 0) 41%),
         linear-gradient(150deg, #F6F6F6 40%, rgba(0, 0, 0, 0) 41%),
@@ -23,14 +23,14 @@
     background-color: #B1B8C5;
 }
 
-.summary-dislocation-table__tables-container::-webkit-scrollbar-button:horizontal:end:increment {
+.stations-dislocation-table__tables-container::-webkit-scrollbar-button:horizontal:end:increment {
     background:
         linear-gradient(210deg, #F6F6F6 40%, rgba(0, 0, 0, 0) 41%),
         linear-gradient(330deg, #F6F6F6 40%, rgba(0, 0, 0, 0) 41%),
         linear-gradient(90deg, #F6F6F6 30%, rgba(0, 0, 0, 0) 31%);
     background-color: #B1B8C5;
 }
-.summary-dislocation-table__bottom-container {
+.stations-dislocation-table__bottom-container {
     display: flex;
     height: 46px;
     background: #ECEDF3;

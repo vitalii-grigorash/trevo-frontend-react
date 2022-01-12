@@ -134,6 +134,9 @@
     height: 16px;
     cursor: pointer;
 }
+.summary-dislocation-carriages__table-heading-email-icon_active {
+    background-image: url('../../images/email-icon-active.svg');
+}
 .summary-dislocation-carriages__table-heading-save-icon {
     background-image: url('../../images/import-icon.svg');
     background-size: cover;
@@ -163,6 +166,7 @@
     box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
     border-radius: 4px;
     cursor: default;
+    z-index: 2;
 }
 .summary-dislocation-carriages__filter-heading-container {
     display: flex;
@@ -239,7 +243,7 @@
     top: 48px;
     left: -1px;
     width: 324px;
-    height: 245px;
+    max-height: 245px;
     box-shadow: 0px 3px 4px rgba(177, 184, 197, 0.14), 0px 3px 3px rgba(177, 184, 197, 0.12), 0px 1px 8px rgba(177, 184, 197, 0.2);
     border-radius: 4px;
     overflow-y: scroll;
@@ -253,7 +257,7 @@
 }
 .summary-dislocation-carriages__filter-group-list-container::-webkit-scrollbar-thumb {
     background: #CFD4DD;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
 }
 .summary-dislocation-carriages__filter-group-container {
     display: flex;
@@ -418,4 +422,120 @@
 }
 .summary-dislocation-carriages__filter-reset-button:hover {
     opacity: .8;
+}
+.summary-dislocation-carriages__no-result-container {
+    display: flex;
+    flex-direction: column;
+    margin: 32px;
+}
+.summary-dislocation-carriages__no-result-heading-container {
+    height: 46px;
+    background: #ECEDF3;
+}
+.summary-dislocation-carriages__no-result-text-container {
+    display: flex;
+    background-color: #FFFFFF;
+    height: 46px;
+}
+.summary-dislocation-carriages__no-result-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.0025em;
+    color: #444C5C;
+    margin: auto;
+}
+.summary-dislocation-carriages__no-result-bottom-container {
+    height: 46px;
+    background: #ECEDF3;
+}
+.summary-dislocation-carriages__email-send-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -90px;
+    right: 120px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
+    border-radius: 4px;
+    cursor: default;
+    z-index: 2;
+}
+.summary-dislocation-carriages__email-send-heading-container {
+    display: flex;
+    margin: 24px 24px 0;
+    position: relative;
+}
+.summary-dislocation-carriages__email-send-close-button {
+    background-image: url('../../images/filter-close-button.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 13px;
+    right: -9px;
+}
+.summary-dislocation-carriages__email-send-heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.0015em;
+    color: #444C5C;
+    margin: 0 auto 0 0;
+}
+.summary-dislocation-carriages__input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 24px 24px 0;
+}
+.summary-dislocation-carriages__input {
+    border: 1px solid #CFD4DD;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 40px;
+    padding: 0 20px;
+    width: 287px;
+}
+.summary-dislocation-carriages__input-error {
+    height: 22px;
+    max-width: 287px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 11px;
+    letter-spacing: 0.0125em;
+    color: red;
+    margin: 2px auto 0 0;
+}
+.summary-dislocation-carriages__send-button {
+    width: 123px;
+    height: 40px;
+    background: #00A2E1;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 2px auto 24px 24px;
+}
+.summary-dislocation-carriages__send-button:active {
+    box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
 }

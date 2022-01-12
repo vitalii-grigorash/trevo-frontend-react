@@ -8,8 +8,6 @@ function FieldVisibilityTable(props) {
         isAllCheckboxesSelected
     } = props;
 
-    console.log(data);
-
     return (
         <div className="field-visibility-table">
             <div className="field-visibility-table__heading-container">

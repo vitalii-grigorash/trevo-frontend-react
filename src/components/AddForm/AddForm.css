@@ -1,0 +1,164 @@
+.add-form {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 2px rgba(177, 184, 197, 0.14), 0px 3px 1px rgba(177, 184, 197, 0.12), 0px 1px 5px rgba(177, 184, 197, 0.2);
+    border-radius: 4px;
+    margin: 32px auto 0 32px;
+}
+.add-form__heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.0015em;
+    color: #444C5C;
+    margin: 32px auto 0 32px;
+}
+.add-form__inputs-main-container {
+    display: flex;
+    margin: 32px 32px 8px 32px;
+}
+.add-form__inputs-container {
+    display: flex;
+    flex-direction: column;
+}
+.add-form__inputs-container:first-of-type {
+    margin-right: 32px;
+}
+.add-form__input-container {
+    display: flex;
+    flex-direction: column;
+}
+.add-form__input-container_last {
+    margin-top: 24px;
+}
+.add-form__input-heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: 0.004em;
+    color: #444C5C;
+    margin: 0 auto 0 0;
+}
+.add-form__input {
+    border: 1px solid #CFD4DD;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-top: 4px;
+    height: 40px;
+    padding: 0 20px;
+}
+.add-form__input-error {
+    height: 22px;
+    width: 324px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 11px;
+    letter-spacing: 0.0125em;
+    color: red;
+    margin: 2px auto 0 0;
+}
+.add-form__select-container {
+    border: 1px solid #CFD4DD;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-top: 4px;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+}
+.add-form__select-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.0025em;
+    color: #939CAD;
+    margin: auto auto auto 20px;
+}
+.add-form__select-text_active {
+    color: #444C5C;
+}
+.add-form__select-icon {
+    background-image: url('../../images/arrow-down-dark.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 8px;
+    height: 5px;
+    margin: auto 15px auto auto;
+}
+.add-form__select-value-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    max-height: 125px;
+    overflow-y: scroll;
+    top: 45px;
+    left: -1px;
+    width: 324px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; 
+    box-sizing: border-box;
+    background: #FFFFFF;
+    z-index: 1;
+}
+.add-form__select-value-container::-webkit-scrollbar {
+    width: 10px;
+    background: #ECEDF3;
+    border-radius: 4px;
+}
+.add-form__select-value-container::-webkit-scrollbar-thumb {
+    background: #CFD4DD;
+    border-radius: 4px;
+}
+.add-form__select-value-item-container {
+    display: flex;
+    min-height: 40px;
+    border-bottom: 1px solid #CFD4DD;
+    box-sizing: border-box;
+    background: #FFFFFF;
+}
+.add-form__select-value-item-container:hover {
+    background: #ECEDF3;
+}
+.add-form__select-value-item-container:last-of-type {
+    border-bottom: none;
+}
+.add-form__select-value-item {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.0025em;
+    color: #444C5C;
+    margin: auto auto auto 16px;
+}
+.add-form__button {
+    width: 117px;
+    height: 40px;
+    background: #00A2E1;
+    border-radius: 4px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 0 auto 32px 32px;
+}
+.add-form__button:active {
+    box-shadow: 0px 8px 10px rgba(177, 184, 197, 0.14), 0px 3px 14px rgba(177, 184, 197, 0.12), 0px 5px 5px rgba(177, 184, 197, 0.2);
+}

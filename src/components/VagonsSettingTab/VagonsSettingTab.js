@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import MyListVagonsTab from '../MyListVagonsTab/MyListVagonsTab';
 import FieldVisibilityVagonsTab from '../FieldVisibilityVagonsTab/FieldVisibilityVagonsTab';
-import ScheduleAndMailingVagonsTab from '../ScheduleAndMailingVagonsTab/ScheduleAndMailingVagonsTab';
-import AlertsVagonsTab from '../AlertsVagonsTab/AlertsVagonsTab';
+import ScheduleAndMailingCarriagesTab from '../ScheduleAndMailingCarriagesTab/ScheduleAndMailingCarriagesTab';
+import AlertsCarriagesTab from '../AlertsCarriagesTab/AlertsCarriagesTab';
 import MyGroupVagonsTab from '../MyGroupVagonsTab/MyGroupVagonsTab';
 import * as SettingsPageApi from '../../utils/SettingPageApi';
 
@@ -141,8 +141,8 @@ function VagonsSettingTab(props) {
                 updateCarriageDescription={updateCarriageDescription}
             />}
             {isFieldVisibilityTabOpen && <FieldVisibilityVagonsTab />}
-            {isScheduleAndMailingTabOpen && <ScheduleAndMailingVagonsTab />}
-            {isAlertsTabOpen && <AlertsVagonsTab />}
+            {isScheduleAndMailingTabOpen && <ScheduleAndMailingCarriagesTab />}
+            {isAlertsTabOpen && <AlertsCarriagesTab />}
         </div>
     );
 

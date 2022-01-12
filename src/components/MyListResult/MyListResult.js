@@ -64,6 +64,7 @@ function MyListResult(props) {
   }
 
   useEffect(() => {
+    setShowSortOptions(false);
     if (isSearchButtonClicked) {
       setDataToRender(selectedGroupCarriages);
     } else {
@@ -79,7 +80,7 @@ function MyListResult(props) {
         return setShowSortOptions(false);
       }
     })
-  }, [dataToRender]);
+  }, [dataToRender, carriageList]);
 
   return (
     <div className="my-list-result">

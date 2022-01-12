@@ -57,6 +57,92 @@ export const getAllCarriage = () => {
         });
 };
 
+export const getVisibilitySettings = () => {
+    return fetch(`${BASE_URL}/regulated/carriage/visibilitySettings`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.ok ? res : Promise.reject(res))
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then(data => data)
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};
+
+export const getMailingSubscription = () => {
+    return fetch(`${BASE_URL}/regulated/carriage/mailing/subscription`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.ok ? res : Promise.reject(res))
+        .then((res) => {
+            if (res.ok) {
+                return res.json();
+            }
+        })
+        .then(data => data)
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};
+
+export const postVisibilitySettings = (settings) => {
+    return fetch(`${BASE_URL}/regulated/carriage/visibilitySettings`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(settings)
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};
+
+export const postMailingSubscription = (mailing) => {
+    return fetch(`${BASE_URL}/regulated/carriage/mailing/subscription`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(mailing)
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};
+
+export const selectAllVisibilityFields = (data) => {
+    return fetch(`${BASE_URL}/regulated/carriage/visibilitySettings/updateAll`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then((res) => {
+            return res.json();
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+};
+
 export const postNewCarriageGroup = (request) => {
     return fetch(`${BASE_URL}/regulated/carriage/group`, {
         method: 'POST',
@@ -209,6 +295,21 @@ export const deleteGroup = (id) => {
         })
         .then((data) => {
             return data;
+        })
+        .catch((err) => {
+            throw new Error(err.message);
+        });
+}
+
+export const deleteMailingSubscription = (id) => {
+    return fetch(`${BASE_URL}/regulated/carriage/mailing/subscription/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then((res) => {
+            console.log(res);
         })
         .catch((err) => {
             throw new Error(err.message);

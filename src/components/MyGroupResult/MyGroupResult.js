@@ -33,21 +33,25 @@ function MyGroupResult(props) {
         }
     }
 
-    useEffect(() => {
-        const pages = dataToRender.length / selectedResultsShow
-        setAllPages(Math.ceil(pages));
-    }, [dataToRender.length, selectedResultsShow])
-
-    function handleMyGroupResultTableItemsOpened() {
-        setMyGroupResultTableItemsOpened(true);
-    }
-
     function onChoiceClick(value) {
         setResultsShow(value);
         setResult(value);
         setSelectedResultsShow(value);
         setShowResultsFrom(0);
         setPageCount(1);
+    }
+
+    useEffect(() => {
+        if (dataToRender === null) {
+            return
+        } else {
+            const pages = dataToRender.length / selectedResultsShow
+            setAllPages(Math.ceil(pages));
+        }
+    }, [dataToRender, selectedResultsShow])
+
+    function handleMyGroupResultTableItemsOpened() {
+        setMyGroupResultTableItemsOpened(true);
     }
 
     function showNextResults() {
@@ -71,22 +75,27 @@ function MyGroupResult(props) {
     }
 
     useEffect(() => {
+        if (dataToRender === null) {
+            setShowSortOptions(false);
+            return
+        } else {
+            dataToRender.map((list) => {
+                if (list.id) {
+                    return setShowSortOptions(true);
+                } else {
+                    return setShowSortOptions(false);
+                }
+            })
+        }
+    }, [dataToRender]);
+
+    useEffect(() => {
         if (isSearchGroupButtonClicked) {
             setDataToRender(selectedGroup);
         } else {
             setDataToRender(carriageGroups);
         }
     }, [isSearchGroupButtonClicked, carriageGroups, selectedGroup])
-
-    useEffect(() => {
-        dataToRender.map((list) => {
-            if (list.id) {
-                return setShowSortOptions(true);
-            } else {
-                return setShowSortOptions(false);
-            }
-        })
-    }, [dataToRender]);
 
     return (
         <div className="my-group-result">
@@ -98,24 +107,34 @@ function MyGroupResult(props) {
             </div>
             {isShowSortOptions ? (
                 <>
-                    {dataToRender.slice(showResultsFrom, resultsShow).map((data) => {
-                        return (
-                            <MyGroupResultTableItems
-                                key={data.id}
-                                groupNumber={data.id}
-                                groupName={data.name}
-                                vagonsValue={data.numObjectsTracking}
-                                description={data.description}
-                                isMyGroupResultTableItemsOpened={isMyGroupResultTableItemsOpened}
-                                handleMyGroupResultTableItemsOpened={handleMyGroupResultTableItemsOpened}
-                                onDeleteGroupClick={onDeleteGroupClick}
-                                postNewCarriages={postNewCarriages}
-                                deleteCarriagesFromGroup={deleteCarriagesFromGroup}
-                                replaceCarriages={replaceCarriages}
-                                updateCarriageDescription={updateCarriageDescription}
-                            />
-                        )
-                    })}
+                    {dataToRender === null ? (
+                        <>
+                            <div className='my-list-result__no-result-container'>
+                                <p className='my-list-result__no-result-text'>Необходимо добавить группы</p>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            {dataToRender.slice(showResultsFrom, resultsShow).map((data) => {
+                                return (
+                                    <MyGroupResultTableItems
+                                        key={data.id}
+                                        groupNumber={data.id}
+                                        groupName={data.name}
+                                        vagonsValue={data.numObjectsTracking}
+                                        description={data.description}
+                                        isMyGroupResultTableItemsOpened={isMyGroupResultTableItemsOpened}
+                                        handleMyGroupResultTableItemsOpened={handleMyGroupResultTableItemsOpened}
+                                        onDeleteGroupClick={onDeleteGroupClick}
+                                        postNewCarriages={postNewCarriages}
+                                        deleteCarriagesFromGroup={deleteCarriagesFromGroup}
+                                        replaceCarriages={replaceCarriages}
+                                        updateCarriageDescription={updateCarriageDescription}
+                                    />
+                                )
+                            })}
+                        </>
+                    )}
                 </>
             ) : (
                 <>
@@ -160,7 +179,6 @@ function MyGroupResult(props) {
             </div>
         </div>
     );
-
 }
 
 export default MyGroupResult;

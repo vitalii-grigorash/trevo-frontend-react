@@ -1,0 +1,76 @@
+.schedule-and-mailing-carriages-tab {
+    display: flex;
+    flex-direction: column;
+    background: #F6F6F6;
+    border-radius: 4px;
+}
+.schedule-and-mailing-carriages-tab__add-link-container {
+    display: flex;
+    margin: 32px auto 0 32px;
+    cursor: pointer;
+}
+.schedule-and-mailing-carriages-tab__add-link-icon {
+    background-image: url('../../images/add-icon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 16px;
+    height: 16px;
+    margin: auto 10px auto 0;
+}
+.schedule-and-mailing-carriages-tab__add-link-icon_active {
+    background-image: url('../../images/add-blue-icon.svg');
+}
+.schedule-and-mailing-carriages-tab__add-link-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.0125em;
+    text-transform: uppercase;
+    color: #444C5C;
+    margin: 0;
+}
+.schedule-and-mailing-carriages-tab__add-link-text_active {
+    color: #00A2E1;
+}
+.schedule-and-mailing-carriages-tab__history-table {
+    display: flex;
+    flex-direction: column;
+    margin: 32px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 2px rgba(177, 184, 197, 0.14), 0px 3px 1px rgba(177, 184, 197, 0.12), 0px 1px 5px rgba(177, 184, 197, 0.2);
+}
+.schedule-and-mailing-carriages-tab__history-table-heading-container {
+    display: flex;
+    background: #ECEDF3;
+    height: 52px;
+}
+.schedule-and-mailing-carriages-tab__history-table-heading {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    align-items: center;
+    letter-spacing: 0.001em;
+    color: #444C5C;
+    margin: 0;
+}
+.schedule-and-mailing-carriages-tab__history-table-heading_email {
+    width: 200px;
+    margin: auto 32px;
+}
+.schedule-and-mailing-carriages-tab__history-table-heading_description {
+    width: 316px;
+    margin: auto 32px auto 0;
+}
+.schedule-and-mailing-carriages-tab__history-table-heading_execution-days {
+    min-width: 147px;
+    margin: auto 32px auto 0;
+}
+.schedule-and-mailing-carriages-tab__history-table-heading_time {
+    min-width: 100px;
+    margin: auto 68px auto 0;
+    text-align: right;
+}

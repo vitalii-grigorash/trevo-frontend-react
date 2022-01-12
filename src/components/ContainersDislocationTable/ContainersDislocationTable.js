@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../Table/Table';
 
-function SummaryDislocationTable(props) {
+function ContainersDislocationTable(props) {
 
     const {
         tables
@@ -16,10 +16,10 @@ function SummaryDislocationTable(props) {
     const [allPages, setAllPages] = useState(0);
 
     useEffect(() => {
-        const data = (tables.carriageData.columns[0].data);
+        const data = (tables.containerData.columns[0].data);
         const pages = data.length / selectedResultsShow
         setAllPages(Math.ceil(pages));
-    }, [tables.carriageData.length, selectedResultsShow, tables.carriageData.columns])
+    }, [tables.containerData.length, selectedResultsShow, tables.containerData.columns])
 
     function handleShowChoiceContainer() {
         if (isChoiceContainerActive) {
@@ -30,7 +30,7 @@ function SummaryDislocationTable(props) {
     }
 
     function showNextResults() {
-        const data = (tables.carriageData.columns[0].data);
+        const data = (tables.containerData.columns[0].data);
         if (resultsShow >= data.length) {
             return
         } else {
@@ -59,45 +59,24 @@ function SummaryDislocationTable(props) {
     }
 
     return (
-        <div className="summary-dislocation-table">
-            <div className="summary-dislocation-table__tables-container">
-                {tables.carriageData !== null && (
+        <div className="containers-dislocation-table">
+            <div className="containers-dislocation-table__tables-container">
+                {tables.containerData !== null && (
                     <Table
-                        table={tables.carriageData}
+                        table={tables.containerData}
                         resultsShow={resultsShow}
                         showResultsFrom={showResultsFrom}
                     />
                 )}
-                {tables.carriageDislocation !== null && (
+                {tables.containerDislocation !== null && (
                     <Table
-                        table={tables.carriageDislocation}
-                        resultsShow={resultsShow}
-                        showResultsFrom={showResultsFrom}
-                    />
-                )}
-                {tables.carriageTechnicalCondition !== null && (
-                    <Table
-                        table={tables.carriageTechnicalCondition}
-                        resultsShow={resultsShow}
-                        showResultsFrom={showResultsFrom}
-                    />
-                )}
-                {tables.carriageDataSmall !== null && (
-                    <Table
-                        table={tables.carriageDataSmall}
-                        resultsShow={resultsShow}
-                        showResultsFrom={showResultsFrom}
-                    />
-                )}
-                {tables.carriageRepairs !== null && (
-                    <Table
-                        table={tables.carriageRepairs}
+                        table={tables.containerDislocation}
                         resultsShow={resultsShow}
                         showResultsFrom={showResultsFrom}
                     />
                 )}
             </div>
-            <div className="summary-dislocation-table__bottom-container">
+            <div className="containers-dislocation-table__bottom-container">
                 <div className="request-history__sort-options-container">
                     <div className="request-history__show-result-container" onClick={handleShowChoiceContainer}>
                         <p className="request-history__show-result-text">Показать: {selectedResultsShow}</p>
@@ -133,4 +112,4 @@ function SummaryDislocationTable(props) {
     );
 }
 
-export default SummaryDislocationTable;
+export default ContainersDislocationTable;

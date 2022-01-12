@@ -9,8 +9,11 @@ function Dislocation(props) {
 
   const {
     carriageGroups,
+    containersGroups,
     postNewCarriages,
-    getCarriageGroups
+    postNewContainers,
+    getCarriageGroups,
+    carriageList
   } = props;
 
   const [isCarriagesTabOpen, setCarriagesTabOpen] = useState(true);
@@ -63,14 +66,17 @@ function Dislocation(props) {
           carriageGroups={carriageGroups}
           postNewCarriages={postNewCarriages}
           getCarriageGroups={getCarriageGroups}
+          carriageList={carriageList}
         />}
-        {isContainersTabOpen && <ContainersDislocation />}
+        {isContainersTabOpen && <ContainersDislocation
+          postNewContainers={postNewContainers}
+          containersGroups={containersGroups}
+        />}
         {isStationsTabOpen && <StationsDislocation />}
         {/* {isTrainsTabOpen && <TrainsDislocation />} */}
       </div>
     </div>
   );
-
 }
 
 export default Dislocation;

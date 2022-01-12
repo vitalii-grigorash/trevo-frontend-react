@@ -1,27 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FieldVisibilityTable from '../FieldVisibilityTable/FieldVisibilityTable';
-import VisibilityAndTableData from '../../utils/VisibilityAndTableData.json';
+import * as SettingsPageApi from '../../utils/SettingPageApi';
 
 function FieldVisibilityVagonsTab() {
 
-    // const [carriageData, setCarriageData] = useState({});
-    // const [carriageDislocation, setCarriageDislocation] = useState({});
-
-    // useEffect(() => {
-    //     setCarriageData(VisibilityAndTableData.carriageData);
-    //     setCarriageDislocation(VisibilityAndTableData.carriageDislocation);
-    //     console.log('useEffect');
-    // }, [])
-
+    const [visibilitySettings, setVisibilitySettings] = useState({});
+    const [isVisibilitySettingsShow, setVisibilitySettingsShow] = useState(false);
     const [isAllCheckboxesSelected, setAllCheckboxesSelected] = useState(false);
 
     function selectAllCheckboxes() {
         if (isAllCheckboxesSelected) {
-          setAllCheckboxesSelected(false);
+            setAllCheckboxesSelected(false);
+            const data = {
+                isVisible: false
+            }
+            SettingsPageApi.selectAllVisibilityFields(data);
         } else {
-          setAllCheckboxesSelected(true);
+            setAllCheckboxesSelected(true);
+            const data = {
+                isVisible: true
+            }
+            SettingsPageApi.selectAllVisibilityFields(data);
         }
-      }
+    }
+
+    useEffect(() => {
+        SettingsPageApi.getVisibilitySettings()
+            .then((settings) => {
+                setVisibilitySettings(settings);
+            })
+            .then(() => {
+                setVisibilitySettingsShow(true);
+            })
+    }, [])
 
     return (
         <div className="field-visibility-vagons-tab">
@@ -37,28 +48,40 @@ function FieldVisibilityVagonsTab() {
                 </div>
                 <p className="field-visibility-vagons-tab__select-all-checkbox-text">Выбрать все</p>
             </div>
-            <div className="field-visibility-vagons-tab__all-checkboxes-main-container">
-                <FieldVisibilityTable
-                    data={VisibilityAndTableData.carriageData}
-                    isAllCheckboxesSelected={isAllCheckboxesSelected}
-                />
-                <FieldVisibilityTable
-                    data={VisibilityAndTableData.carriageDislocation}
-                    isAllCheckboxesSelected={isAllCheckboxesSelected}
-                />
-                <FieldVisibilityTable
-                    data={VisibilityAndTableData.carriageTechnicalCondition}
-                    isAllCheckboxesSelected={isAllCheckboxesSelected}
-                />
-                <FieldVisibilityTable
-                    data={VisibilityAndTableData.carriageDataSmall}
-                    isAllCheckboxesSelected={isAllCheckboxesSelected}
-                />
-                <FieldVisibilityTable
-                    data={VisibilityAndTableData.carriageRepairs}
-                    isAllCheckboxesSelected={isAllCheckboxesSelected}
-                />
-            </div>
+            {isVisibilitySettingsShow && (
+                <div className="field-visibility-vagons-tab__all-checkboxes-main-container">
+                    {visibilitySettings.carriageData !== null && (
+                        <FieldVisibilityTable
+                            data={visibilitySettings.carriageData}
+                            isAllCheckboxesSelected={isAllCheckboxesSelected}
+                        />
+                    )}
+                    {visibilitySettings.carriageDislocation !== null && (
+                        <FieldVisibilityTable
+                            data={visibilitySettings.carriageDislocation}
+                            isAllCheckboxesSelected={isAllCheckboxesSelected}
+                        />
+                    )}
+                    {visibilitySettings.carriageTechnicalCondition !== null && (
+                        <FieldVisibilityTable
+                            data={visibilitySettings.carriageTechnicalCondition}
+                            isAllCheckboxesSelected={isAllCheckboxesSelected}
+                        />
+                    )}
+                    {visibilitySettings.carriageDataSmall !== null && (
+                        <FieldVisibilityTable
+                            data={visibilitySettings.carriageDataSmall}
+                            isAllCheckboxesSelected={isAllCheckboxesSelected}
+                        />
+                    )}
+                    {visibilitySettings.carriageRepairs !== null && (
+                        <FieldVisibilityTable
+                            data={visibilitySettings.carriageRepairs}
+                            isAllCheckboxesSelected={isAllCheckboxesSelected}
+                        />
+                    )}
+                </div>
+            )}
         </div>
     );
 

@@ -12,7 +12,8 @@ function CarriagesDislocation(props) {
   const {
     carriageGroups,
     postNewCarriages,
-    getCarriageGroups
+    getCarriageGroups,
+    carriageList
   } = props;
 
   const [isSummaryDislocationCarriagesTabOpen, setSummaryDislocationCarriagesTabOpen] = useState(true);
@@ -126,6 +127,7 @@ function CarriagesDislocation(props) {
       {isSummaryDislocationCarriagesTabOpen && <SummaryDislocationCarriages
         carriageGroups={carriageGroups}
         postNewCarriages={postNewCarriages}
+        carriageList={carriageList}
       />}
       {isDislocationCarriagesTabOpen && <DislocationCarriages />}
       {isPassportsCarriagesTabOpen && <PassportsCarriages />}
@@ -135,7 +137,6 @@ function CarriagesDislocation(props) {
       {isDetailsCarriagesTabOpen && <DetailsCarriages />}
     </div>
   );
-
 }
 
 export default CarriagesDislocation;

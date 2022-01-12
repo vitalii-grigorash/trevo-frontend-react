@@ -20,7 +20,7 @@ import PersonalAccount from '../PersonalAccount/PersonalAccount';
 import NotFound from '../NotFound/NotFound';
 import * as SettingsPageApi from '../../utils/SettingPageApi';
 import DeleteAllPopup from '../DeleteAllPopup/DeleteAllPopup';
-import DeleteGroupPopup from '../DeleteGroupPopup/DeleteGroupPopup';
+import DeleteGroupPopup from '../DeleteGroupPopup/DeleteGroupPopup'
 
 function App() {
 
@@ -50,6 +50,69 @@ function App() {
   const [carriageGroups, setCarriageGroups] = useState([]);
   const [isDeleteAllPopupOpen, setDeleteAllPopupOpen] = useState(false);
   const [isDeleteGroupPopupOpen, setDeleteGroupPopupOpen] = useState(false);
+
+  const containersGroups = [
+    {
+      id: "01",
+      name: "TestGroup1",
+      description: "примечание к группе 1",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "02",
+      name: "TestGroup2",
+      description: "примечание к группе 2",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "03",
+      name: "TestGroup3",
+      description: "примечание к группе 3",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "04",
+      name: "TestGroup4",
+      description: "примечание к группе 4",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "05",
+      name: "TestGroup5",
+      description: "примечание к группе 5",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "06",
+      name: "TestGroup6",
+      description: "примечание к группе 6",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "07",
+      name: "TestGroup7",
+      description: "примечание к группе 7",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "08",
+      name: "TestGroup8",
+      description: "примечание к группе 8",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "09",
+      name: "TestGroup9",
+      description: "примечание к группе 9",
+      numObjectsTracking: "0"
+    },
+    {
+      id: "10",
+      name: "TestGroup10",
+      description: "примечание к группе 10",
+      numObjectsTracking: "0"
+    },
+  ]
 
   function onDeleteAllClick() {
     if (isDeleteAllPopupOpen) {
@@ -166,6 +229,11 @@ function App() {
         getAllCarriage();
       })
       .catch((err) => console.log(`Ошибка при отправки запроса: ${err}`));
+  }
+
+  function postNewContainers(groupId, containersToAdd) {
+    console.log(groupId);
+    console.log(containersToAdd);
   }
 
   function replaceCarriages(groupId, carriagesToReplace) {
@@ -465,8 +533,11 @@ function App() {
           <Route path='/dislocation'>
             <Dislocation
               carriageGroups={carriageGroups}
+              containersGroups={containersGroups}
               postNewCarriages={postNewCarriages}
+              postNewContainers={postNewContainers}
               getCarriageGroups={getCarriageGroups}
+              carriageList={carriageList}
             />
           </Route>
 
@@ -531,7 +602,6 @@ function App() {
     </CurrentUserContext.Provider>
 
   );
-
 }
 
 export default App;

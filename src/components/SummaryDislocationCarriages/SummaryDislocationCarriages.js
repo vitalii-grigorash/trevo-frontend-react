@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import VagonsAdd from '../VagonsAdd/VagonsAdd';
 import SummaryDislocationTable from '../SummaryDislocationTable/SummaryDislocationTable';
 import * as DislocationPageApi from '../../utils/DislocationPageApi';
+import { Validation } from '../../utils/Validation';
 
 function SummaryDislocationCarriages(props) {
 
     const {
         carriageGroups,
         postNewCarriages,
+        carriageList
     } = props;
 
     const [carriageSearchInputValue, setCarriageSearchInputValue] = useState('');
@@ -24,18 +26,52 @@ function SummaryDislocationCarriages(props) {
     const [tables, setTables] = useState({});
     const [isSummaryDislocationTableActive, setSummaryDislocationTableActive] = useState(false);
     const [carriageValue, setCarriageValue] = useState('');
+    const [isEmailSendModalActive, setEmailSendModalActive] = useState(false);
 
-    useEffect(() => {
-        DislocationPageApi.getAllTables()
+    const email = Validation();
+
+    function getTablesForRender(data) {
+        DislocationPageApi.getTables(data)
             .then((tables) => {
-                setTables(tables);
-                const carriageLength = tables.carriageData.columns.map((column) => column.data.length);
-                setCarriageValue(carriageLength[0]);
+                if (tables === null) {
+                    setTables(null);
+                    setSummaryDislocationTableActive(false);
+                    setCarriageValue('0');
+                    return
+                } else {
+                    setTables(tables);
+                    const carriageLength = tables.carriageData.columns.map((column) => column.data.length);
+                    setCarriageValue(carriageLength[0]);
+                }
             })
             .then(() => {
                 setSummaryDislocationTableActive(true);
             })
-    }, [])
+    }
+
+    useEffect(() => {
+        const data = {
+            groupIds: []
+        }
+        getTablesForRender(data);
+    }, [carriageList]);
+
+    function handleShowEmailSendModal() {
+        if (isEmailSendModalActive) {
+            setEmailSendModalActive(false);
+            email.setValue('');
+            email.setErrorMessage('');
+        } else {
+            setFilterActive(false);
+            setCondition('Все');
+            setData([]);
+            setGroupSelected(false);
+            setGroupName('Выберите группу');
+            setGroupId('');
+            setGroupDescription('');
+            setEmailSendModalActive(true);
+        }
+    }
 
     const selectData = (groupName, groupId, groupDescription) => {
         setGroupName(groupName);
@@ -80,8 +116,11 @@ function SummaryDislocationCarriages(props) {
 
     function handleShowFilter() {
         if (isFilterActive) {
-            setFilterActive(false)
+            setFilterActive(false);
         } else {
+            setEmailSendModalActive(false);
+            email.setValue('');
+            email.setErrorMessage('');
             setFilterActive(true);
         }
     }
@@ -94,17 +133,37 @@ function SummaryDislocationCarriages(props) {
         }
     }
 
+    function onSendClick(evt) {
+        evt.preventDefault();
+        console.log(email.value)
+        email.setValue('');
+        handleShowEmailSendModal();
+    }
+
     function applyFilter() {
         console.log(condition);
         console.log(data);
         console.log(groupId);
         console.log(groupDescription);
         handleShowFilter();
+        const filteredData = {
+            groupIds: [groupId]
+        }
+        getTablesForRender(filteredData);
     }
 
     function resetFilter() {
         setCondition('Все');
         setData([]);
+        const data = {
+            groupIds: []
+        }
+        getTablesForRender(data);
+        handleShowFilter();
+        setGroupSelected(false);
+        setGroupName('Выберите группу');
+        setGroupId('');
+        setGroupDescription('');
     }
 
     return (
@@ -138,7 +197,29 @@ function SummaryDislocationCarriages(props) {
             <div className="summary-dislocation-carriages__table-heading-container">
                 <p className="summary-dislocation-carriages__table-heading-results">Найдено {carriageValue} вагонов</p>
                 <div className="summary-dislocation-carriages__table-heading-icons-container">
-                    <div className="summary-dislocation-carriages__table-heading-email-icon" />
+                    <div className={`summary-dislocation-carriages__table-heading-email-icon ${isEmailSendModalActive && 'summary-dislocation-carriages__table-heading-email-icon_active'}`} onClick={handleShowEmailSendModal} />
+                    {isEmailSendModalActive && (
+                        <form className="summary-dislocation-carriages__email-send-container" onSubmit={onSendClick}>
+                            <div className="summary-dislocation-carriages__email-send-heading-container">
+                                <div className="summary-dislocation-carriages__email-send-close-button" onClick={handleShowEmailSendModal} />
+                                <p className="summary-dislocation-carriages__email-send-heading">Отправить на почту</p>
+                            </div>
+                            <div className="summary-dislocation-carriages__input-container">
+                                <input
+                                    type="email"
+                                    className="summary-dislocation-carriages__input"
+                                    id="email-input"
+                                    name="email"
+                                    value={email.value}
+                                    onChange={email.onChange}
+                                    placeholder="example@mail.com"
+                                    required
+                                />
+                                <span id="email-input" className="summary-dislocation-carriages__input-error">{email.errorMessage}</span>
+                            </div>
+                            <button className="summary-dislocation-carriages__send-button" type="submit">отправить</button>
+                        </form>
+                    )}
                     <div className="summary-dislocation-carriages__table-heading-save-icon" />
                     <div className={`summary-dislocation-carriages__table-heading-filter-icon ${isFilterActive && 'summary-dislocation-carriages__table-heading-filter-icon_active'}`} onClick={handleShowFilter} />
                     {isFilterActive && (
@@ -245,18 +326,26 @@ function SummaryDislocationCarriages(props) {
                 </div>
             </div>
             {isSummaryDislocationTableActive && (
-                <SummaryDislocationTable
-                    carriageData={tables.carriageData}
-                    carriageDislocation={tables.carriageDislocation}
-                    carriageTechnicalCondition={tables.carriageTechnicalCondition}
-                    carriageDataSmall={tables.carriageDataSmall}
-                    carriageRepairs={tables.carriageRepairs}
-
-                />
+                <>
+                    {tables === null ? (
+                        <>
+                            <div className='summary-dislocation-carriages__no-result-container'>
+                                <div className='summary-dislocation-carriages__no-result-heading-container' />
+                                <div className='summary-dislocation-carriages__no-result-text-container'>
+                                    <p className='summary-dislocation-carriages__no-result-text'>Необходимо добавить вагоны</p>
+                                </div>
+                                <div className='summary-dislocation-carriages__no-result-bottom-container' />
+                            </div>
+                        </>
+                    ) : (
+                        <SummaryDislocationTable
+                            tables={tables}
+                        />
+                    )}
+                </>
             )}
         </div>
     );
-
 }
 
 export default SummaryDislocationCarriages;

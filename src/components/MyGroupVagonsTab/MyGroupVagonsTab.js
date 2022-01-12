@@ -24,6 +24,7 @@ function MyGroupVagonsTab(props) {
     const [groupnNameInputValue, setGroupnNameInputValue] = useState('');
     const [descriptionInputValue, setDescriptionInputValue] = useState('');
     const [nameInputErrorText, setNameInputErrorText] = useState('');
+    const groupsCounter = `${carriageGroups === null ? '0' : carriageGroups.length}`;
 
     function handleGroupNameChange(evt) {
         setGroupnNameInputValue(evt.target.value);
@@ -31,14 +32,6 @@ function MyGroupVagonsTab(props) {
 
     function handleDescriptionChange(evt) {
         setDescriptionInputValue(evt.target.value);
-    }
-
-    function validateFormAndSend() {
-        if (groupnNameInputValue === '') {
-            setNameInputErrorText('Необходимо ввести название');
-        } else {
-            addNewGroup();
-        }
     }
 
     function addNewGroup() {
@@ -50,6 +43,14 @@ function MyGroupVagonsTab(props) {
         setGroupnNameInputValue('');
         setDescriptionInputValue('');
         setNameInputErrorText('');
+    }
+
+    function validateFormAndSend() {
+        if (groupnNameInputValue === '') {
+            setNameInputErrorText('Необходимо ввести название');
+        } else {
+            addNewGroup();
+        }
     }
 
     function handleShowSaveTooltip() {
@@ -114,7 +115,7 @@ function MyGroupVagonsTab(props) {
                 </div>
             )}
             <div className="my-group-vagons-tab__table-heading-container">
-                <p className="my-group-vagons-tab__table-heading-result">Найдено {carriageGroups.length} группы</p>
+                <p className="my-group-vagons-tab__table-heading-result">Найдено {groupsCounter} группы</p>
                 <div className="my-group-vagons-tab__table-heading-icons-container">
                     <div className="my-group-vagons-tab__table-heading-icon-save" onMouseEnter={handleShowSaveTooltip} onMouseLeave={handleCloseSaveTooltip}>
                         {isShowSaveTooltip && (
